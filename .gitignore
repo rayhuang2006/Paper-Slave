@@ -1,0 +1,15 @@
+# 機密設定檔 (絕對不能上傳！)
+.env
+
+# Python 快取與暫存檔
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 虛擬環境
+.venv
+venv/
+ENV/
+
+# Mac 系統隱藏檔
+.DS_Store
