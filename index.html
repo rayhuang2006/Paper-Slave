@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper-Slave | 學術前沿情報雷達</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', 'Noto Sans TC', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="bg-indigo-600 text-white shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-wider">📡 Paper-Slave</h1>
+            <span class="text-sm bg-indigo-500 px-3 py-1 rounded-full">v1.0 (Static Preview)</span>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+        
+        <section class="mb-10 bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <h2 class="text-xl font-bold mb-2 text-indigo-700">關於本系統</h2>
+            <p class="text-slate-600 leading-relaxed">
+                這是一個基於 AI Agent 架構的自動化學術雷達。系統每週自動從 arXiv 抓取資訊安全 (cs.CR) 與機器學習 (cs.LG) 的最新文獻，交由 LLM 大腦進行評分與摘要，最後呈現於此視覺化面板。
+                <br><span class="text-sm text-slate-400">* 目前為第四週 (W4) 靜態展示版，動態資料串接將於下週完成。</span>
+            </p>
+        </section>
+
+        <h2 class="text-2xl font-bold mb-6 text-slate-800 border-b pb-2 border-slate-200">本週精選文獻 (Preview)</h2>
+        
+        <div class="grid gap-6 md:grid-cols-2">
+            <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100 border-l-4 border-l-emerald-500">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="font-bold text-lg leading-tight">Representation Learning for Spatiotemporal Physical Systems</h3>
+                    <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-1 rounded text-sm">推薦: 9</span>
+                </div>
+                <p class="text-slate-600 mt-3 text-sm">
+                    <strong>核心貢獻：</strong>提出像素級、語義與語言感知的圖像篡改檢測新範式，超越傳統遮罩，提升評估嚴謹性。
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100 border-l-4 border-l-blue-500">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="font-bold text-lg leading-tight">Kolmogorov-Arnold Causal Generative Models</h3>
+                    <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-sm">推薦: 8</span>
+                </div>
+                <p class="text-slate-600 mt-3 text-sm">
+                    <strong>核心貢獻：</strong>利用 KANs 構建可解釋的因果生成模型，提升高風險領域中因果機制的透明度與可審計性。
+                </p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-slate-100 border-l-4 border-l-blue-500">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="font-bold text-lg leading-tight">Improving Generalization on Cybersecurity Tasks</h3>
+                    <span class="bg-blue-100 text-blue-800 font-bold px-2 py-1 rounded text-sm">推薦: 8</span>
+                </div>
+                <p class="text-slate-600 mt-3 text-sm">
+                    <strong>核心貢獻：</strong>透過多模態對比學習，將文本知識遷移至惡意程式分析，改善機器學習的泛化能力。
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="text-center py-6 text-slate-400 text-sm mt-10">
+        <p>Built with Python, Gemini 2.5 Flash & GitHub Actions</p>
+    </footer>
+
+</body>
+</html>
