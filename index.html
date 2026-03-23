@@ -4,42 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paper-Slave | 學術前沿情報雷達</title>
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 嚴格限制字體 stack，模仿 San Francisco 質感 */
+        /* Apple 專用系統字體 stack */
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            background-color: #fafafa; /* 極淡的 off-white 背景 */
-            color: #1d1d1f; /* Apple 專用深灰文字 */
+            background-color: #fafafa;
+            color: #1d1d1f;
             overflow-x: hidden;
+            padding-top: 32px; /* 為了給 Mac 頂部選單條留空間 */
         }
 
-        /* 用純 CSS 寫一個高級感的滑動淡入動畫 */
+        /* 純 CSS 滑動淡入動畫 */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .fade-in-up {
-            opacity: 0; /* */
-            animation: fadeInUp 1s ease-out forwards;
-        }
-
-        /* 讓不同的卡片依序出現，增加層次感 */
+        .fade-in-up { opacity: 0; animation: fadeInUp 1s ease-out forwards; }
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
+
+        /* 模仿 Apple Carousel 左右滑動 */
+        .apple-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory; /* 強制橫向對齊 */
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* 隱藏捲軸 (Firefox) */
+        }
+        .apple-carousel::-webkit-scrollbar { display: none; } /* 隱藏捲軸 (Chrome/Safari) */
+        .carousel-item {
+            flex: 0 0 calc(50% - 12px); /* 兩張卡片並排 */
+            scroll-snap-align: center; /* 滑動時卡片居中對齊 */
+            min-width: 300px;
+        }
+
+        /* */
+        .pagination-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+        .dot { width: 8px; h: 8px; rounded: 50%; background-color: #d2d2d7; }
+        .dot.active { background-color: #86868b; }
+
     </style>
 </head>
 <body class="antialiased">
 
-    <header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <div class="fixed top-0 left-0 w-full h-8 bg-[#1a1a1a] text-[#f5f5f7] text-xs px-4 flex justify-between items-center z-[100] font-medium">
+        <div class="flex items-center gap-4">
+            <span></span>
+            <span class="font-semibold">Paper-Slave</span>
+            <span class="opacity-60">File</span>
+            <span class="opacity-60">Edit</span>
+            <span class="opacity-60">View</span>
+            <span class="opacity-60">Radar</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <span>📡</span>
+            <span>98% [ ]</span>
+            <span>19:42</span>
+        </div>
+    </div>
+
+    <header class="fixed top-8 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-[1200px] mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-xl font-semibold tracking-tight text-[#1d1d1f]">Paper-Slave</h1>
             <a href="https://github.com/rayhuang2006/Paper-Slave" target="_blank" class="text-sm font-medium text-[#0071e3] hover:text-[#0077ed] transition">
@@ -48,86 +82,109 @@
         </div>
     </header>
 
-    <main class="max-w-[800px] mx-auto px-6 pt-32 pb-24">
+    <main class="max-w-[1200px] mx-auto px-6 pt-40 pb-24">
         
         <section class="mb-24 text-center fade-in-up">
             <h2 class="text-6xl md:text-7xl font-extrabold tracking-tighter leading-tight mb-6">
                 學術前沿，<br>盡收眼底。
             </h2>
             <p class="text-xl md:text-2xl font-medium text-slate-500 max-w-2xl mx-auto leading-normal">
-                這是您的專屬 AI Agent。每週自動從 arXiv 抓取資訊安全與機器學習文獻，提煉核心貢獻，助您掌控資訊差。
+                這是您的專屬 AI Agent。每週自動從 arXiv 提煉資訊安全與機器學習文獻核心貢獻，助您掌控資訊差。
             </p>
-            <p class="mt-4 text-sm font-mono text-slate-400">W4 Static Preview / Dynamically Linked next week.</p>
+            <p class="mt-4 text-sm font-mono text-slate-400">W4 High-Fidelity Commercial Mockup.</p>
         </section>
 
-        <div class="space-y-8">
+        <div class="space-y-20">
             
-            <div class="fade-in-up delay-1 bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl hover:shadow-gray-100 ease-in-out duration-300">
-                <div class="flex items-center justify-between mb-8">
-                    <div class="flex items-center gap-2">
-                        <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
-                        <span class="text-3xl font-bold tracking-tight text-emerald-600">9</span>
-                        <span class="text-sm font-semibold text-slate-400">/ 10</span>
+            <div class="fade-in-up delay-1">
+                <h3 class="text-2xl font-bold text-slate-400 tracking-tight mb-8">Week 1: Current Intelligence</h3>
+                <div class="apple-carousel gap-6">
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300">
+                        <div class="flex items-center justify-between mb-8">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                                <span class="text-3xl font-bold tracking-tight text-emerald-600">9</span>
+                                <span class="text-sm font-semibold text-slate-400">/ 10</span>
+                            </div>
+                        </div>
+                        <h4 class="text-3xl font-bold tracking-tighter leading-tight text-[#1d1d1f] mb-6">Zero-Shot Jailbreak Identification</h4>
+                        <p class="text-lg font-medium text-slate-600 leading-relaxed max-w-xl"><strong>核心貢獻：</strong>提出像素級篡改檢測新範式，超越傳統遮罩，提升評估嚴謹性。</p>
+                        <a href="#" class="inline-block mt-6 text-[#0071e3] font-medium hover:underline">Read →</a>
                     </div>
-                    <span class="text-xs font-mono px-3 py-1 bg-slate-100 text-slate-500 rounded-full">Preview Data</span>
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">KAN Causality</h4><p class="text-lg text-slate-600">利用 KANs 構建可解釋因果模型，提升透明度。</p></div>
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Supply Chain Vulnerability Mapping</h4><p class="text-lg text-slate-600">多模態學習遷移至惡意程式分析，改善泛化能力。</p></div>
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Model Merging nnesn of Ernitiutions</h4><p class="text-lg text-slate-600">（假資料，下週串接動態資料）</p></div>
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Rayat Antentic and Conterteous Autocnations</h4><p class="text-lg text-slate-600">（假資料，下週串接動態資料）</p></div>
                 </div>
-                
-                <h3 class="text-3xl md:text-4xl font-bold tracking-tighter leading-tight text-[#1d1d1f] mb-6">
-                    Representation Learning for Spatiotemporal Physical Systems
-                </h3>
-                
-                <p class="text-lg md:text-xl font-medium text-slate-600 leading-relaxed max-w-2xl">
-                    <strong>核心貢獻：</strong>提出像素級、語義與語言感知的圖像篡改檢測新範式，超越傳統遮罩，提升評估嚴謹性。
-                </p>
-                <a href="#" class="inline-block mt-6 text-[#0071e3] font-medium hover:underline">Read on arXiv →</a>
+                <div class="pagination-dots">
+                    <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                </div>
             </div>
 
-            <div class="fade-in-up delay-2 bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl hover:shadow-gray-100 ease-in-out duration-300">
-                <div class="flex items-center justify-between mb-8">
-                    <div class="flex items-center gap-2">
-                        <div class="w-3 h-3 rounded-full bg-blue-500"></div>
-                        <span class="text-3xl font-bold tracking-tight text-blue-600">8</span>
-                        <span class="text-sm font-semibold text-slate-400">/ 10</span>
-                    </div>
-                    <span class="text-xs font-mono px-3 py-1 bg-slate-100 text-slate-500 rounded-full">Preview Data</span>
+            <div class="fade-in-up delay-2">
+                <h3 class="text-2xl font-bold text-slate-400 tracking-tight mb-8">Week 2: Historical Archive</h3>
+                <div class="apple-carousel gap-6">
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Zero-Shot Jailbreak Identification Identification</h4></div>
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">KAN Causality</h4></div>
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Supply Chain Vulnerability Mapping</h4></div>
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Intoration of Procoping</h4></div>
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Open-Transfomation Contocation of Responillity Duration</h4></div>
                 </div>
-                
-                <h3 class="text-3xl md:text-4xl font-bold tracking-tighter leading-tight text-[#1d1d1f] mb-6">
-                    Kolmogorov-Arnold Causal Generative Models
-                </h3>
-                
-                <p class="text-lg md:text-xl font-medium text-slate-600 leading-relaxed max-w-2xl">
-                    <strong>核心貢獻：</strong>利用 KANs 構建可解釋的因果生成模型，提升高風險領域中因果機制的透明度與可審計性。
-                </p>
-                <a href="#" class="inline-block mt-6 text-[#0071e3] font-medium hover:underline">Read on arXiv →</a>
+                <div class="pagination-dots">
+                    <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                </div>
             </div>
-            
-            <div class="fade-in-up delay-3 bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl hover:shadow-gray-100 ease-in-out duration-300">
-                <div class="flex items-center justify-between mb-8">
-                    <div class="flex items-center gap-2">
-                        <div class="w-3 h-3 rounded-full bg-blue-500"></div>
-                        <span class="text-3xl font-bold tracking-tight text-blue-600">8</span>
-                        <span class="text-sm font-semibold text-slate-400">/ 10</span>
-                    </div>
-                    <span class="text-xs font-mono px-3 py-1 bg-slate-100 text-slate-500 rounded-full">Preview Data</span>
+
+            <div class="fade-in-up">
+                <h3 class="text-2xl font-bold text-slate-400 tracking-tight mb-8">Week 3: Older Archive</h3>
+                <div class="apple-carousel gap-6">
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><div class="flex gap-2 items-center mb-8"><div class="w-3 h-3 rounded-full bg-blue-500"></div><span class="text-3xl font-bold text-blue-600">5</span><span class="text-sm font-semibold text-slate-400">/ 10</span></div><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Supply Chain Vulnerability Mapping Mapping</h4></div>
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Supply Chain Vulnerability Mapping</h4></div>
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Solamy Chain Vulnerability Mapping Mapping</h4></div>
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Networks in Provence Multifitions</h4></div>
+                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Supply Chain Vulnerability Mapping</h4></div>
                 </div>
-                
-                <h3 class="text-3xl md:text-4xl font-bold tracking-tighter leading-tight text-[#1d1d1f] mb-6">
-                    Improving Generalization on Cybersecurity Tasks
-                </h3>
-                
-                <p class="text-lg md:text-xl font-medium text-slate-600 leading-relaxed max-w-2xl">
-                    <strong>核心貢獻：</strong>透過多模態對比學習，將文本知識遷移至惡意程式分析，改善機器學習的泛化能力。
-                </p>
-                <a href="#" class="inline-block mt-6 text-[#0071e3] font-medium hover:underline">Read on arXiv →</a>
+                <div class="pagination-dots">
+                    <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                </div>
             </div>
         </div>
 
     </main>
 
-    <footer class="text-center py-10 text-slate-400 text-xs border-t border-gray-100 mt-16">
-        <p class="mb-1">Built with Python, Gemini 2.5 Flash & GitHub Actions</p>
-        <p>&copy; 2026 Academic Insight Radar Project.</p>
+    <footer class="bg-slate-100 text-slate-800 border-t border-gray-200 mt-24 text-xs font-medium pb-10">
+        <div class="max-w-[1200px] mx-auto px-6 pt-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="space-y-2">
+                <h5 class="font-semibold text-sm mb-3">Product</h5>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">AI Agent Radar</a>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">arXiv Scraper</a>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">Security Guardrails</a>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">JSON Structured Output</a>
+            </div>
+            <div class="space-y-2">
+                <h5 class="font-semibold text-sm mb-3">Resources</h5>
+                <a href="https://github.com/rayhuang2006/Paper-Slave" target="_blank" class="block opacity-60 hover:opacity-100 transition">GitHub Repo</a>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">API Docs</a>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">Peer Review Notes</a>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">W4 Design Case Study</a>
+            </div>
+            <div class="space-y-2">
+                <h5 class="font-semibold text-sm mb-3">Architecture</h5>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">Gemini 2.5 Flash</a>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">GitHub Actions (CI/CD)</a>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">GitHub Pages (Deploy)</a>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">Tailwind CSS (UI)</a>
+            </div>
+            <div class="space-y-2">
+                <h5 class="font-semibold text-sm mb-3">Legal</h5>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">Terms of Use</a>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">Privacy Policy</a>
+                <a href="#" class="block opacity-60 hover:opacity-100 transition">Academic Fair Use</a>
+            </div>
+        </div>
+        <div class="max-w-[1200px] mx-auto px-6 mt-10 text-slate-400">
+            <p>&copy; 2026 Academic Insight Radar Project. Built with love in Python.</p>
+        </div>
     </footer>
 
 </body>
