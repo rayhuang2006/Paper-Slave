@@ -1,6 +1,8 @@
 import feedparser
 import urllib.parse
 
+feedparser.USER_AGENT = "Paper-Slave-Bot/1.0 (https://github.com/rayhuang2006/Paper-Slave)"
+
 def fetch_arxiv_papers(query="cat:cs.LG OR cat:cs.CR", max_results=5):
     """從 arXiv API 抓取最新論文"""
     
