@@ -1,0 +1,114 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+                 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: #fafafa;
+    color: #1d1d1f;
+    overflow-x: hidden;
+    padding-top: 32px;
+}
+
+/* 登場動畫 */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up { opacity: 0; animation: fadeInUp 0.9s ease-out forwards; }
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+.delay-4 { animation-delay: 0.6s; }
+
+/* 輪播區塊 */
+.apple-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 8px;
+}
+.apple-carousel::-webkit-scrollbar { display: none; }
+.carousel-item {
+    flex: 0 0 calc(50% - 12px);
+    scroll-snap-align: center;
+    min-width: 300px;
+}
+
+/* 輪播指示點 */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+}
+.carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background-color: #e5e5ea;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.carousel-dot.active {
+    background-color: #1d1d1f;
+    width: 24px;
+}
+
+/* 畫布容器與無限點陣網格 (Dot Matrix Grid) */
+.canvas-wrapper {
+    position: relative;
+    /* 讓畫布背景純白，點陣圖浮在上面 */
+}
+.dot-grid-bg {
+    position: absolute;
+    inset: 0;
+    /* 繪製工程點陣圖 */
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 28px 28px;
+    /* 利用遮罩讓網格在邊緣自然淡出，製造無邊際感 */
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+    pointer-events: none; /* 點擊穿透 */
+}
+
+/* 覆寫 Force-Graph 的 Tooltip 樣式 (極致毛玻璃，無笨重邊框) */
+.graph-tooltip {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 
+                0 4px 12px rgba(0, 0, 0, 0.03) !important;
+    border-radius: 16px !important;
+    color: #1d1d1f !important;
+    padding: 0 !important; /* 讓內部 div 控制 padding */
+    transform: translate(-50%, 20px) !important; /* 置中並與滑鼠保持一點距離 */
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.1s ease;
+}
+
+#ultra-section {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+#ultra-section.hidden-state {
+    opacity: 0;
+    transform: translateY(40px);
+    pointer-events: none;
+}
+
+.price-original {
+    text-decoration: line-through;
+    opacity: 0.4;
+}
+
+.direction-tag {
+    display: inline-block;
+    background: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+    border-radius: 999px;
+    padding: 3px 12px;
+    font-size: 11px;
+    font-weight: 600;
+}
