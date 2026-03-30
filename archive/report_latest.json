@@ -4,75 +4,99 @@
       "id": "Tunable Soft Equivariance with Guarantees",
       "group": "機器學習",
       "title": "Tunable Soft Equivariance with Guarantees",
-      "summary": "提出可調軟等變性方法，為神經網路引入可控的對稱性，並提供理論保證。"
+      "summary": "提出可調軟等變性，具理論保證。",
+      "contribution": "引入軟等變性，允許模型在保持部分等變性下適應數據變異，並提供理論界限。",
+      "directions": [
+        "應用於物理模擬或分子動力學建模",
+        "探索與因果推斷的結合"
+      ]
     },
     {
       "id": "An LP-based Sampling Policy for Multi-Armed Bandits with Side-Observations and Stochastic Availability",
-      "group": "運籌學/統計",
+      "group": "統計/機器學習",
       "title": "An LP-based Sampling Policy for Multi-Armed Bandits with Side-Observations and Stochastic Availability",
-      "summary": "為具備側邊資訊和隨機可用性的多臂老虎機問題，設計基於線性規劃的採樣策略。"
+      "summary": "基於LP的多臂老虎機採樣策略。",
+      "contribution": "針對具側邊觀察與隨機可用性的MAB問題，提出基於線性規劃的採樣策略，優化長期回報。",
+      "directions": [
+        "將此策略推廣至上下文多臂老虎機",
+        "研究在資源受限環境下的應用"
+      ]
     },
     {
       "id": "Automatic Laplace Collapsed Sampling: Scalable Marginalisation of Latent Parameters via Automatic Differentiation",
-      "group": "貝氏統計/機器學習",
+      "group": "統計/機器學習",
       "title": "Automatic Laplace Collapsed Sampling: Scalable Marginalisation of Latent Parameters via Automatic Differentiation",
-      "summary": "透過拉普拉斯近似和自動微分，實現潛在參數的可擴展邊緣化，提升貝氏推斷效率。"
+      "summary": "自動拉普拉斯塌縮採樣，可擴展邊緣化。",
+      "contribution": "結合自動微分與拉普拉斯近似，實現潛在參數的可擴展邊緣化，加速貝氏推斷。",
+      "directions": [
+        "應用於大型高維貝氏模型推斷",
+        "探索與變分推斷的結合"
+      ]
     },
     {
       "id": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
       "group": "物理/機器學習",
       "title": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
-      "summary": "利用硬體感知張量網路，實現粒子對撞機中量子啟發的即時異常檢測。"
+      "summary": "硬體感知張量網路，用於粒子對撞機異常檢測。",
+      "contribution": "設計硬體感知張量網路，實現量子啟發的即時異常檢測，適用於高能物理實驗。",
+      "directions": [
+        "將此方法推廣至其他領域的即時異常檢測",
+        "研究與量子硬體的直接整合"
+      ]
     },
     {
       "id": "Sustainability Is Not Linear: Quantifying Performance, Energy, and Privacy Trade-offs in On-Device Intelligence",
       "group": "機器學習/系統",
       "title": "Sustainability Is Not Linear: Quantifying Performance, Energy, and Privacy Trade-offs in On-Device Intelligence",
-      "summary": "量化邊緣AI中性能、能耗和隱私之間的非線性權衡關係。"
+      "summary": "量化設備端智能的性能、能耗與隱私權衡。",
+      "contribution": "系統性量化設備端AI在性能、能耗和隱私之間的非線性權衡，提供設計指導。",
+      "directions": [
+        "開發自動化工具以優化多目標權衡",
+        "研究在聯邦學習中的隱私-能耗權衡"
+      ]
     },
     {
       "id": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
-      "group": "機器學習/系統",
+      "group": "機器學習/硬體",
       "title": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
-      "summary": "開發PQuantML工具，實現端到端硬體感知的模型壓縮，優化模型部署。"
+      "summary": "PQuantML：端到端硬體感知模型壓縮工具。",
+      "contribution": "提供一個端到端的硬體感知模型壓縮工具，實現高效能與低能耗的AI模型部署。",
+      "directions": [
+        "擴展支持更多硬體架構與模型類型",
+        "整合自動化神經網路架構搜索"
+      ]
     }
   ],
   "links": [
     {
       "source": "Tunable Soft Equivariance with Guarantees",
-      "target": "Automatic Laplace Collapsed Sampling: Scalable Marginalisation of Latent Parameters via Automatic Differentiation",
-      "is_cross_domain": true,
-      "hidden_insight": "兩者都透過利用底層結構來簡化複雜的建模或推斷問題。論文1透過等變性簡化模型架構，減少學習複雜度；論文4則透過拉普拉斯近似簡化貝氏推斷中的邊緣化計算，提高效率。"
-    },
-    {
-      "source": "Tunable Soft Equivariance with Guarantees",
       "target": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
       "is_cross_domain": true,
-      "hidden_insight": "兩者都旨在透過利用數據或模型中的結構性規律（如對稱性）來提高效率和表示能力。論文1直接編碼對稱性以構建更魯棒的模型，而論文8的張量網路則透過分解高維張量來捕捉數據的內在相關性與結構，實現高效的表示和計算。"
+      "hidden_insight": "兩者皆透過數學結構（群論的等變性、張量網路的分解與對稱性）來處理高維數據的複雜性，本質上是利用數據的內在對稱性或結構來簡化模型並提升效率。"
     },
     {
       "source": "An LP-based Sampling Policy for Multi-Armed Bandits with Side-Observations and Stochastic Availability",
       "target": "Sustainability Is Not Linear: Quantifying Performance, Energy, and Privacy Trade-offs in On-Device Intelligence",
       "is_cross_domain": true,
-      "hidden_insight": "兩者都處理在資源受限和不確定性下的優化決策問題。論文3透過線性規劃優化採樣策略以有效利用資源並最大化回報，而論文9則量化了邊緣AI中性能、能耗和隱私等多目標資源權衡，本質上是在有限資源下尋求最佳平衡。"
-    },
-    {
-      "source": "An LP-based Sampling Policy for Multi-Armed Bandits with Side-Observations and Stochastic Availability",
-      "target": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
-      "is_cross_domain": true,
-      "hidden_insight": "兩者都涉及在有限資源下進行優化以達成特定目標。論文3透過LP優化採樣策略來有效利用隨機可用的資源，而論文11則透過模型壓縮技術優化AI模型對硬體資源的利用效率，以在資源受限的環境中實現最佳性能。"
+      "hidden_insight": "兩者都處理在資源有限或多目標衝突下的最佳決策問題。前者透過線性規劃優化採樣策略，後者量化性能、能耗與隱私的權衡，本質上都是在複雜約束下尋找最優解。"
     },
     {
       "source": "Automatic Laplace Collapsed Sampling: Scalable Marginalisation of Latent Parameters via Automatic Differentiation",
-      "target": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
+      "target": "Tunable Soft Equivariance with Guarantees",
       "is_cross_domain": true,
-      "hidden_insight": "兩者都提供處理高維複雜性的結構化方法。論文4透過拉普拉斯近似實現潛在參數的邊緣化，有效降低推斷的維度；論文8的張量網路則透過分解高維張量來捕捉數據的本質結構，實現高效的表示和計算，兩者都旨在提高複雜系統的可擴展性和可處理性。"
+      "hidden_insight": "兩者皆透過數學近似或結構性假設來簡化複雜模型或推斷過程。前者利用拉普拉斯近似邊緣化潛在參數，後者利用等變性簡化模型學習，核心都是在複雜系統中尋找可計算的簡化路徑。"
+    },
+    {
+      "source": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
+      "target": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
+      "is_cross_domain": true,
+      "hidden_insight": "兩者都致力於將機器學習模型與特定硬體架構結合，以實現高效能、低能耗的部署。前者設計硬體感知的張量網路，後者提供硬體感知的模型壓縮工具，本質上都是在進行軟硬體協同設計與優化。"
     },
     {
       "source": "Sustainability Is Not Linear: Quantifying Performance, Energy, and Privacy Trade-offs in On-Device Intelligence",
       "target": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
-      "is_cross_domain": false,
-      "hidden_insight": "論文9揭示了邊緣AI中性能、能耗和隱私之間的複雜權衡關係，而論文11則提供了一種具體的技術（硬體感知模型壓縮）來實踐性地解決這些權衡，以優化模型在資源受限硬體上的部署和效率。"
+      "is_cross_domain": true,
+      "hidden_insight": "論文9量化了設備端AI在性能、能耗和隱私之間的權衡，而論文11提供了一個硬體感知模型壓縮工具，直接影響能耗和性能。本質上，論文11的技術是解決論文9所提出權衡問題的實踐方案之一。"
     }
   ]
 }

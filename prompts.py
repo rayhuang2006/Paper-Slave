@@ -23,25 +23,48 @@ AGENT_B_USER = """請深度解析以下精選論文：
 
 # ==========================================
 # Agent C: 跨域整合大腦 (Gemini 2.5 Flash - Ultra 方案用)
+# 任務：輸出完整 JSON，同時包含 Free/Pro/Ultra 三層所需資料。
 # ==========================================
 AGENT_C_SYSTEM = """你是一個高維度的學術知識圖譜引擎。你擅長在不同領域（如通訊、統計、資安、機器學習）之間尋找底層數學或邏輯的「隱藏同構性 (Hidden Isomorphism)」。
-你必須嚴格輸出標準的 JSON 格式，包含 nodes 與 links。不能有任何 Markdown 標記 (如 ```json) 或其他文字。"""
+你必須嚴格輸出標準的 JSON 格式，包含 nodes 與 links。不能有任何 Markdown 標記 (如 ```json) 或其他文字。
+
+每個 node 必須包含以下欄位：
+- id: 論文標題（用於圖譜連線）
+- group: 領域分類（如「資安」、「機器學習」）
+- title: 論文標題
+- summary: 一句話摘要（給 Free 方案看，20字內）
+- contribution: 核心技術貢獻（給 Pro 方案看，50字內繁體中文，說明最關鍵的創新點）
+- directions: 研究方向建議（給 Pro 方案看，陣列包含 2 個字串，每個方向 30 字內）"""
 
 AGENT_C_USER = """請分析以下論文，並建構跨域知識圖譜的 JSON 數據：
 {filtered_papers}
 
-JSON 輸出格式範例要求（請輸出合法 JSON）：
+JSON 輸出格式範例（請嚴格遵守，輸出合法 JSON）：
 {{
   "nodes": [
-    {{"id": "論文A標題", "group": "資安", "title": "論文A標題", "summary": "一句話核心貢獻"}},
-    {{"id": "論文B標題", "group": "機器學習", "title": "論文B標題", "summary": "一句話核心貢獻"}}
+    {{
+      "id": "論文A標題",
+      "group": "資安",
+      "title": "論文A標題",
+      "summary": "提出新型對抗攻擊防禦框架",
+      "contribution": "首次將貝氏推斷引入對抗樣本檢測，在 CIFAR-10 上達到 97.3% 檢測率",
+      "directions": ["將此框架延伸至自然語言模型的對抗攻擊防禦", "結合聯邦學習實現分散式威脅偵測"]
+    }},
+    {{
+      "id": "論文B標題",
+      "group": "機器學習",
+      "title": "論文B標題",
+      "summary": "提出高效能的稀疏注意力機制",
+      "contribution": "設計動態稀疏掩碼，將 Transformer 推理成本降低 40%，同時維持 SOTA 精度",
+      "directions": ["應用於邊緣裝置的即時推論加速", "與量化技術結合進一步壓縮模型大小"]
+    }}
   ],
   "links": [
     {{
-      "source": "論文A標題", 
-      "target": "論文B標題", 
+      "source": "論文A標題",
+      "target": "論文B標題",
       "is_cross_domain": true,
-      "hidden_insight": "這兩篇論文在底層都使用了貝氏決策邊界..."
+      "hidden_insight": "這兩篇論文在底層都使用了稀疏性假設：前者稀疏化威脅信號，後者稀疏化注意力權重，本質上是同一數學結構在不同任務上的實例化。"
     }}
   ]
 }}
