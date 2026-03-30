@@ -1,28 +1,40 @@
-import feedparser
-import urllib.parse
+import arxiv
 
-feedparser.USER_AGENT = "Paper-Slave-Bot/1.0 (https://github.com/rayhuang2006/Paper-Slave)"
-
-def fetch_arxiv_papers(query="cat:cs.LG OR cat:cs.CR", max_results=5):
-    """從 arXiv API 抓取最新論文"""
+def fetch_arxiv_papers(query="cat:cs.LG OR cat:cs.CR", max_results=15):
+    """使用官方 arxiv SDK 抓取最新論文，內建防 429 封鎖機制"""
     
-    # 將查詢字串進行 URL 編碼 (把空格變成 %20 等)
-    encoded_query = urllib.parse.quote(query)
+    print(f"🔗 [Debug] 啟動 arXiv 官方 SDK 抓取 (查詢: {query})...")
     
-    url = f"http://export.arxiv.org/api/query?search_query={encoded_query}&sortBy=submittedDate&sortOrder=descending&max_results={max_results}"
-    feed = feedparser.parse(url)
-    
-    papers = []
-    for entry in feed.entries:
-        papers.append({
-            "title": entry.title.replace('\n', ' '),
-            "abstract": entry.summary.replace('\n', ' '),
-            "link": entry.link
-        })
-    
-    # 將結果格式化為容易讓 LLM 閱讀的字串
-    formatted_data = ""
-    for i, p in enumerate(papers, 1):
-        formatted_data += f"Paper {i}:\nTitle: {p['title']}\nAbstract: {p['abstract']}\nLink: {p['link']}\n\n"
-    
-    return formatted_data
+    try:
+        # 1. 建立 Client，設定每次請求延遲 3 秒，最多重試 3 次，完美避開 429
+        client = arxiv.Client(
+            page_size=max_results,
+            delay_seconds=3,
+            num_retries=3
+        )
+        
+        # 2. 設定搜尋條件
+        search = arxiv.Search(
+            query=query,
+            max_results=max_results,
+            sort_by=arxiv.SortCriterion.SubmittedDate
+        )
+        
+        # 3. 執行搜尋並格式化
+        formatted_data = ""
+        results = list(client.results(search))
+        
+        if not results:
+            print("⚠️ [Debug] 成功連線，但回傳 0 筆結果。")
+            return ""
+            
+        for i, paper in enumerate(results, 1):
+            # 把摘要裡的換行符號拿掉，讓 LLM 更好讀
+            clean_abstract = paper.summary.replace('\n', ' ')
+            formatted_data += f"Paper {i}:\nTitle: {paper.title}\nAbstract: {clean_abstract}\nLink: {paper.entry_id}\n\n"
+            
+        return formatted_data
+        
+    except Exception as e:
+        print(f"❌ [Debug] 抓取發生錯誤: {e}")
+        return ""

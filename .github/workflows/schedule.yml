@@ -1,18 +1,20 @@
 name: Paper-Slave Auto Radar
 
-# 設定觸發條件
 on:
   schedule:
-    # 這裡使用 Cron 語法。設定為每週二早上 8:00 (台灣時間) 自動執行
-    # 台灣是 UTC+8，所以這裡寫 0 0 * * 2 (UTC 的每週二 00:00)
+    # 每週二 UTC 00:00 = 台灣時間週二早上 08:00
     - cron: '0 0 * * 2'
-  
-  # 允許我們在 GitHub 網頁上手動點擊按鈕來測試！
-  workflow_dispatch: 
+
+  # 允許在 GitHub 網頁上手動觸發（測試用）
+  workflow_dispatch:
 
 jobs:
   run-radar:
-    runs-on: ubuntu-latest # GitHub 會免費給你一台 Ubuntu 虛擬機
+    runs-on: ubuntu-latest
+
+    # 設定 GitHub Pages 部署所需的權限
+    permissions:
+      contents: write  # 允許 workflow 把產出的 JSON commit 回 repo
 
     steps:
       - name: 📥 下載最新程式碼
@@ -21,7 +23,7 @@ jobs:
       - name: 🐍 設定 Python 環境
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11' 
+          python-version: '3.11'
 
       - name: 📦 安裝依賴套件
         run: pip install -r requirements.txt
@@ -29,7 +31,17 @@ jobs:
       - name: 🚀 啟動 Paper-Slave 大腦與推播系統
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          GROQ_API_KEY:   ${{ secrets.GROQ_API_KEY }}      # ← 原本漏掉這行
+          EMAIL_SENDER:   ${{ secrets.EMAIL_SENDER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
         run: python main.py
+
+      - name: 📤 把產出的 JSON 自動 commit 回 repo
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add archive/report_latest.json
+          # 如果沒有新變更就跳過，避免空 commit 報錯
+          git diff --staged --quiet || git commit -m "🤖 Auto update: report_latest.json ($(date +'%Y-%m-%d'))"
+          git push

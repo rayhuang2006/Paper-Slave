@@ -2,3 +2,5 @@ feedparser
 google-genai
 python-dotenv
 markdown
+groq
+arxiv

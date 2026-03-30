@@ -1,0 +1,84 @@
+{
+  "nodes": [
+    {
+      "id": "Tunable Soft Equivariance with Guarantees",
+      "group": "機器學習理論",
+      "title": "Tunable Soft Equivariance with Guarantees",
+      "summary": "提出可調控的軟等變性方法，在神經網路中平衡對稱性與表達能力，並提供理論保證。"
+    },
+    {
+      "id": "An LP-based Sampling Policy for Multi-Armed Bandits with Side-Observations and Stochastic Availability",
+      "group": "最佳化與決策",
+      "title": "An LP-based Sampling Policy for Multi-Armed Bandits with Side-Observations and Stochastic Availability",
+      "summary": "為具備側邊資訊和隨機可用性的多臂老虎機問題，設計基於線性規劃的取樣策略，最佳化資源分配。"
+    },
+    {
+      "id": "Automatic Laplace Collapsed Sampling: Scalable Marginalisation of Latent Parameters via Automatic Differentiation",
+      "group": "貝氏推斷與數值方法",
+      "title": "Automatic Laplace Collapsed Sampling: Scalable Marginalisation of Latent Parameters via Automatic Differentiation",
+      "summary": "透過拉普拉斯近似和自動微分，提出可擴展的潛在參數邊際化方法，提升貝氏推斷效率。"
+    },
+    {
+      "id": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
+      "group": "物理計算與機器學習",
+      "title": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
+      "summary": "利用受量子啟發的硬體感知張量網路，實現粒子對撞機中的即時異常檢測。"
+    },
+    {
+      "id": "Sustainability Is Not Linear: Quantifying Performance, Energy, and Privacy Trade-offs in On-Device Intelligence",
+      "group": "系統設計與永續性",
+      "title": "Sustainability Is Not Linear: Quantifying Performance, Energy, and Privacy Trade-offs in On-Device Intelligence",
+      "summary": "量化邊緣裝置AI在性能、能耗和隱私之間複雜的非線性權衡關係。"
+    },
+    {
+      "id": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
+      "group": "機器學習系統最佳化",
+      "title": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
+      "summary": "開發PQuantML工具，實現端到端硬體感知模型壓縮，優化模型在特定硬體上的效率。"
+    }
+  ],
+  "links": [
+    {
+      "source": "Tunable Soft Equivariance with Guarantees",
+      "target": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
+      "is_cross_domain": true,
+      "hidden_insight": "兩者皆透過引入結構性先驗知識或約束來提升模型效率與解釋性。論文1利用群論的對稱性來實現等變性，而論文8則透過張量網路利用數據的低秩結構和相關性，本質上都是在尋找能有效利用數據內在結構的表示方法。"
+    },
+    {
+      "source": "An LP-based Sampling Policy for Multi-Armed Bandits with Side-Observations and Stochastic Availability",
+      "target": "Sustainability Is Not Linear: Quantifying Performance, Energy, and Privacy Trade-offs in On-Device Intelligence",
+      "is_cross_domain": true,
+      "hidden_insight": "兩者皆處理在資源有限和不確定性下的決策與最佳化問題。論文3透過線性規劃最佳化資源（取樣）分配以最大化回報，而論文9則量化了在有限資源（能耗、計算）下，性能、能耗和隱私之間的複雜權衡，本質上都是多目標資源分配問題。"
+    },
+    {
+      "source": "Sustainability Is Not Linear: Quantifying Performance, Energy, and Privacy Trade-offs in On-Device Intelligence",
+      "target": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
+      "is_cross_domain": false,
+      "hidden_insight": "論文9量化了邊緣AI在性能、能耗和隱私之間的權衡，而論文11則提供了一個工具來實際解決這些權衡，透過硬體感知模型壓縮來最佳化資源使用，兩者共同探討了在資源受限環境下AI模型的部署與優化。"
+    },
+    {
+      "source": "An LP-based Sampling Policy for Multi-Armed Bandits with Side-Observations and Stochastic Availability",
+      "target": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
+      "is_cross_domain": true,
+      "hidden_insight": "儘管領域不同，兩者都涉及在資源受限環境下進行最佳化決策。論文3利用LP來最佳化取樣策略以有效利用資源，而論文11則透過模型壓縮來最佳化AI模型在硬體資源上的效率，兩者核心都是在約束條件下尋求最佳資源配置。"
+    },
+    {
+      "source": "Automatic Laplace Collapsed Sampling: Scalable Marginalisation of Latent Parameters via Automatic Differentiation",
+      "target": "Tunable Soft Equivariance with Guarantees",
+      "is_cross_domain": true,
+      "hidden_insight": "兩者都旨在透過引入結構性簡化或先驗知識來提升複雜模型的效率。論文4利用拉普拉斯近似簡化貝氏推斷中的邊際化問題，而論文1則透過等變性引入模型結構性約束，兩者皆是為了在複雜模型中實現更高效的學習與推斷。"
+    },
+    {
+      "source": "Automatic Laplace Collapsed Sampling: Scalable Marginalisation of Latent Parameters via Automatic Differentiation",
+      "target": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
+      "is_cross_domain": true,
+      "hidden_insight": "兩者都處理高維或複雜模型中的效率問題。論文4透過近似方法（拉普拉斯近似）來實現潛在參數的邊際化，而論文8則透過張量網路來高效表示和處理高維數據，兩者核心都是在複雜系統中尋求可擴展的表示與推斷方法。"
+    },
+    {
+      "source": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
+      "target": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
+      "is_cross_domain": false,
+      "hidden_insight": "兩者皆強調「硬體感知」的設計理念，旨在提升計算效率。論文11透過模型壓縮技術優化AI模型在特定硬體上的部署，而論文8則利用硬體感知的張量網路實現高效的即時數據處理，共同體現了將計算方法與硬體特性緊密結合以達成性能目標的趨勢。"
+    }
+  ]
+}

@@ -5,187 +5,472 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paper-Slave | 學術前沿情報雷達</title>
     
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/force-graph"></script>
+
     <style>
-        /* Apple 專用系統字體 stack */
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+                         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             background-color: #fafafa;
             color: #1d1d1f;
             overflow-x: hidden;
-            padding-top: 32px; /* 為了給 Mac 頂部選單條留空間 */
+            padding-top: 32px;
         }
 
-        /* 純 CSS 滑動淡入動畫 */
+        /* 進場動畫 */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            to   { opacity: 1; transform: translateY(0); }
         }
         .fade-in-up { opacity: 0; animation: fadeInUp 1s ease-out forwards; }
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
 
-        /* 模仿 Apple Carousel 左右滑動 */
+        /* Carousel 橫向滾動 */
         .apple-carousel {
             display: flex;
             overflow-x: auto;
-            scroll-snap-type: x mandatory; /* 強制橫向對齊 */
+            scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* 隱藏捲軸 (Firefox) */
+            scrollbar-width: none;
         }
-        .apple-carousel::-webkit-scrollbar { display: none; } /* 隱藏捲軸 (Chrome/Safari) */
+        .apple-carousel::-webkit-scrollbar { display: none; }
         .carousel-item {
-            flex: 0 0 calc(50% - 12px); /* 兩張卡片並排 */
-            scroll-snap-align: center; /* 滑動時卡片居中對齊 */
+            flex: 0 0 calc(50% - 12px);
+            scroll-snap-align: center;
             min-width: 300px;
         }
 
-        /* */
-        .pagination-dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 24px;
+        /* Apple 毛玻璃效果 */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
-        .dot { width: 8px; h: 8px; rounded: 50%; background-color: #d2d2d7; }
-        .dot.active { background-color: #86868b; }
 
+        /* Ultra section 動畫進場 */
+        #ultra-section {
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        #ultra-section.hidden-state {
+            opacity: 0;
+            transform: translateY(40px);
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="antialiased">
 
+    <!-- macOS 頂部選單列 -->
     <div class="fixed top-0 left-0 w-full h-8 bg-[#1a1a1a] text-[#f5f5f7] text-xs px-4 flex justify-between items-center z-[100] font-medium">
         <div class="flex items-center gap-4">
-            <span></span>
+            <span></span>
             <span class="font-semibold">Paper-Slave</span>
             <span class="opacity-60">File</span>
             <span class="opacity-60">Edit</span>
-            <span class="opacity-60">View</span>
             <span class="opacity-60">Radar</span>
         </div>
         <div class="flex items-center gap-3">
             <span>📡</span>
-            <span>98% [ ]</span>
-            <span>19:42</span>
+            <span id="mac-clock">00:00</span>
         </div>
     </div>
 
+    <!-- 頂部導覽列 -->
     <header class="fixed top-8 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-[1200px] mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-xl font-semibold tracking-tight text-[#1d1d1f]">Paper-Slave</h1>
-            <a href="https://github.com/rayhuang2006/Paper-Slave" target="_blank" class="text-sm font-medium text-[#0071e3] hover:text-[#0077ed] transition">
-                View on GitHub →
-            </a>
+            <div class="flex items-center gap-6">
+                <a href="https://github.com/rayhuang2006/Paper-Slave" target="_blank"
+                   class="text-sm font-medium text-[#0071e3] hover:text-[#0077ed] transition">
+                    View on GitHub →
+                </a>
+                <div id="auth-section" class="text-sm font-medium">
+                    <button id="login-btn"
+                        class="bg-[#1d1d1f] text-white px-4 py-1.5 rounded-full hover:bg-gray-800 transition">
+                        Google 登入
+                    </button>
+                    <div id="user-info" class="hidden flex items-center gap-3">
+                        <span id="user-tier-badge"
+                            class="px-2 py-0.5 bg-gray-100 text-gray-600 rounded text-xs font-bold uppercase tracking-wider transition-colors">
+                            Free
+                        </span>
+                        <span id="user-name" class="text-gray-800 font-semibold">User</span>
+                        <button id="logout-btn" class="text-gray-400 hover:text-red-500 transition text-xs">登出</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
     <main class="max-w-[1200px] mx-auto px-6 pt-40 pb-24">
-        
-        <section class="mb-24 text-center fade-in-up">
+
+        <!-- Hero -->
+        <section class="mb-20 text-center fade-in-up">
             <h2 class="text-6xl md:text-7xl font-extrabold tracking-tighter leading-tight mb-6">
                 學術前沿，<br>盡收眼底。
             </h2>
             <p class="text-xl md:text-2xl font-medium text-slate-500 max-w-2xl mx-auto leading-normal">
-                這是您的專屬 AI Agent。每週自動從 arXiv 提煉資訊安全與機器學習文獻核心貢獻，助您掌控資訊差。
+                這是您的專屬 AI Agent。每週自動從 arXiv 提煉資訊安全與機器學習文獻，建立長期記憶護城河。
             </p>
-            <p class="mt-4 text-sm font-mono text-slate-400">W4 High-Fidelity Commercial Mockup.</p>
         </section>
 
-        <div class="space-y-20">
-            
-            <div class="fade-in-up delay-1">
-                <h3 class="text-2xl font-bold text-slate-400 tracking-tight mb-8">Week 1: Current Intelligence</h3>
-                <div class="apple-carousel gap-6">
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300">
-                        <div class="flex items-center justify-between mb-8">
-                            <div class="flex items-center gap-2">
-                                <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
-                                <span class="text-3xl font-bold tracking-tight text-emerald-600">9</span>
-                                <span class="text-sm font-semibold text-slate-400">/ 10</span>
-                            </div>
-                        </div>
-                        <h4 class="text-3xl font-bold tracking-tighter leading-tight text-[#1d1d1f] mb-6">Zero-Shot Jailbreak Identification</h4>
-                        <p class="text-lg font-medium text-slate-600 leading-relaxed max-w-xl"><strong>核心貢獻：</strong>提出像素級篡改檢測新範式，超越傳統遮罩，提升評估嚴謹性。</p>
-                        <a href="#" class="inline-block mt-6 text-[#0071e3] font-medium hover:underline">Read →</a>
+        <!-- 方案選擇 -->
+        <section class="mb-24 fade-in-up delay-1">
+            <h3 class="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-8">Select Your Agent Tier</h3>
+            <div class="grid md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
+
+                <div onclick="setTier('Free')"
+                    class="cursor-pointer border border-gray-200 bg-white p-8 rounded-3xl hover:shadow-lg transition transform hover:-translate-y-1">
+                    <h4 class="text-2xl font-bold mb-2">Free</h4>
+                    <p class="text-gray-500 text-sm mb-6">基礎資訊流</p>
+                    <ul class="text-sm space-y-3 text-gray-600">
+                        <li>✓ 15 篇 arXiv 自動抓取</li>
+                        <li>✓ 每週 Email 推播</li>
+                        <li class="opacity-40">✕ 無 AI 總結與創新點</li>
+                    </ul>
+                </div>
+
+                <div onclick="setTier('Pro')"
+                    class="cursor-pointer border-2 border-emerald-500 bg-emerald-50 p-8 rounded-3xl hover:shadow-xl transition transform hover:-translate-y-1 relative">
+                    <div class="absolute -top-3 right-6 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">RECOMMENDED</div>
+                    <h4 class="text-2xl font-bold text-emerald-900 mb-2">Pro</h4>
+                    <p class="text-emerald-700/70 text-sm mb-6">專業研究大腦</p>
+                    <ul class="text-sm space-y-3 text-emerald-800">
+                        <li>✓ 包含 Free 版所有功能</li>
+                        <li>✓ <strong>Agent B:</strong> 核心創新點總結</li>
+                        <li>✓ 研究方向選擇與偏好記憶</li>
+                    </ul>
+                </div>
+
+                <div onclick="setTier('Ultra')"
+                    class="cursor-pointer border-2 border-purple-500 bg-slate-900 text-white p-8 rounded-3xl hover:shadow-2xl transition transform hover:-translate-y-1 relative group overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    <h4 class="text-2xl font-bold mb-2 relative z-10">Ultra</h4>
+                    <p class="text-purple-300/70 text-sm mb-6 relative z-10">終極跨域版</p>
+                    <ul class="text-sm space-y-3 text-gray-300 relative z-10">
+                        <li>✓ 包含 Pro 版所有功能</li>
+                        <li>✓ 手動觸發即時生成</li>
+                        <li>✓ <strong>Agent C:</strong> 無邊際跨域知識畫布</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 主內容區 -->
+        <div class="space-y-20 fade-in-up delay-2">
+
+            <!-- Intelligence Radar 卡片 -->
+            <div>
+                <h3 class="text-2xl font-bold text-slate-400 tracking-tight mb-8">Intelligence Radar</h3>
+                <div id="paper-container" class="apple-carousel gap-6">
+                    <div class="carousel-item flex items-center justify-center py-20">
+                        <p class="text-gray-300 animate-pulse text-center">📡 Waiting for Agent Report...</p>
                     </div>
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">KAN Causality</h4><p class="text-lg text-slate-600">利用 KANs 構建可解釋因果模型，提升透明度。</p></div>
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Supply Chain Vulnerability Mapping</h4><p class="text-lg text-slate-600">多模態學習遷移至惡意程式分析，改善泛化能力。</p></div>
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Model Merging nnesn of Ernitiutions</h4><p class="text-lg text-slate-600">（假資料，下週串接動態資料）</p></div>
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Rayat Antentic and Conterteous Autocnations</h4><p class="text-lg text-slate-600">（假資料，下週串接動態資料）</p></div>
-                </div>
-                <div class="pagination-dots">
-                    <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
                 </div>
             </div>
 
-            <div class="fade-in-up delay-2">
-                <h3 class="text-2xl font-bold text-slate-400 tracking-tight mb-8">Week 2: Historical Archive</h3>
-                <div class="apple-carousel gap-6">
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Zero-Shot Jailbreak Identification Identification</h4></div>
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">KAN Causality</h4></div>
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Supply Chain Vulnerability Mapping</h4></div>
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Intoration of Procoping</h4></div>
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Open-Transfomation Contocation of Responillity Duration</h4></div>
-                </div>
-                <div class="pagination-dots">
-                    <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+            <!-- Ultra 知識宇宙（預設隱藏，帶動畫進場） -->
+            <div id="ultra-section" class="hidden-state" style="display:none;">
+                <h3 class="text-2xl font-bold tracking-tight mb-2">Knowledge Universe</h3>
+                <p class="text-sm text-gray-400 mb-8">拖曳空白處可移動，滾輪縮放。點擊發光的連線查看隱藏洞察。</p>
+                <div id="graph-container"
+                    class="w-full h-[650px] bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden relative border border-gray-800 shadow-2xl">
+                    <div class="absolute top-8 left-10 z-10 pointer-events-none">
+                        <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-[10px] font-bold uppercase tracking-widest border border-purple-500/30">
+                            Ultra Mode Active
+                        </span>
+                        <h4 class="text-white text-2xl font-bold mt-4">🌌 Agent C: 跨域知識圖譜</h4>
+                    </div>
+                    <div id="force-graph-element"></div>
                 </div>
             </div>
 
-            <div class="fade-in-up">
-                <h3 class="text-2xl font-bold text-slate-400 tracking-tight mb-8">Week 3: Older Archive</h3>
-                <div class="apple-carousel gap-6">
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><div class="flex gap-2 items-center mb-8"><div class="w-3 h-3 rounded-full bg-blue-500"></div><span class="text-3xl font-bold text-blue-600">5</span><span class="text-sm font-semibold text-slate-400">/ 10</span></div><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Supply Chain Vulnerability Mapping Mapping</h4></div>
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Supply Chain Vulnerability Mapping</h4></div>
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Solamy Chain Vulnerability Mapping Mapping</h4></div>
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Networks in Provence Multifitions</h4></div>
-                    <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl transition hover:scale-[1.02] hover:shadow-xl ease-in-out duration-300"><h4 class="text-3xl font-bold tracking-tighter text-[#1d1d1f] mb-6">Supply Chain Vulnerability Mapping</h4></div>
-                </div>
-                <div class="pagination-dots">
-                    <div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-                </div>
-            </div>
         </div>
-
     </main>
 
+    <!-- Footer -->
     <footer class="bg-slate-100 text-slate-800 border-t border-gray-200 mt-24 text-xs font-medium pb-10">
-        <div class="max-w-[1200px] mx-auto px-6 pt-10 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div class="space-y-2">
-                <h5 class="font-semibold text-sm mb-3">Product</h5>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">AI Agent Radar</a>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">arXiv Scraper</a>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">Security Guardrails</a>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">JSON Structured Output</a>
-            </div>
-            <div class="space-y-2">
-                <h5 class="font-semibold text-sm mb-3">Resources</h5>
-                <a href="https://github.com/rayhuang2006/Paper-Slave" target="_blank" class="block opacity-60 hover:opacity-100 transition">GitHub Repo</a>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">API Docs</a>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">Peer Review Notes</a>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">W4 Design Case Study</a>
-            </div>
-            <div class="space-y-2">
-                <h5 class="font-semibold text-sm mb-3">Architecture</h5>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">Gemini 2.5 Flash</a>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">GitHub Actions (CI/CD)</a>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">GitHub Pages (Deploy)</a>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">Tailwind CSS (UI)</a>
-            </div>
-            <div class="space-y-2">
-                <h5 class="font-semibold text-sm mb-3">Legal</h5>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">Terms of Use</a>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">Privacy Policy</a>
-                <a href="#" class="block opacity-60 hover:opacity-100 transition">Academic Fair Use</a>
-            </div>
-        </div>
-        <div class="max-w-[1200px] mx-auto px-6 mt-10 text-slate-400">
-            <p>&copy; 2026 Academic Insight Radar Project. Built with love in Python.</p>
+        <div class="max-w-[1200px] mx-auto px-6 mt-10 text-slate-400 text-center">
+            <p>&copy; 2026 Academic Insight Radar Project. Built with AI-Agent Architecture.</p>
         </div>
     </footer>
 
+    <!-- 跨域洞察 Modal（毛玻璃，來自第一版） -->
+    <div id="insight-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-6">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-md" onclick="closeModal()"></div>
+        <div id="modal-content-container"
+            class="glass-panel relative w-full max-w-lg p-10 rounded-[3rem] shadow-2xl transform scale-95 opacity-0 transition-all duration-300">
+            <div class="mb-6 flex items-center gap-3">
+                <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-xl">💡</div>
+                <h3 class="text-2xl font-bold text-gray-900 tracking-tight">隱藏同構性發現</h3>
+            </div>
+            <div id="modal-nodes"
+                class="text-xs font-mono bg-purple-500/10 text-purple-600 p-3 rounded-xl mb-6 border border-purple-500/20">
+            </div>
+            <p id="modal-text" class="text-gray-700 leading-relaxed text-lg font-medium"></p>
+            <button onclick="closeModal()"
+                class="mt-10 w-full py-4 bg-black text-white rounded-2xl font-bold hover:bg-gray-800 transition">
+                完成查看
+            </button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp }        from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut }
+                                        from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, updateDoc, arrayUnion, getDoc }
+                                        from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+        // ── Firebase 設定 ──────────────────────────────────────────────────
+        const firebaseConfig = {
+            apiKey:            "AIzaSyCBMqN6yUgi-Vjeoe8DHD7n3-O4U8sc21M",
+            authDomain:        "paper-slave-db.firebaseapp.com",
+            projectId:         "paper-slave-db",
+            storageBucket:     "paper-slave-db.firebasestorage.app",
+            messagingSenderId: "1042849603597",
+            appId:             "1:1042849603597:web:918810d4fa172cf3153544",
+            measurementId:     "G-922MP7E2NT"
+        };
+
+        const app      = initializeApp(firebaseConfig);
+        const auth     = getAuth(app);
+        const db       = getFirestore(app);
+        const provider = new GoogleAuthProvider();
+
+        let currentUser      = null;
+        let reportData       = null;
+        let graphInstance    = null;
+        let graphInitialized = false;
+
+        // ── 登入狀態監聽 ───────────────────────────────────────────────────
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                currentUser = user;
+                document.getElementById('login-btn').classList.add('hidden');
+                document.getElementById('user-info').classList.remove('hidden');
+                document.getElementById('user-name').textContent = user.displayName;
+
+                const userRef  = doc(db, "users", user.uid);
+                const userSnap = await getDoc(userRef);
+
+                if (userSnap.exists()) {
+                    const data        = userSnap.data();
+                    const currentTier = data.tier || 'Free';
+                    updateTierBadge(currentTier);
+                    if (currentTier === 'Ultra') {
+                        await fetchReport();
+                        showUltraCanvas();
+                    } else {
+                        await fetchReport();
+                    }
+                } else {
+                    // 首次登入 → 建立使用者文件
+                    await setDoc(userRef, {
+                        email:        user.email,
+                        name:         user.displayName,
+                        tier:         'Free',
+                        liked_papers: [],
+                        created_at:   new Date()
+                    });
+                    await fetchReport();
+                }
+            } else {
+                currentUser = null;
+                document.getElementById('login-btn').classList.remove('hidden');
+                document.getElementById('user-info').classList.add('hidden');
+                hideUltraCanvas();
+            }
+        });
+
+        document.getElementById('login-btn').addEventListener('click',  () => signInWithPopup(auth, provider));
+        document.getElementById('logout-btn').addEventListener('click', () => signOut(auth));
+
+        // ── 讀取 JSON 並渲染卡片 ───────────────────────────────────────────
+        async function fetchReport() {
+            try {
+                const response = await fetch('archive/report_latest.json');
+                reportData = await response.json();
+                renderCards(reportData.nodes);
+            } catch (err) {
+                console.error("無法讀取 report_latest.json，請確認路徑與伺服器狀態", err);
+                document.getElementById('paper-container').innerHTML =
+                    `<div class="carousel-item py-20 text-center text-red-400 text-sm">⚠️ 無法讀取報告，請確認伺服器已啟動且 JSON 存在。</div>`;
+            }
+        }
+
+        function renderCards(nodes) {
+            const container = document.getElementById('paper-container');
+            container.innerHTML = nodes.map(node => `
+                <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-center justify-between mb-8">
+                        <span class="px-3 py-1 bg-gray-50 text-gray-400 rounded-lg font-bold text-[10px] uppercase tracking-tighter">
+                            Group: ${node.group}
+                        </span>
+                        <button
+                            onclick="likePaper('${node.title.replace(/'/g, "\\'")}', '${node.group}')"
+                            class="text-2xl grayscale hover:grayscale-0 transition transform hover:scale-125 active:scale-95"
+                            title="收藏並教導 Agent">
+                            👍
+                        </button>
+                    </div>
+                    <h4 class="text-2xl font-bold tracking-tight leading-snug text-[#1d1d1f] mb-4">${node.title}</h4>
+                    <p class="text-slate-500 leading-relaxed text-sm">${node.summary}</p>
+                </div>
+            `).join('');
+        }
+
+        // ── Ultra 視圖控制 ─────────────────────────────────────────────────
+        function showUltraCanvas() {
+            const sec = document.getElementById('ultra-section');
+            sec.style.display = 'block';
+            setTimeout(() => sec.classList.remove('hidden-state'), 20);
+            renderGraph();
+        }
+
+        function hideUltraCanvas() {
+            const sec = document.getElementById('ultra-section');
+            sec.classList.add('hidden-state');
+            setTimeout(() => { sec.style.display = 'none'; }, 800);
+        }
+
+        // ── Force-Graph 渲染（含毛玻璃 Modal） ────────────────────────────
+        function renderGraph() {
+            if (graphInitialized || !reportData) return;
+
+            const container = document.getElementById('graph-container');
+
+            graphInstance = ForceGraph()(document.getElementById('force-graph-element'))
+                .width(container.clientWidth)
+                .height(650)
+                .backgroundColor('#0a0a0a')
+                .graphData(reportData)
+                .nodeId('id')
+                .nodeAutoColorBy('group')
+                .nodeRelSize(8)
+                .nodeLabel(node => `
+                    <div style="background:rgba(0,0,0,0.85);padding:10px 14px;border-radius:10px;font-size:12px;
+                                max-width:260px;white-space:normal;line-height:1.6;font-family:system-ui">
+                        <strong style="color:${node.color}">${node.group}</strong><br>
+                        <span style="color:#fff;font-weight:700">${node.title}</span><br>
+                        <span style="color:#aaa;font-size:11px">${node.summary || ''}</span>
+                    </div>
+                `)
+                .linkDirectionalParticles(4)
+                .linkDirectionalParticleWidth(link => link.is_cross_domain ? 4 : 0)
+                .linkDirectionalParticleSpeed(0.006)
+                .linkColor(link => link.is_cross_domain ? '#a855f7' : '#222222')
+                .onNodeClick(node => {
+                    graphInstance.centerAt(node.x, node.y, 1000);
+                    graphInstance.zoom(6, 2000);
+                })
+                .onLinkClick(link => {
+                    if (link.is_cross_domain && link.hidden_insight) {
+                        openModal(link.source.id, link.target.id, link.hidden_insight);
+                    }
+                });
+
+            graphInitialized = true;
+
+            window.addEventListener('resize', () => {
+                graphInstance.width(container.clientWidth);
+            });
+        }
+
+        // ── Modal 控制 ─────────────────────────────────────────────────────
+        function openModal(sourceId, targetId, insight) {
+            document.getElementById('modal-nodes').innerText = `${sourceId}  ↔  ${targetId}`;
+            document.getElementById('modal-text').innerText  = insight;
+
+            const modal = document.getElementById('insight-modal');
+            const box   = document.getElementById('modal-content-container');
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                box.classList.replace('scale-95', 'scale-100');
+                box.classList.replace('opacity-0', 'opacity-100');
+            }, 10);
+        }
+
+        window.closeModal = () => {
+            const modal = document.getElementById('insight-modal');
+            const box   = document.getElementById('modal-content-container');
+            box.classList.replace('scale-100', 'scale-95');
+            box.classList.replace('opacity-100', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.replace('flex', 'hidden');
+            }, 300);
+        };
+
+        // ── 方案切換（寫入 Firestore） ─────────────────────────────────────
+        window.setTier = async (tier) => {
+            if (!currentUser) {
+                alert("請先登入才能選擇 Agent 方案！");
+                return;
+            }
+            try {
+                const userRef = doc(db, "users", currentUser.uid);
+                await updateDoc(userRef, { tier });
+
+                updateTierBadge(tier);
+
+                if (tier === 'Ultra') {
+                    if (!reportData) await fetchReport();
+                    showUltraCanvas();
+                } else {
+                    hideUltraCanvas();
+                }
+
+                alert(`🎉 成功！您的 Agent 已切換至 [${tier}] 模式！`);
+            } catch (error) {
+                console.error("切換方案失敗", error);
+                alert("切換失敗，請稍後再試。");
+            }
+        };
+
+        // ── 按讚 / 偏好記憶（寫入 Firestore） ────────────────────────────
+        window.likePaper = async (paperTitle, domain) => {
+            if (!currentUser) {
+                alert("請先登入，Agent 才能記住您的偏好！");
+                return;
+            }
+            try {
+                const userRef = doc(db, "users", currentUser.uid);
+                await updateDoc(userRef, {
+                    liked_papers: arrayUnion({
+                        title:     paperTitle,
+                        domain:    domain,
+                        timestamp: new Date()
+                    })
+                });
+                alert(`👍 Agent 已將《${paperTitle}》寫入您的偏好模型中！`);
+            } catch (error) {
+                console.error("按讚失敗", error);
+            }
+        };
+
+        // ── Tier Badge 樣式更新 ────────────────────────────────────────────
+        function updateTierBadge(tier) {
+            const badge = document.getElementById('user-tier-badge');
+            badge.textContent = tier;
+            badge.className   = "px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider transition-colors ";
+            if      (tier === 'Pro')   badge.className += "bg-emerald-100 text-emerald-700";
+            else if (tier === 'Ultra') badge.className += "bg-purple-100 text-purple-700";
+            else                       badge.className += "bg-gray-100 text-gray-600";
+        }
+
+        // ── 時鐘 ───────────────────────────────────────────────────────────
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('mac-clock').textContent =
+                now.getHours().toString().padStart(2, '0') + ':' +
+                now.getMinutes().toString().padStart(2, '0');
+        }, 1000);
+    </script>
 </body>
 </html>
