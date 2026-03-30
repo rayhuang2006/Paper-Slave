@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paper-Slave | 學術前沿情報雷達</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/force-graph"></script>
 
@@ -19,16 +19,16 @@
             padding-top: 32px;
         }
 
-        /* 進場動畫 */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(24px); }
             to   { opacity: 1; transform: translateY(0); }
         }
-        .fade-in-up { opacity: 0; animation: fadeInUp 1s ease-out forwards; }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
+        .fade-in-up { opacity: 0; animation: fadeInUp 0.9s ease-out forwards; }
+        .delay-1 { animation-delay: 0.15s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.45s; }
 
-        /* Carousel 橫向滾動 */
+        /* Carousel */
         .apple-carousel {
             display: flex;
             overflow-x: auto;
@@ -36,6 +36,7 @@
             scroll-behavior: smooth;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
+            padding-bottom: 8px;
         }
         .apple-carousel::-webkit-scrollbar { display: none; }
         .carousel-item {
@@ -44,15 +45,15 @@
             min-width: 300px;
         }
 
-        /* Apple 毛玻璃效果 */
+        /* 毛玻璃 */
         .glass-panel {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(30px) saturate(180%);
-            -webkit-backdrop-filter: blur(30px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(32px) saturate(180%);
+            -webkit-backdrop-filter: blur(32px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.45);
         }
 
-        /* Ultra section 動畫進場 */
+        /* Ultra section 進場 */
         #ultra-section {
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
@@ -61,6 +62,37 @@
             transform: translateY(40px);
             pointer-events: none;
         }
+
+        /* 鎖定圖譜遮罩 */
+        #locked-graph {
+            transition: opacity 0.4s ease;
+        }
+
+        /* 定價劃線 */
+        .price-original {
+            text-decoration: line-through;
+            opacity: 0.45;
+        }
+
+        /* Pro 卡片方向標籤 */
+        .direction-tag {
+            display: inline-block;
+            background: #f0fdf4;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+            border-radius: 999px;
+            padding: 2px 10px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* Upgrade badge pulse */
+        @keyframes pulse-ring {
+            0%   { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4); }
+            70%  { box-shadow: 0 0 0 10px rgba(168, 85, 247, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0); }
+        }
+        .pulse-ring { animation: pulse-ring 2s ease-out infinite; }
     </style>
 </head>
 <body class="antialiased">
@@ -109,75 +141,127 @@
 
     <main class="max-w-[1200px] mx-auto px-6 pt-40 pb-24">
 
-        <!-- Hero -->
+        <!-- ══════════════════════════════════════════ -->
+        <!-- Hero（永遠顯示）                            -->
+        <!-- ══════════════════════════════════════════ -->
         <section class="mb-20 text-center fade-in-up">
             <h2 class="text-6xl md:text-7xl font-extrabold tracking-tighter leading-tight mb-6">
                 學術前沿，<br>盡收眼底。
             </h2>
-            <p class="text-xl md:text-2xl font-medium text-slate-500 max-w-2xl mx-auto leading-normal">
+            <p class="text-xl md:text-2xl font-medium text-slate-500 max-w-2xl mx-auto leading-normal mb-10">
                 這是您的專屬 AI Agent。每週自動從 arXiv 提煉資訊安全與機器學習文獻，建立長期記憶護城河。
             </p>
-        </section>
-
-        <!-- 方案選擇 -->
-        <section class="mb-24 fade-in-up delay-1">
-            <h3 class="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-8">Select Your Agent Tier</h3>
-            <div class="grid md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
-
-                <div onclick="setTier('Free')"
-                    class="cursor-pointer border border-gray-200 bg-white p-8 rounded-3xl hover:shadow-lg transition transform hover:-translate-y-1">
-                    <h4 class="text-2xl font-bold mb-2">Free</h4>
-                    <p class="text-gray-500 text-sm mb-6">基礎資訊流</p>
-                    <ul class="text-sm space-y-3 text-gray-600">
-                        <li>✓ 15 篇 arXiv 自動抓取</li>
-                        <li>✓ 每週 Email 推播</li>
-                        <li class="opacity-40">✕ 無 AI 總結與創新點</li>
-                    </ul>
-                </div>
-
-                <div onclick="setTier('Pro')"
-                    class="cursor-pointer border-2 border-emerald-500 bg-emerald-50 p-8 rounded-3xl hover:shadow-xl transition transform hover:-translate-y-1 relative">
-                    <div class="absolute -top-3 right-6 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">RECOMMENDED</div>
-                    <h4 class="text-2xl font-bold text-emerald-900 mb-2">Pro</h4>
-                    <p class="text-emerald-700/70 text-sm mb-6">專業研究大腦</p>
-                    <ul class="text-sm space-y-3 text-emerald-800">
-                        <li>✓ 包含 Free 版所有功能</li>
-                        <li>✓ <strong>Agent B:</strong> 核心創新點總結</li>
-                        <li>✓ 研究方向選擇與偏好記憶</li>
-                    </ul>
-                </div>
-
-                <div onclick="setTier('Ultra')"
-                    class="cursor-pointer border-2 border-purple-500 bg-slate-900 text-white p-8 rounded-3xl hover:shadow-2xl transition transform hover:-translate-y-1 relative group overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                    <h4 class="text-2xl font-bold mb-2 relative z-10">Ultra</h4>
-                    <p class="text-purple-300/70 text-sm mb-6 relative z-10">終極跨域版</p>
-                    <ul class="text-sm space-y-3 text-gray-300 relative z-10">
-                        <li>✓ 包含 Pro 版所有功能</li>
-                        <li>✓ 手動觸發即時生成</li>
-                        <li>✓ <strong>Agent C:</strong> 無邊際跨域知識畫布</li>
-                    </ul>
-                </div>
+            <!-- 未登入時顯示的 CTA -->
+            <div id="guest-cta" class="fade-in-up delay-1">
+                <button id="hero-login-btn"
+                    class="inline-flex items-center gap-2 bg-[#1d1d1f] text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-gray-800 transition hover:scale-105 transform">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                    使用 Google 帳號登入
+                </button>
+                <p class="text-sm text-gray-400 mt-4">免費開始 · 隨時取消</p>
             </div>
         </section>
 
-        <!-- 主內容區 -->
-        <div class="space-y-20 fade-in-up delay-2">
+        <!-- ══════════════════════════════════════════ -->
+        <!-- 登入後才顯示的內容                          -->
+        <!-- ══════════════════════════════════════════ -->
+        <div id="logged-in-content" class="hidden">
+
+            <!-- 方案選擇 -->
+            <section class="mb-24 fade-in-up delay-2">
+                <h3 class="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-8">Select Your Agent Tier</h3>
+                <div class="grid md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
+
+                    <!-- Free -->
+                    <div onclick="setTier('Free')" id="card-Free"
+                        class="tier-card cursor-pointer border border-gray-200 bg-white p-8 rounded-3xl hover:shadow-lg transition transform hover:-translate-y-1">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-2xl font-bold mb-1">Free</h4>
+                                <p class="text-gray-500 text-sm">基礎資訊流</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-gray-800">$0.00</div>
+                                <div class="text-xs text-gray-400">/ 月</div>
+                            </div>
+                        </div>
+                        <ul class="text-sm space-y-3 text-gray-600 mt-6">
+                            <li>✓ 15 篇 arXiv 自動抓取</li>
+                            <li>✓ 每週 Email 推播</li>
+                            <li class="opacity-40">✕ 無 AI 總結與創新點</li>
+                            <li class="opacity-40">✕ 無知識圖譜</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pro -->
+                    <div onclick="setTier('Pro')" id="card-Pro"
+                        class="tier-card cursor-pointer border-2 border-emerald-500 bg-emerald-50 p-8 rounded-3xl hover:shadow-xl transition transform hover:-translate-y-1 relative">
+                        <div class="absolute -top-3 right-6 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">RECOMMENDED</div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-2xl font-bold text-emerald-900 mb-1">Pro</h4>
+                                <p class="text-emerald-700/70 text-sm">專業研究大腦</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-lg font-bold text-gray-400 price-original">$9.99</div>
+                                <div class="text-2xl font-bold text-emerald-700">$0.00</div>
+                                <div class="text-xs text-emerald-600">Demo 限免</div>
+                            </div>
+                        </div>
+                        <ul class="text-sm space-y-3 text-emerald-800 mt-6">
+                            <li>✓ 包含 Free 版所有功能</li>
+                            <li>✓ <strong>Agent B:</strong> 核心創新點總結</li>
+                            <li>✓ 研究方向選擇與偏好記憶</li>
+                            <li class="opacity-40">✕ 無知識圖譜</li>
+                        </ul>
+                    </div>
+
+                    <!-- Ultra -->
+                    <div onclick="setTier('Ultra')" id="card-Ultra"
+                        class="tier-card cursor-pointer border-2 border-purple-500 bg-slate-900 text-white p-8 rounded-3xl hover:shadow-2xl transition transform hover:-translate-y-1 relative group overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                        <div class="flex justify-between items-start mb-4 relative z-10">
+                            <div>
+                                <h4 class="text-2xl font-bold mb-1">Ultra</h4>
+                                <p class="text-purple-300/70 text-sm">終極跨域版</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-lg font-bold text-gray-500 price-original">$19.99</div>
+                                <div class="text-2xl font-bold text-purple-300">$0.00</div>
+                                <div class="text-xs text-purple-400">Demo 限免</div>
+                            </div>
+                        </div>
+                        <ul class="text-sm space-y-3 text-gray-300 relative z-10 mt-6">
+                            <li>✓ 包含 Pro 版所有功能</li>
+                            <li>✓ 手動觸發即時生成</li>
+                            <li>✓ <strong>Agent C:</strong> 無邊際跨域知識畫布</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
 
             <!-- Intelligence Radar 卡片 -->
-            <div>
-                <h3 class="text-2xl font-bold text-slate-400 tracking-tight mb-8">Intelligence Radar</h3>
+            <div class="mb-20 fade-in-up delay-3">
+                <div class="flex items-center justify-between mb-8">
+                    <h3 class="text-2xl font-bold text-slate-400 tracking-tight">Intelligence Radar</h3>
+                    <span id="radar-tier-label" class="text-xs font-bold text-gray-300 uppercase tracking-widest"></span>
+                </div>
                 <div id="paper-container" class="apple-carousel gap-6">
                     <div class="carousel-item flex items-center justify-center py-20">
-                        <p class="text-gray-300 animate-pulse text-center">📡 Waiting for Agent Report...</p>
+                        <p class="text-gray-300 animate-pulse text-center">📡 載入情報中...</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Ultra 知識宇宙（預設隱藏，帶動畫進場） -->
-            <div id="ultra-section" class="hidden-state" style="display:none;">
+            <!-- Ultra 知識圖譜 -->
+            <div id="ultra-section" class="hidden-state fade-in-up delay-3" style="display:none;">
                 <h3 class="text-2xl font-bold tracking-tight mb-2">Knowledge Universe</h3>
-                <p class="text-sm text-gray-400 mb-8">拖曳空白處可移動，滾輪縮放。點擊發光的連線查看隱藏洞察。</p>
+                <p class="text-sm text-gray-400 mb-8">拖曳空白處可移動，滾輪縮放。點擊發光連線查看隱藏洞察。</p>
                 <div id="graph-container"
                     class="w-full h-[650px] bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden relative border border-gray-800 shadow-2xl">
                     <div class="absolute top-8 left-10 z-10 pointer-events-none">
@@ -190,17 +274,61 @@
                 </div>
             </div>
 
-        </div>
+            <!-- 鎖定圖譜（Free / Pro 看到的版本） -->
+            <div id="locked-graph" class="fade-in-up delay-3">
+                <h3 class="text-2xl font-bold tracking-tight mb-2">Knowledge Universe</h3>
+                <p class="text-sm text-gray-400 mb-8">跨域知識圖譜 · Ultra 專屬功能</p>
+                <div class="w-full h-[400px] bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden relative border border-gray-800 shadow-xl
+                            flex flex-col items-center justify-center gap-6 cursor-pointer group"
+                     onclick="showUpgradeHint()">
+                    <!-- 模糊的假圖譜背景 -->
+                    <div class="absolute inset-0 opacity-20 pointer-events-none select-none"
+                         style="background: radial-gradient(circle at 30% 50%, #a855f7 0%, transparent 50%),
+                                            radial-gradient(circle at 70% 30%, #3b82f6 0%, transparent 40%),
+                                            radial-gradient(circle at 60% 70%, #10b981 0%, transparent 35%);">
+                    </div>
+                    <!-- 假鏈條節點裝飾 -->
+                    <svg class="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="20%" y1="30%" x2="50%" y2="50%" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="6,4"/>
+                        <line x1="50%" y1="50%" x2="75%" y2="25%" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="6,4"/>
+                        <line x1="50%" y1="50%" x2="65%" y2="70%" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="6,4"/>
+                        <line x1="25%" y1="65%" x2="50%" y2="50%" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="6,4"/>
+                        <circle cx="20%" cy="30%" r="6" fill="#4b5563"/>
+                        <circle cx="50%" cy="50%" r="8" fill="#4b5563"/>
+                        <circle cx="75%" cy="25%" r="6" fill="#4b5563"/>
+                        <circle cx="65%" cy="70%" r="6" fill="#4b5563"/>
+                        <circle cx="25%" cy="65%" r="6" fill="#4b5563"/>
+                    </svg>
+                    <!-- 鎖頭 -->
+                    <div class="relative z-10 w-16 h-16 bg-gray-800 border border-gray-600 rounded-2xl flex items-center justify-center
+                                group-hover:border-purple-500 group-hover:bg-gray-700 transition duration-300 pulse-ring">
+                        <svg class="w-8 h-8 text-gray-400 group-hover:text-purple-400 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <div class="relative z-10 text-center">
+                        <p class="text-white font-bold text-lg mb-1">知識圖譜已鎖定</p>
+                        <p class="text-gray-400 text-sm">升級至 <span class="text-purple-400 font-semibold">Ultra</span> 解鎖 Agent C 跨域分析</p>
+                    </div>
+                    <button class="relative z-10 px-6 py-2.5 bg-purple-600 hover:bg-purple-500 text-white text-sm font-bold rounded-full transition
+                                   group-hover:scale-105 transform">
+                        立即升級 →
+                    </button>
+                </div>
+            </div>
+
+        </div><!-- end #logged-in-content -->
+
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-100 text-slate-800 border-t border-gray-200 mt-24 text-xs font-medium pb-10">
-        <div class="max-w-[1200px] mx-auto px-6 mt-10 text-slate-400 text-center">
+    <footer class="bg-slate-100 border-t border-gray-200 mt-24 pb-10">
+        <div class="max-w-[1200px] mx-auto px-6 mt-10 text-slate-400 text-center text-xs font-medium">
             <p>&copy; 2026 Academic Insight Radar Project. Built with AI-Agent Architecture.</p>
         </div>
     </footer>
 
-    <!-- 跨域洞察 Modal（毛玻璃，來自第一版） -->
+    <!-- 跨域洞察 Modal -->
     <div id="insight-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-6">
         <div class="absolute inset-0 bg-black/40 backdrop-blur-md" onclick="closeModal()"></div>
         <div id="modal-content-container"
@@ -210,12 +338,31 @@
                 <h3 class="text-2xl font-bold text-gray-900 tracking-tight">隱藏同構性發現</h3>
             </div>
             <div id="modal-nodes"
-                class="text-xs font-mono bg-purple-500/10 text-purple-600 p-3 rounded-xl mb-6 border border-purple-500/20">
-            </div>
+                class="text-xs font-mono bg-purple-500/10 text-purple-600 p-3 rounded-xl mb-6 border border-purple-500/20"></div>
             <p id="modal-text" class="text-gray-700 leading-relaxed text-lg font-medium"></p>
             <button onclick="closeModal()"
                 class="mt-10 w-full py-4 bg-black text-white rounded-2xl font-bold hover:bg-gray-800 transition">
                 完成查看
+            </button>
+        </div>
+    </div>
+
+    <!-- 升級提示 Modal -->
+    <div id="upgrade-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-6">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-md" onclick="closeUpgradeModal()"></div>
+        <div id="upgrade-modal-box"
+            class="glass-panel relative w-full max-w-md p-10 rounded-[3rem] shadow-2xl transform scale-95 opacity-0 transition-all duration-300 text-center">
+            <div class="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6">🌌</div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-3">解鎖知識宇宙</h3>
+            <p class="text-gray-500 leading-relaxed mb-2">Agent C 可在跨領域論文之間發現隱藏的數學同構性，建構專屬知識圖譜。</p>
+            <p class="text-purple-600 font-semibold text-sm mb-8">Ultra 方案 · Demo 期間完全免費</p>
+            <button onclick="closeUpgradeModal(); setTier('Ultra');"
+                class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold hover:bg-gray-800 transition mb-3">
+                升級至 Ultra →
+            </button>
+            <button onclick="closeUpgradeModal()"
+                class="w-full py-3 text-gray-400 text-sm hover:text-gray-600 transition">
+                稍後再說
             </button>
         </div>
     </div>
@@ -227,7 +374,6 @@
         import { getFirestore, doc, setDoc, updateDoc, arrayUnion, getDoc }
                                         from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-        // ── Firebase 設定 ──────────────────────────────────────────────────
         const firebaseConfig = {
             apiKey:            "AIzaSyCBMqN6yUgi-Vjeoe8DHD7n3-O4U8sc21M",
             authDomain:        "paper-slave-db.firebaseapp.com",
@@ -245,6 +391,7 @@
 
         let currentUser      = null;
         let reportData       = null;
+        let currentTier      = 'Free';
         let graphInstance    = null;
         let graphInitialized = false;
 
@@ -256,21 +403,21 @@
                 document.getElementById('user-info').classList.remove('hidden');
                 document.getElementById('user-name').textContent = user.displayName;
 
+                // 登入後顯示主內容，隱藏 Hero CTA
+                document.getElementById('guest-cta').classList.add('hidden');
+                document.getElementById('logged-in-content').classList.remove('hidden');
+
                 const userRef  = doc(db, "users", user.uid);
                 const userSnap = await getDoc(userRef);
 
                 if (userSnap.exists()) {
-                    const data        = userSnap.data();
-                    const currentTier = data.tier || 'Free';
+                    const data = userSnap.data();
+                    currentTier = data.tier || 'Free';
                     updateTierBadge(currentTier);
-                    if (currentTier === 'Ultra') {
-                        await fetchReport();
-                        showUltraCanvas();
-                    } else {
-                        await fetchReport();
-                    }
+                    highlightTierCard(currentTier);
+                    await fetchReport();
+                    applyTierView(currentTier);
                 } else {
-                    // 首次登入 → 建立使用者文件
                     await setDoc(userRef, {
                         email:        user.email,
                         name:         user.displayName,
@@ -279,38 +426,84 @@
                         created_at:   new Date()
                     });
                     await fetchReport();
+                    applyTierView('Free');
                 }
             } else {
                 currentUser = null;
                 document.getElementById('login-btn').classList.remove('hidden');
                 document.getElementById('user-info').classList.add('hidden');
-                hideUltraCanvas();
+                document.getElementById('guest-cta').classList.remove('hidden');
+                document.getElementById('logged-in-content').classList.add('hidden');
             }
         });
 
-        document.getElementById('login-btn').addEventListener('click',  () => signInWithPopup(auth, provider));
-        document.getElementById('logout-btn').addEventListener('click', () => signOut(auth));
+        document.getElementById('login-btn').addEventListener('click',     () => signInWithPopup(auth, provider));
+        document.getElementById('hero-login-btn').addEventListener('click', () => signInWithPopup(auth, provider));
+        document.getElementById('logout-btn').addEventListener('click',     () => signOut(auth));
 
-        // ── 讀取 JSON 並渲染卡片 ───────────────────────────────────────────
+        // ── 讀取 JSON ──────────────────────────────────────────────────────
         async function fetchReport() {
             try {
                 const response = await fetch('archive/report_latest.json');
                 reportData = await response.json();
-                renderCards(reportData.nodes);
             } catch (err) {
-                console.error("無法讀取 report_latest.json，請確認路徑與伺服器狀態", err);
+                console.error("無法讀取 report_latest.json", err);
                 document.getElementById('paper-container').innerHTML =
                     `<div class="carousel-item py-20 text-center text-red-400 text-sm">⚠️ 無法讀取報告，請確認伺服器已啟動且 JSON 存在。</div>`;
             }
         }
 
-        function renderCards(nodes) {
+        // ── Tier 視圖總控制 ────────────────────────────────────────────────
+        function applyTierView(tier) {
+            currentTier = tier;
+
+            // 雷達標籤
+            const label = { Free: 'Free · 基礎摘要', Pro: 'Pro · AI 深度解析', Ultra: 'Ultra · 完整圖譜' };
+            document.getElementById('radar-tier-label').textContent = label[tier] || '';
+
+            // 渲染卡片
+            if (reportData) renderCards(reportData.nodes, tier);
+
+            // 圖譜區塊
+            const ultraSec  = document.getElementById('ultra-section');
+            const lockedSec = document.getElementById('locked-graph');
+
+            if (tier === 'Ultra') {
+                // 顯示真實圖譜，隱藏鎖定版
+                lockedSec.classList.add('hidden');
+                ultraSec.style.display = 'block';
+                setTimeout(() => ultraSec.classList.remove('hidden-state'), 20);
+                renderGraph();
+            } else {
+                // 顯示鎖定版，隱藏真實圖譜
+                lockedSec.classList.remove('hidden');
+                ultraSec.classList.add('hidden-state');
+                setTimeout(() => { ultraSec.style.display = 'none'; }, 800);
+            }
+        }
+
+        // ── 卡片渲染（根據 Tier 顯示不同深度） ────────────────────────────
+        function renderCards(nodes, tier) {
             const container = document.getElementById('paper-container');
-            container.innerHTML = nodes.map(node => `
+            container.innerHTML = nodes.map(node => {
+
+                // Pro / Ultra 多顯示的內容
+                const proContent = (tier === 'Pro' || tier === 'Ultra') ? `
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">核心貢獻</p>
+                        <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-4">${node.contribution || '—'}</p>
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">研究方向</p>
+                        <div class="flex flex-col gap-2">
+                            ${(node.directions || []).map(d => `<span class="direction-tag">${d}</span>`).join('')}
+                        </div>
+                    </div>
+                ` : '';
+
+                return `
                 <div class="carousel-item bg-white p-8 md:p-10 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
                     <div class="flex items-center justify-between mb-8">
                         <span class="px-3 py-1 bg-gray-50 text-gray-400 rounded-lg font-bold text-[10px] uppercase tracking-tighter">
-                            Group: ${node.group}
+                            ${node.group}
                         </span>
                         <button
                             onclick="likePaper('${node.title.replace(/'/g, "\\'")}', '${node.group}')"
@@ -319,27 +512,14 @@
                             👍
                         </button>
                     </div>
-                    <h4 class="text-2xl font-bold tracking-tight leading-snug text-[#1d1d1f] mb-4">${node.title}</h4>
+                    <h4 class="text-xl font-bold tracking-tight leading-snug text-[#1d1d1f] mb-3">${node.title}</h4>
                     <p class="text-slate-500 leading-relaxed text-sm">${node.summary}</p>
-                </div>
-            `).join('');
+                    ${proContent}
+                </div>`;
+            }).join('');
         }
 
-        // ── Ultra 視圖控制 ─────────────────────────────────────────────────
-        function showUltraCanvas() {
-            const sec = document.getElementById('ultra-section');
-            sec.style.display = 'block';
-            setTimeout(() => sec.classList.remove('hidden-state'), 20);
-            renderGraph();
-        }
-
-        function hideUltraCanvas() {
-            const sec = document.getElementById('ultra-section');
-            sec.classList.add('hidden-state');
-            setTimeout(() => { sec.style.display = 'none'; }, 800);
-        }
-
-        // ── Force-Graph 渲染（含毛玻璃 Modal） ────────────────────────────
+        // ── Force-Graph 渲染 ───────────────────────────────────────────────
         function renderGraph() {
             if (graphInitialized || !reportData) return;
 
@@ -354,7 +534,7 @@
                 .nodeAutoColorBy('group')
                 .nodeRelSize(8)
                 .nodeLabel(node => `
-                    <div style="background:rgba(0,0,0,0.85);padding:10px 14px;border-radius:10px;font-size:12px;
+                    <div style="background:rgba(0,0,0,0.88);padding:10px 14px;border-radius:10px;font-size:12px;
                                 max-width:260px;white-space:normal;line-height:1.6;font-family:system-ui">
                         <strong style="color:${node.color}">${node.group}</strong><br>
                         <span style="color:#fff;font-weight:700">${node.title}</span><br>
@@ -376,20 +556,15 @@
                 });
 
             graphInitialized = true;
-
-            window.addEventListener('resize', () => {
-                graphInstance.width(container.clientWidth);
-            });
+            window.addEventListener('resize', () => graphInstance.width(container.clientWidth));
         }
 
         // ── Modal 控制 ─────────────────────────────────────────────────────
         function openModal(sourceId, targetId, insight) {
             document.getElementById('modal-nodes').innerText = `${sourceId}  ↔  ${targetId}`;
             document.getElementById('modal-text').innerText  = insight;
-
             const modal = document.getElementById('insight-modal');
             const box   = document.getElementById('modal-content-container');
-
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             setTimeout(() => {
@@ -403,12 +578,29 @@
             const box   = document.getElementById('modal-content-container');
             box.classList.replace('scale-100', 'scale-95');
             box.classList.replace('opacity-100', 'opacity-0');
-            setTimeout(() => {
-                modal.classList.replace('flex', 'hidden');
-            }, 300);
+            setTimeout(() => modal.classList.replace('flex', 'hidden'), 300);
         };
 
-        // ── 方案切換（寫入 Firestore） ─────────────────────────────────────
+        window.showUpgradeHint = () => {
+            const modal = document.getElementById('upgrade-modal');
+            const box   = document.getElementById('upgrade-modal-box');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => {
+                box.classList.replace('scale-95', 'scale-100');
+                box.classList.replace('opacity-0', 'opacity-100');
+            }, 10);
+        };
+
+        window.closeUpgradeModal = () => {
+            const modal = document.getElementById('upgrade-modal');
+            const box   = document.getElementById('upgrade-modal-box');
+            box.classList.replace('scale-100', 'scale-95');
+            box.classList.replace('opacity-100', 'opacity-0');
+            setTimeout(() => modal.classList.replace('flex', 'hidden'), 300);
+        };
+
+        // ── 方案切換 ───────────────────────────────────────────────────────
         window.setTier = async (tier) => {
             if (!currentUser) {
                 alert("請先登入才能選擇 Agent 方案！");
@@ -417,24 +609,16 @@
             try {
                 const userRef = doc(db, "users", currentUser.uid);
                 await updateDoc(userRef, { tier });
-
                 updateTierBadge(tier);
-
-                if (tier === 'Ultra') {
-                    if (!reportData) await fetchReport();
-                    showUltraCanvas();
-                } else {
-                    hideUltraCanvas();
-                }
-
-                alert(`🎉 成功！您的 Agent 已切換至 [${tier}] 模式！`);
+                highlightTierCard(tier);
+                applyTierView(tier);
             } catch (error) {
                 console.error("切換方案失敗", error);
                 alert("切換失敗，請稍後再試。");
             }
         };
 
-        // ── 按讚 / 偏好記憶（寫入 Firestore） ────────────────────────────
+        // ── 按讚 ───────────────────────────────────────────────────────────
         window.likePaper = async (paperTitle, domain) => {
             if (!currentUser) {
                 alert("請先登入，Agent 才能記住您的偏好！");
@@ -443,11 +627,7 @@
             try {
                 const userRef = doc(db, "users", currentUser.uid);
                 await updateDoc(userRef, {
-                    liked_papers: arrayUnion({
-                        title:     paperTitle,
-                        domain:    domain,
-                        timestamp: new Date()
-                    })
+                    liked_papers: arrayUnion({ title: paperTitle, domain, timestamp: new Date() })
                 });
                 alert(`👍 Agent 已將《${paperTitle}》寫入您的偏好模型中！`);
             } catch (error) {
@@ -455,7 +635,7 @@
             }
         };
 
-        // ── Tier Badge 樣式更新 ────────────────────────────────────────────
+        // ── Tier Badge & Card 高亮 ─────────────────────────────────────────
         function updateTierBadge(tier) {
             const badge = document.getElementById('user-tier-badge');
             badge.textContent = tier;
@@ -463,6 +643,16 @@
             if      (tier === 'Pro')   badge.className += "bg-emerald-100 text-emerald-700";
             else if (tier === 'Ultra') badge.className += "bg-purple-100 text-purple-700";
             else                       badge.className += "bg-gray-100 text-gray-600";
+        }
+
+        function highlightTierCard(tier) {
+            ['Free', 'Pro', 'Ultra'].forEach(t => {
+                const card = document.getElementById(`card-${t}`);
+                if (!card) return;
+                card.classList.toggle('ring-2', t === tier);
+                card.classList.toggle('ring-offset-2', t === tier);
+                card.classList.toggle(t === 'Ultra' ? 'ring-purple-500' : t === 'Pro' ? 'ring-emerald-500' : 'ring-gray-400', t === tier);
+            });
         }
 
         // ── 時鐘 ───────────────────────────────────────────────────────────
