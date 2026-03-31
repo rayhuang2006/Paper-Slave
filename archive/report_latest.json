@@ -1,102 +1,86 @@
 {
   "nodes": [
     {
-      "id": "Tunable Soft Equivariance with Guarantees",
+      "id": "FL-PBM: Pre-Training Backdoor Mitigation for Federated Learning",
+      "group": "資安",
+      "title": "FL-PBM: Pre-Training Backdoor Mitigation for Federated Learning",
+      "summary": "聯邦學習後門攻擊預訓練緩解。",
+      "contribution": "提出 FL-PBM 框架，在聯邦學習預訓練階段緩解後門攻擊，透過模型檢查與聚合策略提升安全性。",
+      "directions": [
+        "探索 FL-PBM 在異質數據分佈下的效能。",
+        "結合差分隱私技術增強隱私保護。"
+      ]
+    },
+    {
+      "id": "Mitigating Backdoor Attacks in Federated Learning Using PPA and MiniMax Game Theory",
+      "group": "資安",
+      "title": "Mitigating Backdoor Attacks in Federated Learning Using PPA and MiniMax Game Theory",
+      "summary": "用 PPA 和賽局理論緩解聯邦學習後門攻擊。",
+      "contribution": "結合 PPA (Parameter Pruning and Adjustment) 與 Minimax 賽局理論，在聯邦學習中有效偵測並緩解惡意客戶端後門攻擊。",
+      "directions": [
+        "將賽局理論應用於其他聯邦學習攻擊類型。",
+        "評估 PPA 在大規模聯邦學習系統中的可擴展性。"
+      ]
+    },
+    {
+      "id": "Empowering Mobile Networks Security Resilience by using Post-Quantum Cryptography",
+      "group": "資安",
+      "title": "Empowering Mobile Networks Security Resilience by using Post-Quantum Cryptography",
+      "summary": "透過後量子密碼學增強行動網路安全韌性。",
+      "contribution": "探討並應用後量子密碼學 (PQC) 方案，提升行動網路面對量子計算攻擊的安全性與韌性。",
+      "directions": [
+        "評估 PQC 在 5G/6G 網路中的實際部署挑戰。",
+        "研究 PQC 方案對行動裝置資源消耗的影響。"
+      ]
+    },
+    {
+      "id": "LACE: Loss-Adaptive Capacity Expansion for Continual Learning",
       "group": "機器學習",
-      "title": "Tunable Soft Equivariance with Guarantees",
-      "summary": "提出可調軟等變性，具理論保證。",
-      "contribution": "引入軟等變性，允許模型在保持部分等變性下適應數據變異，並提供理論界限。",
+      "title": "LACE: Loss-Adaptive Capacity Expansion for Continual Learning",
+      "summary": "提出 LACE 框架用於持續學習容量擴展。",
+      "contribution": "引入 Loss-Adaptive Capacity Expansion (LACE) 機制，動態調整模型容量以適應新任務，有效緩解持續學習中的災難性遺忘。",
       "directions": [
-        "應用於物理模擬或分子動力學建模",
-        "探索與因果推斷的結合"
-      ]
-    },
-    {
-      "id": "An LP-based Sampling Policy for Multi-Armed Bandits with Side-Observations and Stochastic Availability",
-      "group": "統計/機器學習",
-      "title": "An LP-based Sampling Policy for Multi-Armed Bandits with Side-Observations and Stochastic Availability",
-      "summary": "基於LP的多臂老虎機採樣策略。",
-      "contribution": "針對具側邊觀察與隨機可用性的MAB問題，提出基於線性規劃的採樣策略，優化長期回報。",
-      "directions": [
-        "將此策略推廣至上下文多臂老虎機",
-        "研究在資源受限環境下的應用"
-      ]
-    },
-    {
-      "id": "Automatic Laplace Collapsed Sampling: Scalable Marginalisation of Latent Parameters via Automatic Differentiation",
-      "group": "統計/機器學習",
-      "title": "Automatic Laplace Collapsed Sampling: Scalable Marginalisation of Latent Parameters via Automatic Differentiation",
-      "summary": "自動拉普拉斯塌縮採樣，可擴展邊緣化。",
-      "contribution": "結合自動微分與拉普拉斯近似，實現潛在參數的可擴展邊緣化，加速貝氏推斷。",
-      "directions": [
-        "應用於大型高維貝氏模型推斷",
-        "探索與變分推斷的結合"
-      ]
-    },
-    {
-      "id": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
-      "group": "物理/機器學習",
-      "title": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
-      "summary": "硬體感知張量網路，用於粒子對撞機異常檢測。",
-      "contribution": "設計硬體感知張量網路，實現量子啟發的即時異常檢測，適用於高能物理實驗。",
-      "directions": [
-        "將此方法推廣至其他領域的即時異常檢測",
-        "研究與量子硬體的直接整合"
-      ]
-    },
-    {
-      "id": "Sustainability Is Not Linear: Quantifying Performance, Energy, and Privacy Trade-offs in On-Device Intelligence",
-      "group": "機器學習/系統",
-      "title": "Sustainability Is Not Linear: Quantifying Performance, Energy, and Privacy Trade-offs in On-Device Intelligence",
-      "summary": "量化設備端智能的性能、能耗與隱私權衡。",
-      "contribution": "系統性量化設備端AI在性能、能耗和隱私之間的非線性權衡，提供設計指導。",
-      "directions": [
-        "開發自動化工具以優化多目標權衡",
-        "研究在聯邦學習中的隱私-能耗權衡"
-      ]
-    },
-    {
-      "id": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
-      "group": "機器學習/硬體",
-      "title": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
-      "summary": "PQuantML：端到端硬體感知模型壓縮工具。",
-      "contribution": "提供一個端到端的硬體感知模型壓縮工具，實現高效能與低能耗的AI模型部署。",
-      "directions": [
-        "擴展支持更多硬體架構與模型類型",
-        "整合自動化神經網路架構搜索"
+        "將 LACE 應用於多模態持續學習場景。",
+        "探索 LACE 與模型壓縮技術的結合。"
       ]
     }
   ],
   "links": [
     {
-      "source": "Tunable Soft Equivariance with Guarantees",
-      "target": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
-      "is_cross_domain": true,
-      "hidden_insight": "兩者皆透過數學結構（群論的等變性、張量網路的分解與對稱性）來處理高維數據的複雜性，本質上是利用數據的內在對稱性或結構來簡化模型並提升效率。"
+      "source": "FL-PBM: Pre-Training Backdoor Mitigation for Federated Learning",
+      "target": "Mitigating Backdoor Attacks in Federated Learning Using PPA and MiniMax Game Theory",
+      "is_cross_domain": false,
+      "hidden_insight": "兩者皆致力於在聯邦學習中識別並中和惡意參與者的貢獻。FL-PBM 透過預訓練階段的模型檢查與聚合策略，而 PPA 結合賽局理論進行參數剪枝與調整。其底層同構性在於，皆將惡意行為視為對模型參數空間的「異常擾動」，並設計機制來濾除或修正這些擾動，以維護模型的整體穩健性。"
     },
     {
-      "source": "An LP-based Sampling Policy for Multi-Armed Bandits with Side-Observations and Stochastic Availability",
-      "target": "Sustainability Is Not Linear: Quantifying Performance, Energy, and Privacy Trade-offs in On-Device Intelligence",
+      "source": "FL-PBM: Pre-Training Backdoor Mitigation for Federated Learning",
+      "target": "LACE: Loss-Adaptive Capacity Expansion for Continual Learning",
       "is_cross_domain": true,
-      "hidden_insight": "兩者都處理在資源有限或多目標衝突下的最佳決策問題。前者透過線性規劃優化採樣策略，後者量化性能、能耗與隱私的權衡，本質上都是在複雜約束下尋找最優解。"
+      "hidden_insight": "兩者皆處理模型在動態環境下的適應性與穩定性問題。FL-PBM 需在惡意更新下保持模型穩定，LACE 需在新任務下避免災難性遺忘。其隱藏同構性在於，皆需設計機制來「選擇性地記憶或遺忘」資訊，以適應新的輸入（惡意更新或新任務），同時保留核心知識，這可視為一種動態資源分配與知識整合的優化問題。"
     },
     {
-      "source": "Automatic Laplace Collapsed Sampling: Scalable Marginalisation of Latent Parameters via Automatic Differentiation",
-      "target": "Tunable Soft Equivariance with Guarantees",
+      "source": "Mitigating Backdoor Attacks in Federated Learning Using PPA and MiniMax Game Theory",
+      "target": "LACE: Loss-Adaptive Capacity Expansion for Continual Learning",
       "is_cross_domain": true,
-      "hidden_insight": "兩者皆透過數學近似或結構性假設來簡化複雜模型或推斷過程。前者利用拉普拉斯近似邊緣化潛在參數，後者利用等變性簡化模型學習，核心都是在複雜系統中尋找可計算的簡化路徑。"
+      "hidden_insight": "兩者皆在處理模型面對「不確定性」或「新挑戰」時的適應性。PPA/Minimax 透過賽局理論應對惡意客戶端的不確定行為，LACE 透過容量擴展應對新任務的不確定性。其底層同構性在於，皆需建立一個「決策或適應框架」，在資源有限（模型容量或防禦成本）的情況下，最大化模型在動態環境中的效能與穩健性。"
     },
     {
-      "source": "Hardware-Aware Tensor Networks for Real-Time Quantum-Inspired Anomaly Detection at Particle Colliders",
-      "target": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
+      "source": "Empowering Mobile Networks Security Resilience by using Post-Quantum Cryptography",
+      "target": "FL-PBM: Pre-Training Backdoor Mitigation for Federated Learning",
       "is_cross_domain": true,
-      "hidden_insight": "兩者都致力於將機器學習模型與特定硬體架構結合，以實現高效能、低能耗的部署。前者設計硬體感知的張量網路，後者提供硬體感知的模型壓縮工具，本質上都是在進行軟硬體協同設計與優化。"
+      "hidden_insight": "兩者皆關注系統在面對「未來或潛在威脅」時的「韌性」。PQC 旨在預防量子計算對現有密碼學的威脅，FL-PBM 旨在預防聯邦學習中的後門攻擊。其隱藏同構性在於，皆需設計「前瞻性防禦機制」，透過預先規劃或強化底層協議，確保系統在面對未知或演進的攻擊向量時，仍能維持其核心功能與安全性。"
     },
     {
-      "source": "Sustainability Is Not Linear: Quantifying Performance, Energy, and Privacy Trade-offs in On-Device Intelligence",
-      "target": "PQuantML: A Tool for End-to-End Hardware-aware Model Compression",
+      "source": "Empowering Mobile Networks Security Resilience by using Post-Quantum Cryptography",
+      "target": "Mitigating Backdoor Attacks in Federated Learning Using PPA and MiniMax Game Theory",
       "is_cross_domain": true,
-      "hidden_insight": "論文9量化了設備端AI在性能、能耗和隱私之間的權衡，而論文11提供了一個硬體感知模型壓縮工具，直接影響能耗和性能。本質上，論文11的技術是解決論文9所提出權衡問題的實踐方案之一。"
+      "hidden_insight": "兩者皆處理「對抗性環境」下的安全問題。PQC 應對量子攻擊者，PPA/Minimax 應對惡意聯邦學習客戶端。其底層同構性在於，皆需在資源有限的條件下，設計「最佳防禦策略」來抵禦具有智慧的攻擊者。PQC 透過數學難題提升攻擊成本，PPA/Minimax 透過賽局理論找到最佳防禦點，本質上都是在對抗性博弈中尋求平衡。"
+    },
+    {
+      "source": "Empowering Mobile Networks Security Resilience by using Post-Quantum Cryptography",
+      "target": "LACE: Loss-Adaptive Capacity Expansion for Continual Learning",
+      "is_cross_domain": true,
+      "hidden_insight": "兩者皆處理系統在「長期演進」中的「適應性與安全性」。PQC 確保密碼系統能長期抵禦量子威脅，LACE 確保模型能長期學習新任務而不遺忘。其隱藏同構性在於，皆需設計「可演進或可擴展的架構」，以應對時間維度上的挑戰（技術進步或新知識），確保系統的持續可用性與完整性。"
     }
   ]
 }
