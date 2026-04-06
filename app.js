@@ -44,6 +44,13 @@ onAuthStateChanged(auth, async (user) => {
             currentTier = data.tier || 'Free';
             updateTierBadge(currentTier);
             highlightTierCard(currentTier);
+            
+            // 同步使用者的領域偏好至 UI 複選標籤
+            const prefs = data.domain_preferences || [];
+            document.querySelectorAll('.pb-domain-checkbox').forEach(cb => {
+                cb.checked = prefs.includes(cb.value);
+            });
+            
             await fetchReport();
             applyTierView(currentTier);
         } else {
@@ -72,6 +79,25 @@ document.getElementById('login-btn').addEventListener('click',        () => sign
 document.getElementById('hero-login-btn').addEventListener('click',   () => signInWithPopup(auth, provider));
 document.getElementById('bottom-login-btn').addEventListener('click', () => signInWithPopup(auth, provider));
 document.getElementById('logout-btn').addEventListener('click',        () => signOut(auth));
+
+// ── 領域偏好選擇 ───────────────────────────────────────────────────
+document.querySelectorAll('.pb-domain-checkbox').forEach(cb => {
+    cb.addEventListener('change', async () => {
+        if (!currentUser) return;
+        const checkedValues = Array.from(document.querySelectorAll('.pb-domain-checkbox'))
+            .filter(box => box.checked)
+            .map(box => box.value);
+        
+        try {
+            await updateDoc(doc(db, "users", currentUser.uid), {
+                domain_preferences: checkedValues
+            });
+        } catch (err) {
+            console.error("更新領域偏好失敗", err);
+            cb.checked = !cb.checked; // 發生錯誤則還原 UI 狀態
+        }
+    });
+});
 
 // ── 讀取 JSON ──────────────────────────────────────────────────────
 async function fetchReport() {
@@ -221,14 +247,17 @@ function renderGraph() {
         // 2. 懸浮提示框 (玻璃卡片，由 CSS .graph-tooltip 控管外觀)
         .nodeLabel(node => `
             <div style="padding:16px 20px; font-family:system-ui; width: 280px; white-space: normal;">
-                <strong style="color:${groupColors[node.group] || '#333'}; font-size:11px; text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:6px;">${node.group}</strong>
-                <span style="color:#1d1d1f; font-weight:700; font-size:14px; line-height:1.4; display:block; margin-bottom:8px;">${node.title}</span>
-                <span style="color:#64748b; font-size:12px; line-height:1.5; display:block;">${node.summary || ''}</span>
+                <strong style="color:${groupColors[node.group] || '#9ca3af'}; font-size:11px; text-transform:uppercase; letter-spacing:0.5px; display:block; margin-bottom:6px;">${node.group}</strong>
+                <span style="color:#ffffff; font-weight:700; font-size:14px; line-height:1.4; display:block; margin-bottom:8px;">${node.title}</span>
+                <span style="color:#cbd5e1; font-size:12px; line-height:1.5; display:block;">${node.summary || ''}</span>
             </div>`)
             
-        // 3. 連線基礎樣式
-        .linkColor(link => link.is_cross_domain ? 'rgba(168, 85, 247, 0.6)' : 'rgba(0,0,0,0.1)')
-        .linkWidth(link => link.is_cross_domain ? 1.5 : 1)
+        // 3. 連線基礎樣式 (科技感光束設定)
+        .linkColor(link => link.is_cross_domain ? 'rgba(168, 85, 247, 0.4)' : 'rgba(100, 116, 139, 0.15)')
+        .linkWidth(link => link.is_cross_domain ? 1.5 : 0.8)
+        .linkDirectionalParticles(link => link.is_cross_domain ? 3 : 0) // 加入傳輸光點
+        .linkDirectionalParticleSpeed(0.008)
+        .linkDirectionalParticleWidth(3)
         .linkLineDash(link => link.is_cross_domain ? [4, 4] : null) // 跨域虛線
         
         // 4. 繪製跨域問號徽章 (完全依賴 Canvas 繪圖 API，無 Emoji)

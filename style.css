@@ -72,20 +72,23 @@ body {
     pointer-events: none; /* 點擊穿透 */
 }
 
-/* 覆寫 Force-Graph 的 Tooltip 樣式 (極致毛玻璃，無笨重邊框) */
+/* 覆寫 Force-Graph 的 Tooltip 樣式 (極致毛玻璃，無笨重邊框，防溢出) */
 .graph-tooltip {
-    background: rgba(255, 255, 255, 0.85) !important;
-    backdrop-filter: blur(16px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-    border: 1px solid rgba(0, 0, 0, 0.04) !important;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 
-                0 4px 12px rgba(0, 0, 0, 0.03) !important;
+    background: rgba(20, 20, 20, 0.85) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 
+                0 4px 12px rgba(0, 0, 0, 0.2) !important;
     border-radius: 16px !important;
-    color: #1d1d1f !important;
-    padding: 0 !important; /* 讓內部 div 控制 padding */
-    transform: translate(-50%, 20px) !important; /* 置中並與滑鼠保持一點距離 */
+    color: #ffffff !important;
+    padding: 0 !important;
+    transform: translate(-50%, 25px) !important;
     pointer-events: none;
     transition: opacity 0.2s ease, transform 0.1s ease;
+    max-width: calc(100vw - 40px) !important;
+    white-space: normal !important;
+    word-break: break-word !important;
 }
 
 #ultra-section {

@@ -165,6 +165,36 @@
                 </button>
             </section>
         </div><div id="logged-in-content" class="hidden">
+            <!-- 領域選擇區塊 -->
+            <div class="mb-12 fade-in-up delay-1">
+                <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">客製化您的情報雷達領域</h3>
+                <div id="domain-preferences" class="flex flex-wrap gap-3">
+                    <label class="cursor-pointer select-none relative group">
+                        <input type="checkbox" value="cs.LG" class="hidden peer pb-domain-checkbox">
+                        <div class="px-5 py-2.5 rounded-full border bg-white border-gray-200 text-sm font-medium text-gray-600 peer-checked:bg-[#1d1d1f] peer-checked:text-white peer-checked:border-[#1d1d1f] transition-all shadow-sm group-hover:shadow-md">
+                            cs.LG (機器學習)
+                        </div>
+                    </label>
+                    <label class="cursor-pointer select-none relative group">
+                        <input type="checkbox" value="cs.CR" class="hidden peer pb-domain-checkbox">
+                        <div class="px-5 py-2.5 rounded-full border bg-white border-gray-200 text-sm font-medium text-gray-600 peer-checked:bg-[#1d1d1f] peer-checked:text-white peer-checked:border-[#1d1d1f] transition-all shadow-sm group-hover:shadow-md">
+                            cs.CR (資訊安全)
+                        </div>
+                    </label>
+                    <label class="cursor-pointer select-none relative group">
+                        <input type="checkbox" value="cs.AI" class="hidden peer pb-domain-checkbox">
+                        <div class="px-5 py-2.5 rounded-full border bg-white border-gray-200 text-sm font-medium text-gray-600 peer-checked:bg-[#1d1d1f] peer-checked:text-white peer-checked:border-[#1d1d1f] transition-all shadow-sm group-hover:shadow-md">
+                            cs.AI (人工智慧)
+                        </div>
+                    </label>
+                    <label class="cursor-pointer select-none relative group">
+                        <input type="checkbox" value="cs.CV" class="hidden peer pb-domain-checkbox">
+                        <div class="px-5 py-2.5 rounded-full border bg-white border-gray-200 text-sm font-medium text-gray-600 peer-checked:bg-[#1d1d1f] peer-checked:text-white peer-checked:border-[#1d1d1f] transition-all shadow-sm group-hover:shadow-md">
+                            cs.CV (電腦視覺)
+                        </div>
+                    </label>
+                </div>
+            </div>
 
             <div class="mb-24 fade-in-up delay-1">
                 <div class="flex items-center justify-between mb-8">
@@ -313,22 +343,22 @@
     </div>
 
     <div id="insight-modal" class="fixed inset-0 z-[200] hidden items-center justify-center p-6">
-        <div class="absolute inset-0 bg-gray-900/20 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="absolute inset-0 bg-gray-900/40 backdrop-blur-md" onclick="closeModal()"></div>
         <div id="modal-content-container"
-            class="relative w-full max-w-lg p-10 rounded-[2rem] shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-white/60 bg-white/95 backdrop-blur-xl">
+            class="relative w-full max-w-lg p-10 rounded-[2rem] shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-white/20 bg-[#1d1d1f]/80 backdrop-blur-2xl">
             <div class="mb-6 flex items-center gap-3">
-                <div class="w-10 h-10 bg-purple-100 rounded-2xl flex items-center justify-center">
-                    <svg class="w-5 h-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <div class="w-10 h-10 bg-purple-500/20 shadow-inner rounded-2xl flex items-center justify-center border border-purple-500/30">
+                    <svg class="w-5 h-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 tracking-tight">跨界同構性解析</h3>
+                <h3 class="text-xl font-bold text-white tracking-tight">跨界同構性解析</h3>
             </div>
             <div id="modal-nodes"
-                class="text-xs font-mono bg-gray-50 text-purple-700 p-4 rounded-xl mb-6 border border-gray-100 shadow-inner leading-relaxed overflow-x-auto whitespace-nowrap"></div>
-            <p id="modal-text" class="text-gray-700 leading-relaxed text-base font-medium"></p>
+                class="text-xs font-mono bg-black/40 text-purple-300 p-4 rounded-xl mb-6 border border-white/10 shadow-inner leading-relaxed overflow-x-auto whitespace-nowrap"></div>
+            <p id="modal-text" class="text-gray-300 leading-relaxed text-base font-medium"></p>
             <button onclick="closeModal()"
-                class="mt-8 w-full py-3.5 bg-[#1d1d1f] text-white rounded-2xl font-semibold hover:bg-gray-800 transition shadow-sm text-sm">
+                class="mt-8 w-full py-3.5 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-semibold transition border border-white/10 shadow-sm text-sm">
                 完成查看
             </button>
         </div>
