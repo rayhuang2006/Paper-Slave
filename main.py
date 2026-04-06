@@ -12,16 +12,30 @@ from notifier import send_email_report
 def get_firestore_client():
     """ 初始化並回傳 Firebase Firestore 客戶端 """
     if not firebase_admin._apps:
-        # 在環境變數中尋找憑證路徑，若無則預設為根目錄下的 serviceAccountKey.json
-        cred_path = os.getenv("FIREBASE_CRED_PATH", "serviceAccountKey.json")
-        try:
-            cred = credentials.Certificate(cred_path)
-            firebase_admin.initialize_app(cred)
-            print("✅ 成功使用憑證初始化 Firebase 連線。")
-        except Exception as e:
-            print(f"⚠️ 無法透過 {cred_path} 初始化 Firebase，使用預設驗證。原因: {e}")
-            # 如果在某些雲端環境（如 GCP）可以自動抓取預設憑證
-            firebase_admin.initialize_app()
+        # 1. 優先檢查環境變數 FIREBASE_CRED_JSON 是否有值
+        cred_json_str = os.getenv("FIREBASE_CRED_JSON")
+        if cred_json_str:
+            try:
+                cred_dict = json.loads(cred_json_str)
+                cred = credentials.Certificate(cred_dict)
+                firebase_admin.initialize_app(cred)
+                print("✅ 成功透過環境變數 (JSON) 初始化 Firebase 連線。")
+            except Exception as e:
+                print(f"⚠️ 解析 FIREBASE_CRED_JSON 發生錯誤: {e}")
+                # 錯誤時繼續往下嘗試本機檔案驗證
+        
+        # 2. 如果上一步尚未成功初始化 apps，尋找本機憑證檔案
+        if not firebase_admin._apps:
+            cred_path = os.getenv("FIREBASE_CRED_PATH", "serviceAccountKey.json")
+            try:
+                cred = credentials.Certificate(cred_path)
+                firebase_admin.initialize_app(cred)
+                print("✅ 成功使用本機憑證初始化 Firebase 連線。")
+            except Exception as e:
+                print(f"⚠️ 無法透過 {cred_path} 初始化 Firebase，使用預設驗證。原因: {e}")
+                # 在某些雲端環境（如 GCP）可運用預設憑證
+                firebase_admin.initialize_app()
+                
     return firestore.client()
 
 def fetch_active_subscribers(db):

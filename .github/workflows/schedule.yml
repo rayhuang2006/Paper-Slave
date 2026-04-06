@@ -35,6 +35,7 @@ jobs:
           EMAIL_SENDER:   ${{ secrets.EMAIL_SENDER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
+          FIREBASE_CRED_JSON: ${{ secrets.FIREBASE_CRED_JSON }}
         run: python main.py
 
       - name: 📤 把產出的 JSON 自動 commit 回 repo
