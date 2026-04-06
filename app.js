@@ -357,20 +357,67 @@ window.closeModal = () => {
     setTimeout(() => document.getElementById('insight-modal').classList.replace('flex', 'hidden'), 300);
 };
 
-// ── 方案切換 ───────────────────────────────────────────────────────
+// ── 方案切換與模擬金流 ──────────────────────────────────────────────
 window.setTier = async (tier) => {
     if (!currentUser) { alert("請先登入才能選擇 Agent 方案！"); return; }
+    
+    // 如果跟目前方案一樣就不做處理
+    if (tier === currentTier) {
+        alert(`您目前已經是 ${tier} 方案了！`);
+        return;
+    }
+
+    const cardElement = document.getElementById(`modal-card-${tier}`);
+    const originalHTML = cardElement.innerHTML;
+    
     try {
-        await updateDoc(doc(db, "users", currentUser.uid), { tier });
-        updateTierBadge(tier);
-        highlightTierCard(tier);
-        applyTierView(tier);
-        window.closeTierModal();
+        // 1. 切換至 Loading 狀態
+        cardElement.style.pointerEvents = 'none';
+        cardElement.style.opacity = '0.7';
+        cardElement.innerHTML = `
+            <div class="flex flex-col items-center justify-center h-full min-h-[160px]">
+                <svg class="animate-spin w-8 h-8 text-gray-500 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                <p class="font-bold text-gray-800 tracking-tight">🔒 連線安全金流中...</p>
+                <p class="text-xs text-gray-400 mt-1">Mocking Gateway</p>
+            </div>
+        `;
+
+        // 2. 呼叫虛擬金流 Adapter
+        const paymentResult = await processMockPayment(tier);
+        
+        // 3. 金流成功，寫入 Firebase 綁定權限
+        if (paymentResult.status === 'success') {
+            await updateDoc(doc(db, "users", currentUser.uid), { tier: paymentResult.tier });
+            alert(`🎉 升級成功！\n處理序號：${paymentResult.transactionId}\n頁面將重新整理以載入全新權限。`);
+            window.location.reload();
+        }
     } catch (e) {
-        console.error("切換方案失敗", e);
-        alert("切換失敗，請稍後再試。");
+        console.error("切換方案或金流失敗", e);
+        alert("❌ 升級時發生網路異常或交易失敗。");
+        // 4. 錯誤還原
+        cardElement.style.pointerEvents = 'auto';
+        cardElement.style.opacity = '1';
+        cardElement.innerHTML = originalHTML;
     }
 };
+
+/**
+ * 虛擬金流轉接器 (Mock Payment Adapter)
+ * 預留給未來真實 Stripe API 的隔離函數
+ */
+async function processMockPayment(targetTier) {
+    return new Promise((resolve, reject) => {
+        // 模擬 2.5 秒的網路處理與授權等待
+        setTimeout(() => {
+            const randomTxId = 'pi_' + Math.random().toString(36).substr(2, 9) + Date.now().toString(36).slice(-4);
+            resolve({
+                status: 'success',
+                tier: targetTier,
+                transactionId: randomTxId
+            });
+        }, 2500);
+    });
+}
 
 // ── 按讚 ───────────────────────────────────────────────────────────
 window.likePaper = async (paperTitle, domain) => {
