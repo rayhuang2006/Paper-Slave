@@ -2,17 +2,81 @@ import os
 import json
 import datetime
 from dotenv import load_dotenv
+import firebase_admin
+from firebase_admin import credentials, firestore
+
 from scraper import fetch_arxiv_papers
 from llm_engine import analyze_papers_with_routing
 from notifier import send_email_report
+
+def get_firestore_client():
+    """ 初始化並回傳 Firebase Firestore 客戶端 """
+    if not firebase_admin._apps:
+        # 在環境變數中尋找憑證路徑，若無則預設為根目錄下的 serviceAccountKey.json
+        cred_path = os.getenv("FIREBASE_CRED_PATH", "serviceAccountKey.json")
+        try:
+            cred = credentials.Certificate(cred_path)
+            firebase_admin.initialize_app(cred)
+            print("✅ 成功使用憑證初始化 Firebase 連線。")
+        except Exception as e:
+            print(f"⚠️ 無法透過 {cred_path} 初始化 Firebase，使用預設驗證。原因: {e}")
+            # 如果在某些雲端環境（如 GCP）可以自動抓取預設憑證
+            firebase_admin.initialize_app()
+    return firestore.client()
+
+def fetch_active_subscribers(db):
+    """ 從 Firestore 撈取所有 Pro 與 Ultra 用戶清單以及他們的偏好領域 """
+    print("🔍 正在從 Firestore 撈取付費用戶名單庫...")
+    users_ref = db.collection("users")
+    
+    # 使用 in 查詢來獲取所有付費 tier 的用戶
+    query = users_ref.where("tier", "in", ["Pro", "Ultra"])
+    docs = query.stream()
+    
+    subscribers = []
+    all_preferences = set()
+    
+    for doc in docs:
+        data = doc.to_dict()
+        email = data.get("email")
+        tier = data.get("tier")
+        prefs = data.get("domain_preferences", [])
+        
+        if email:
+            subscribers.append({
+                "email": email,
+                "tier": tier,
+                "domain_preferences": prefs
+            })
+            for pref in prefs:
+                all_preferences.add(pref)
+                
+    return subscribers, list(all_preferences)
 
 def main():
     print("🚀 啟動 Paper-Slave 學術雷達 (企業級 Multi-Agent 版)...")
     load_dotenv()
     
-    # 1. 擴大抓取範圍，讓 Agent A 發揮過濾價值
-    print("⏳ 正在從 arXiv 抓取最新 15 篇論文 (cs.LG, cs.CR)...")
-    paper_data = fetch_arxiv_papers(max_results=15)
+    # --- 新增: 連線 Firebase 並動態撈取用戶與領域 ---
+    db = get_firestore_client()
+    subscribers, all_preferences = fetch_active_subscribers(db)
+    
+    if not subscribers:
+        print("🤷‍♂️ 目前沒有 Pro 或 Ultra 用戶，程式結束。")
+        return
+        
+    print(f"👥 找到 {len(subscribers)} 位付費用戶。")
+    print(f"🎯 彙整後的感興趣領域：{all_preferences}")
+    
+    # 組合 query，如果沒有偏好則退回預設值
+    if all_preferences:
+        arxiv_query = " OR ".join([f"cat:{pref}" for pref in all_preferences])
+    else:
+        arxiv_query = "cat:cs.LG OR cat:cs.CR"
+        
+    # 1. 根據動態組合的條件，擴大抓取範圍
+    print(f"⏳ 正在從 arXiv 抓取最新 15 篇論文 (查詢字串: {arxiv_query})...")
+    paper_data = fetch_arxiv_papers(query=arxiv_query, max_results=15)
     
     if not paper_data.strip():
         print("❌ 找不到論文資料，程式結束。")
@@ -35,7 +99,9 @@ def main():
     print(f"✅ Pro 報告已成功歸檔至 {md_filename}")
     
     print("📨 正在發送 Pro 方案週報至 Email...")
-    send_email_report(pro_report)
+    # 將找到的用戶 Emails 抽取成名單
+    target_emails = [u["email"] for u in subscribers]
+    send_email_report(pro_report, target_emails)
     
     # ==========================================
     # 📌 產線二：Ultra 方案 (跨域知識圖譜 JSON 落地)

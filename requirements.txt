@@ -4,3 +4,4 @@ python-dotenv
 markdown
 groq
 arxiv
+firebase-admin

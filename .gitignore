@@ -13,3 +13,4 @@ ENV/
 
 # Mac 系統隱藏檔
 .DS_Store
+serviceAccountKey.json

@@ -1,86 +1,141 @@
 {
   "nodes": [
     {
-      "id": "FL-PBM: Pre-Training Backdoor Mitigation for Federated Learning",
-      "group": "資安",
-      "title": "FL-PBM: Pre-Training Backdoor Mitigation for Federated Learning",
-      "summary": "聯邦學習後門攻擊預訓練緩解。",
-      "contribution": "提出 FL-PBM 框架，在聯邦學習預訓練階段緩解後門攻擊，透過模型檢查與聚合策略提升安全性。",
-      "directions": [
-        "探索 FL-PBM 在異質數據分佈下的效能。",
-        "結合差分隱私技術增強隱私保護。"
-      ]
-    },
-    {
-      "id": "Mitigating Backdoor Attacks in Federated Learning Using PPA and MiniMax Game Theory",
-      "group": "資安",
-      "title": "Mitigating Backdoor Attacks in Federated Learning Using PPA and MiniMax Game Theory",
-      "summary": "用 PPA 和賽局理論緩解聯邦學習後門攻擊。",
-      "contribution": "結合 PPA (Parameter Pruning and Adjustment) 與 Minimax 賽局理論，在聯邦學習中有效偵測並緩解惡意客戶端後門攻擊。",
-      "directions": [
-        "將賽局理論應用於其他聯邦學習攻擊類型。",
-        "評估 PPA 在大規模聯邦學習系統中的可擴展性。"
-      ]
-    },
-    {
-      "id": "Empowering Mobile Networks Security Resilience by using Post-Quantum Cryptography",
-      "group": "資安",
-      "title": "Empowering Mobile Networks Security Resilience by using Post-Quantum Cryptography",
-      "summary": "透過後量子密碼學增強行動網路安全韌性。",
-      "contribution": "探討並應用後量子密碼學 (PQC) 方案，提升行動網路面對量子計算攻擊的安全性與韌性。",
-      "directions": [
-        "評估 PQC 在 5G/6G 網路中的實際部署挑戰。",
-        "研究 PQC 方案對行動裝置資源消耗的影響。"
-      ]
-    },
-    {
-      "id": "LACE: Loss-Adaptive Capacity Expansion for Continual Learning",
+      "id": "Enhancing Robustness of Federated Learning via Server Learning",
       "group": "機器學習",
-      "title": "LACE: Loss-Adaptive Capacity Expansion for Continual Learning",
-      "summary": "提出 LACE 框架用於持續學習容量擴展。",
-      "contribution": "引入 Loss-Adaptive Capacity Expansion (LACE) 機制，動態調整模型容量以適應新任務，有效緩解持續學習中的災難性遺忘。",
+      "title": "Enhancing Robustness of Federated Learning via Server Learning",
+      "summary": "透過伺服器學習提升聯邦學習魯棒性。",
+      "contribution": "提出伺服器端學習機制，有效緩解聯邦學習數據異質性與惡意攻擊，提升模型穩定性。",
       "directions": [
-        "將 LACE 應用於多模態持續學習場景。",
-        "探索 LACE 與模型壓縮技術的結合。"
+        "探索伺服器學習在不同聯邦學習範式下的適用性",
+        "結合差分隱私增強伺服器學習的隱私保護"
+      ]
+    },
+    {
+      "id": "Hierarchical Planning with Latent World Models",
+      "group": "機器學習",
+      "title": "Hierarchical Planning with Latent World Models",
+      "summary": "利用潛在世界模型實現分層規劃。",
+      "contribution": "結合潛在世界模型與分層規劃，使智能體能在複雜環境中進行長期決策與高效探索。",
+      "directions": [
+        "將此框架應用於真實世界的機器人控制任務",
+        "研究潛在世界模型的可解釋性與不確定性量化"
+      ]
+    },
+    {
+      "id": "A Tsetlin Machine-driven Intrusion Detection System for Next-Generation IoMT Security",
+      "group": "資安",
+      "title": "A Tsetlin Machine-driven Intrusion Detection System for Next-Generation IoMT Security",
+      "summary": "應用Tsetlin機器於IoMT入侵檢測系統。",
+      "contribution": "首次將Tsetlin機器引入IoMT入侵檢測，提供輕量級、高解釋性且高效能的威脅識別。",
+      "directions": [
+        "評估Tsetlin機器在其他邊緣設備安全場景的潛力",
+        "研究Tsetlin機器處理高維非結構化數據的擴展性"
+      ]
+    },
+    {
+      "id": "Real-Time Surrogate Modeling for Personalized Blood Flow Prediction and Hemodynamic Analysis",
+      "group": "生物醫學工程",
+      "title": "Real-Time Surrogate Modeling for Personalized Blood Flow Prediction and Hemodynamic Analysis",
+      "summary": "實時代理模型用於個性化血流預測。",
+      "contribution": "開發實時代理模型，顯著加速個性化血流動力學模擬，輔助臨床診斷與治療規劃。",
+      "directions": [
+        "將代理模型應用於其他生理系統的實時模擬",
+        "結合不確定性量化提升代理模型預測的可靠性"
+      ]
+    },
+    {
+      "id": "The Compression Gap: Why Discrete Tokenization Limits Vision-Language-Action Model Scaling",
+      "group": "機器學習",
+      "title": "The Compression Gap: Why Discrete Tokenization Limits Vision-Language-Action Model Scaling",
+      "summary": "探討離散分詞對多模態模型擴展的限制。",
+      "contribution": "揭示離散分詞在多模態模型中造成的「壓縮鴻溝」，限制模型擴展與性能提升。",
+      "directions": [
+        "探索連續或混合分詞策略以彌合壓縮鴻溝",
+        "研究新的多模態數據表示方法規避分詞限制"
+      ]
+    },
+    {
+      "id": "Gradient Boosting within a Single Attention Layer",
+      "group": "機器學習",
+      "title": "Gradient Boosting within a Single Attention Layer",
+      "summary": "在單一注意力層中實現梯度提升。",
+      "contribution": "將梯度提升思想融入注意力機制，提升模型表達能力與訓練效率，同時保持Transformer優勢。",
+      "directions": [
+        "將此方法應用於大型語言模型，提升訓練效率與性能",
+        "研究梯度提升注意力層的可解釋性與魯棒性"
+      ]
+    },
+    {
+      "id": "Reflective Context Learning: Studying the Optimization Primitives of Context Space",
+      "group": "機器學習",
+      "title": "Reflective Context Learning: Studying the Optimization Primitives of Context Space",
+      "summary": "探討反射式上下文學習的優化原語。",
+      "contribution": "深入分析上下文學習的底層優化機制，提出反射式學習框架，提升少樣本學習適應性。",
+      "directions": [
+        "將反射式上下文學習應用於個性化推薦系統",
+        "研究上下文空間的幾何結構對學習性能的影響"
+      ]
+    },
+    {
+      "id": "DSBD: Dual-Aligned Structural Basis Distillation for Graph Domain Adaptation",
+      "group": "機器學習",
+      "title": "DSBD: Dual-Aligned Structural Basis Distillation for Graph Domain Adaptation",
+      "summary": "雙對齊結構基礎蒸餾用於圖域適應。",
+      "contribution": "提出雙對齊結構基礎蒸餾方法，有效解決圖數據域適應問題，提升模型泛化能力。",
+      "directions": [
+        "將DSBD應用於異構圖或動態圖的域適應",
+        "探索更高效的結構基礎提取與對齊策略"
+      ]
+    },
+    {
+      "id": "HyperFitS -- Hypernetwork Fitting Spectra for metabolic quantification of ${}^1$H MR spectroscopic imaging",
+      "group": "生物醫學工程",
+      "title": "HyperFitS -- Hypernetwork Fitting Spectra for metabolic quantification of ${}^1$H MR spectroscopic imaging",
+      "summary": "超網路擬合光譜用於代謝物定量。",
+      "contribution": "利用超網路實現磁共振波譜成像的代謝物精確定量，顯著提升分析速度與準確性。",
+      "directions": [
+        "將HyperFitS推廣至其他醫學影像的定量分析",
+        "研究超網路在處理低信噪比數據時的魯棒性"
       ]
     }
   ],
   "links": [
     {
-      "source": "FL-PBM: Pre-Training Backdoor Mitigation for Federated Learning",
-      "target": "Mitigating Backdoor Attacks in Federated Learning Using PPA and MiniMax Game Theory",
+      "source": "Enhancing Robustness of Federated Learning via Server Learning",
+      "target": "A Tsetlin Machine-driven Intrusion Detection System for Next-Generation IoMT Security",
+      "is_cross_domain": true,
+      "hidden_insight": "兩者皆處理分散式環境下的異常或惡意行為檢測與防禦。P1的伺服器學習與P3的Tsetlin機器IDS，本質上都是在複雜、可能受污染的數據流中，學習並識別出偏離正常模式的「異常信號」，以維護系統的完整性與魯棒性。"
+    },
+    {
+      "source": "Hierarchical Planning with Latent World Models",
+      "target": "Reflective Context Learning: Studying the Optimization Primitives of Context Space",
       "is_cross_domain": false,
-      "hidden_insight": "兩者皆致力於在聯邦學習中識別並中和惡意參與者的貢獻。FL-PBM 透過預訓練階段的模型檢查與聚合策略，而 PPA 結合賽局理論進行參數剪枝與調整。其底層同構性在於，皆將惡意行為視為對模型參數空間的「異常擾動」，並設計機制來濾除或修正這些擾動，以維護模型的整體穩健性。"
+      "hidden_insight": "兩篇論文都致力於學習更高層次的「元知識」或「潛在結構」以提升學習效率與泛化能力。P2透過潛在世界模型壓縮環境動態以實現高效規劃，而P9則探索上下文空間的優化原語以加速少樣本適應。其核心皆是從經驗中提煉出可遷移、可重用的抽象模式。"
     },
     {
-      "source": "FL-PBM: Pre-Training Backdoor Mitigation for Federated Learning",
-      "target": "LACE: Loss-Adaptive Capacity Expansion for Continual Learning",
-      "is_cross_domain": true,
-      "hidden_insight": "兩者皆處理模型在動態環境下的適應性與穩定性問題。FL-PBM 需在惡意更新下保持模型穩定，LACE 需在新任務下避免災難性遺忘。其隱藏同構性在於，皆需設計機制來「選擇性地記憶或遺忘」資訊，以適應新的輸入（惡意更新或新任務），同時保留核心知識，這可視為一種動態資源分配與知識整合的優化問題。"
+      "source": "Real-Time Surrogate Modeling for Personalized Blood Flow Prediction and Hemodynamic Analysis",
+      "target": "HyperFitS -- Hypernetwork Fitting Spectra for metabolic quantification of ${}^1$H MR spectroscopic imaging",
+      "is_cross_domain": false,
+      "hidden_insight": "兩者皆利用機器學習模型作為「快速近似器」，以加速原本計算密集型的醫學分析或模擬。P6的代理模型與P13的超網路，本質上都是學習一個從輸入（如患者參數、原始光譜）到輸出（如血流預測、代謝物濃度）的非線性映射，從而實現實時、個性化的醫療決策支持。"
     },
     {
-      "source": "Mitigating Backdoor Attacks in Federated Learning Using PPA and MiniMax Game Theory",
-      "target": "LACE: Loss-Adaptive Capacity Expansion for Continual Learning",
-      "is_cross_domain": true,
-      "hidden_insight": "兩者皆在處理模型面對「不確定性」或「新挑戰」時的適應性。PPA/Minimax 透過賽局理論應對惡意客戶端的不確定行為，LACE 透過容量擴展應對新任務的不確定性。其底層同構性在於，皆需建立一個「決策或適應框架」，在資源有限（模型容量或防禦成本）的情況下，最大化模型在動態環境中的效能與穩健性。"
+      "source": "The Compression Gap: Why Discrete Tokenization Limits Vision-Language-Action Model Scaling",
+      "target": "DSBD: Dual-Aligned Structural Basis Distillation for Graph Domain Adaptation",
+      "is_cross_domain": false,
+      "hidden_insight": "兩者都探討了信息表示與知識遷移的挑戰。P7揭示了離散分詞在多模態模型中造成的「壓縮鴻溝」，即信息損失限制了模型擴展。P12則透過「蒸餾」與「結構基礎對齊」來彌合圖數據的域間差異，本質上是尋找一種更有效的知識壓縮與遷移策略，以克服不同數據分佈帶來的泛化問題。"
     },
     {
-      "source": "Empowering Mobile Networks Security Resilience by using Post-Quantum Cryptography",
-      "target": "FL-PBM: Pre-Training Backdoor Mitigation for Federated Learning",
-      "is_cross_domain": true,
-      "hidden_insight": "兩者皆關注系統在面對「未來或潛在威脅」時的「韌性」。PQC 旨在預防量子計算對現有密碼學的威脅，FL-PBM 旨在預防聯邦學習中的後門攻擊。其隱藏同構性在於，皆需設計「前瞻性防禦機制」，透過預先規劃或強化底層協議，確保系統在面對未知或演進的攻擊向量時，仍能維持其核心功能與安全性。"
+      "source": "Gradient Boosting within a Single Attention Layer",
+      "target": "Reflective Context Learning: Studying the Optimization Primitives of Context Space",
+      "is_cross_domain": false,
+      "hidden_insight": "兩篇論文皆在探索如何將更高效的學習或優化機制內嵌於模型架構中。P8將梯度提升的迭代精煉思想融入注意力層，使其能逐步修正與強化特徵表示。P9則研究上下文空間的優化原語，旨在讓模型能「學習如何學習」，從而更有效地利用上下文信息進行適應。兩者皆是提升模型內在學習能力的嘗試。"
     },
     {
-      "source": "Empowering Mobile Networks Security Resilience by using Post-Quantum Cryptography",
-      "target": "Mitigating Backdoor Attacks in Federated Learning Using PPA and MiniMax Game Theory",
-      "is_cross_domain": true,
-      "hidden_insight": "兩者皆處理「對抗性環境」下的安全問題。PQC 應對量子攻擊者，PPA/Minimax 應對惡意聯邦學習客戶端。其底層同構性在於，皆需在資源有限的條件下，設計「最佳防禦策略」來抵禦具有智慧的攻擊者。PQC 透過數學難題提升攻擊成本，PPA/Minimax 透過賽局理論找到最佳防禦點，本質上都是在對抗性博弈中尋求平衡。"
-    },
-    {
-      "source": "Empowering Mobile Networks Security Resilience by using Post-Quantum Cryptography",
-      "target": "LACE: Loss-Adaptive Capacity Expansion for Continual Learning",
-      "is_cross_domain": true,
-      "hidden_insight": "兩者皆處理系統在「長期演進」中的「適應性與安全性」。PQC 確保密碼系統能長期抵禦量子威脅，LACE 確保模型能長期學習新任務而不遺忘。其隱藏同構性在於，皆需設計「可演進或可擴展的架構」，以應對時間維度上的挑戰（技術進步或新知識），確保系統的持續可用性與完整性。"
+      "source": "Enhancing Robustness of Federated Learning via Server Learning",
+      "target": "DSBD: Dual-Aligned Structural Basis Distillation for Graph Domain Adaptation",
+      "is_cross_domain": false,
+      "hidden_insight": "兩者皆處理模型在不同數據分佈（異質性）下的泛化與魯棒性問題。P1的聯邦學習需應對客戶端數據的異質性，確保全局模型穩定。P12的圖域適應則旨在彌合不同圖數據集間的分布差異。其核心挑戰都是如何從多源、異質的數據中學習到一個具有強泛化能力的共享表示或模型。"
     }
   ]
 }
