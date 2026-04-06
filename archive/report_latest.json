@@ -4,154 +4,154 @@
       "id": "Enhancing Robustness of Federated Learning via Server Learning",
       "group": "機器學習",
       "title": "Enhancing Robustness of Federated Learning via Server Learning",
-      "summary": "透過伺服器學習提升聯邦學習韌性",
-      "contribution": "提出伺服器端學習框架，有效抵禦聯邦學習中的惡意攻擊與資料異質性。",
+      "summary": "提升聯邦學習的魯棒性",
+      "contribution": "透過伺服器端學習策略，有效增強聯邦學習模型對惡意攻擊的魯棒性與收斂性。",
       "directions": [
-        "探索伺服器學習在不同聯邦學習設定下的效能",
-        "結合差分隱私保護伺服器學習過程"
+        "研究伺服器學習對隱私保護的影響",
+        "結合差分隱私提升聯邦學習安全性"
       ]
     },
     {
       "id": "Neuromorphic Realization of Best Response in Finite-Action Games",
-      "group": "博弈論 / 類神經計算",
+      "group": "計算神經科學",
       "title": "Neuromorphic Realization of Best Response in Finite-Action Games",
-      "summary": "類神經實現有限行動博弈最佳回應",
-      "contribution": "設計基於類神經硬體的電路，有效實現有限行動博弈中的最佳回應策略計算。",
+      "summary": "神經形態實現博弈最佳回應",
+      "contribution": "在神經形態硬體上實現有限行動博弈的最佳回應策略，展示低功耗決策能力。",
       "directions": [
-        "將此類神經架構擴展至連續行動博弈",
-        "應用於多智能體系統的即時決策"
+        "擴展至連續行動博弈的實現",
+        "應用於多智能體系統的協同控制"
       ]
     },
     {
-      "id": "Power one sequential tests exist for weakly compact P against Pc",
+      "id": "Power one sequential tests exist for weakly compact $\\mathscr P$ against $\\mathscr P^c$",
       "group": "統計學",
       "title": "Power one sequential tests exist for weakly compact $\\mathscr P$ against $\\mathscr P^c$",
-      "summary": "弱緊緻集合下存在功效一序貫檢定",
-      "contribution": "證明在特定條件下，存在功效為一的序貫檢定，解決統計假設檢定中的基本問題。",
+      "summary": "證明存在功效一序貫檢定",
+      "contribution": "證明在特定條件下，存在功效為一的序貫統計檢定，對假設檢定理論有重要貢獻。",
       "directions": [
-        "探索此理論在非參數統計中的應用",
-        "研究其在機器學習模型評估的潛力"
+        "探索此類檢定在實際應用中的限制",
+        "研究非弱緊緻空間下的序貫檢定"
       ]
     },
     {
       "id": "Hierarchical Planning with Latent World Models",
-      "group": "機器學習 / 強化學習",
+      "group": "機器學習",
       "title": "Hierarchical Planning with Latent World Models",
       "summary": "潛在世界模型的分層規劃",
       "contribution": "結合潛在世界模型與分層規劃，使智能體能在複雜環境中進行高效決策與長期規劃。",
       "directions": [
-        "將分層規劃應用於多智能體協作任務",
-        "提升潛在世界模型對環境變化的適應性"
+        "應用於真實機器人控制任務",
+        "研究潛在空間的可解釋性"
       ]
     },
     {
       "id": "A Tsetlin Machine-driven Intrusion Detection System for Next-Generation IoMT Security",
-      "group": "資安 / 機器學習",
+      "group": "資安",
       "title": "A Tsetlin Machine-driven Intrusion Detection System for Next-Generation IoMT Security",
-      "summary": "策特林機驅動的IoMT入侵偵測系統",
-      "contribution": "利用策特林機的解釋性與高效性，為物聯網醫療設備提供輕量級且精準的入侵偵測。",
+      "summary": "策特林機驅動的入侵偵測",
+      "contribution": "提出基於策特林機的入侵偵測系統，為物聯網醫療設備提供高效、輕量級的安全防護。",
       "directions": [
-        "將策特林機應用於其他資安威脅檢測",
-        "研究其在邊緣裝置上的部署與優化"
+        "評估在不同IoMT環境下的效能",
+        "結合區塊鏈技術增強數據完整性"
       ]
     },
     {
       "id": "Safety-Critical Centralized Nonlinear MPC for Cooperative Payload Transportation by Two Quadrupedal Robots",
-      "group": "控制理論 / 機器人學",
+      "group": "控制理論/機器人",
       "title": "Safety-Critical Centralized Nonlinear MPC for Cooperative Payload Transportation by Two Quadrupedal Robots",
-      "summary": "兩足機器人協作運輸的安全MPC",
-      "contribution": "提出集中式非線性模型預測控制，確保兩足機器人協作運輸重物時的安全性與穩定性。",
+      "summary": "機器人協同運輸安全MPC",
+      "contribution": "開發集中式非線性模型預測控制，確保兩足機器人協同運輸負載時的安全性與穩定性。",
       "directions": [
-        "擴展至多個異構機器人的協作控制",
-        "結合強化學習提升MPC的適應性"
+        "擴展至多個異構機器人協同",
+        "研究分散式MPC的安全性保證"
       ]
     },
     {
       "id": "Learning the Signature of Memorization in Autoregressive Language Models",
-      "group": "機器學習 / 自然語言處理",
+      "group": "機器學習",
       "title": "Learning the Signature of Memorization in Autoregressive Language Models",
-      "summary": "學習自迴歸語言模型記憶化特徵",
-      "contribution": "識別並量化自迴歸語言模型中記憶化現象的特徵，有助於理解模型行為與隱私風險。",
+      "summary": "學習語言模型記憶化特徵",
+      "contribution": "識別自回歸語言模型中記憶化的獨特模式，有助於理解模型行為與隱私風險。",
       "directions": [
-        "利用記憶化特徵提升模型可解釋性",
-        "開發防範模型記憶化洩露的機制"
+        "開發記憶化檢測工具",
+        "研究記憶化與模型泛化能力的關係"
       ]
     },
     {
       "id": "Real-Time Surrogate Modeling for Personalized Blood Flow Prediction and Hemodynamic Analysis",
-      "group": "醫學影像 / 機器學習",
+      "group": "生物醫學工程/機器學習",
       "title": "Real-Time Surrogate Modeling for Personalized Blood Flow Prediction and Hemodynamic Analysis",
-      "summary": "即時代理模型預測血流與血動力學",
-      "contribution": "開發即時代理模型，實現個性化血流預測與血動力學分析，加速醫療診斷。",
+      "summary": "即時血流預測代理模型",
+      "contribution": "建立即時代理模型，實現個性化血流動力學分析與預測，加速臨床診斷。",
       "directions": [
-        "將代理模型應用於其他生理參數預測",
-        "結合多模態醫學影像提升預測精度"
+        "整合多模態生理數據",
+        "應用於心血管疾病風險評估"
       ]
     },
     {
       "id": "The Compression Gap: Why Discrete Tokenization Limits Vision-Language-Action Model Scaling",
-      "group": "機器學習 / 多模態",
+      "group": "機器學習",
       "title": "The Compression Gap: Why Discrete Tokenization Limits Vision-Language-Action Model Scaling",
-      "summary": "離散分詞限制多模態模型擴展",
-      "contribution": "分析離散分詞在視覺-語言-動作模型中造成的壓縮限制，指出其對模型擴展性的影響。",
+      "summary": "離散分詞限制模型擴展",
+      "contribution": "分析離散分詞在多模態模型中造成的壓縮差距，解釋其對模型擴展性的限制。",
       "directions": [
-        "探索連續表示或新型分詞方法",
-        "研究壓縮差距對不同模態的影響"
+        "探索連續表示或混合分詞策略",
+        "研究壓縮差距對模型泛化的影響"
       ]
     },
     {
       "id": "Gradient Boosting within a Single Attention Layer",
       "group": "機器學習",
       "title": "Gradient Boosting within a Single Attention Layer",
-      "summary": "單一注意力層內的梯度提升",
-      "contribution": "將梯度提升思想融入單一注意力層，提升模型學習效率與表達能力。",
+      "summary": "單一注意力層內梯度提升",
+      "contribution": "將梯度提升思想融入單一注意力層，提升模型表達能力與訓練效率。",
       "directions": [
-        "將此機制應用於其他深度學習架構",
-        "分析其在不同任務上的收斂特性"
+        "應用於大型語言模型架構",
+        "分析其理論收斂性與穩定性"
       ]
     },
     {
       "id": "Reflective Context Learning: Studying the Optimization Primitives of Context Space",
       "group": "機器學習",
       "title": "Reflective Context Learning: Studying the Optimization Primitives of Context Space",
-      "summary": "反思性上下文學習優化原語",
-      "contribution": "深入研究上下文空間的優化原語，提出反思性上下文學習，提升模型適應性。",
+      "summary": "反射式上下文學習優化",
+      "contribution": "提出反射式上下文學習，深入探討上下文空間的優化原語，增強模型適應性。",
       "directions": [
-        "將反思性學習應用於少樣本學習",
-        "探索上下文空間的幾何結構"
+        "應用於少樣本學習場景",
+        "研究上下文表示的泛化能力"
       ]
     },
     {
       "id": "PRISM: LLM-Guided Semantic Clustering for High-Precision Topics",
-      "group": "自然語言處理 / 機器學習",
+      "group": "自然語言處理",
       "title": "PRISM: LLM-Guided Semantic Clustering for High-Precision Topics",
-      "summary": "LLM引導的語義聚類高精度主題",
-      "contribution": "利用大型語言模型引導語義聚類，實現高精度主題發現與分類。",
+      "summary": "LLM引導的語義聚類",
+      "contribution": "利用大型語言模型引導語義聚類，實現高精度主題發現與文本組織。",
       "directions": [
-        "將PRISM應用於多語言主題發現",
-        "結合知識圖譜增強主題關聯性"
+        "擴展至多語言主題建模",
+        "結合知識圖譜增強主題連貫性"
       ]
     },
     {
       "id": "Understanding the Role of Hallucination in Reinforcement Post-Training of Multimodal Reasoning Models",
-      "group": "機器學習 / 多模態",
+      "group": "機器學習",
       "title": "Understanding the Role of Hallucination in Reinforcement Post-Training of Multimodal Reasoning Models",
-      "summary": "理解多模態模型幻覺在強化後訓練中作用",
-      "contribution": "探討強化後訓練如何影響多模態推理模型的幻覺現象，並提出緩解策略。",
+      "summary": "理解多模態模型幻覺",
+      "contribution": "深入分析強化後訓練中多模態模型幻覺現象，提供改進模型可靠性的見解。",
       "directions": [
-        "開發新的指標量化模型幻覺程度",
-        "研究幻覺在不同模態間的傳播機制"
+        "開發幻覺檢測與抑制機制",
+        "研究幻覺與模型知識邊界的關係"
       ]
     },
     {
       "id": "From Gaussian Fading to Gilbert-Elliott: Bridging Physical and Link-Layer Channel Models in Closed Form",
       "group": "通訊",
       "title": "From Gaussian Fading to Gilbert-Elliott: Bridging Physical and Link-Layer Channel Models in Closed Form",
-      "summary": "橋接高斯衰落與吉爾伯特-艾略特模型",
-      "contribution": "首次以閉合形式建立高斯衰落與吉爾伯特-艾略特通道模型橋樑，統一物理與鏈路層分析。",
+      "summary": "橋接物理層與鏈路層模型",
+      "contribution": "以閉合形式建立高斯衰落與吉爾伯特-艾略特模型之間的橋樑，統一不同層次信道建模。",
       "directions": [
-        "將此橋接方法擴展至其他通道模型",
-        "應用於無線通訊系統的效能預測"
+        "應用於5G/6G無線網路設計",
+        "考慮多天線系統的信道建模"
       ]
     }
   ],
@@ -160,61 +160,67 @@
       "source": "Enhancing Robustness of Federated Learning via Server Learning",
       "target": "A Tsetlin Machine-driven Intrusion Detection System for Next-Generation IoMT Security",
       "is_cross_domain": true,
-      "hidden_insight": "兩者都關注在惡劣或不確定環境下，如何從分散式或嘈雜的數據中學習並做出可靠的決策，底層都涉及對異常模式的識別與對抗。"
-    },
-    {
-      "source": "Hierarchical Planning with Latent World Models",
-      "target": "Safety-Critical Centralized Nonlinear MPC for Cooperative Payload Transportation by Two Quadrupedal Robots",
-      "is_cross_domain": true,
-      "hidden_insight": "兩者都處理複雜系統中的決策與控制問題。前者透過分層抽象處理長期規劃，後者透過模型預測控制處理即時安全約束，本質上都是在多時間尺度下進行優化與策略生成。"
-    },
-    {
-      "source": "The Compression Gap: Why Discrete Tokenization Limits Vision-Language-Action Model Scaling",
-      "target": "Learning the Signature of Memorization in Autoregressive Language Models",
-      "is_cross_domain": false,
-      "hidden_insight": "兩者都探討模型內部資訊表示與處理的限制。前者關注離散分詞對多模態模型擴展的壓縮限制，後者則研究模型記憶化現象，共同觸及了模型如何有效且不冗餘地編碼和利用資訊的深層問題。"
-    },
-    {
-      "source": "From Gaussian Fading to Gilbert-Elliott: Bridging Physical and Link-Layer Channel Models in Closed Form",
-      "target": "Real-Time Surrogate Modeling for Personalized Blood Flow Prediction and Hemodynamic Analysis",
-      "is_cross_domain": true,
-      "hidden_insight": "兩者都旨在建立簡化或橋接的模型來理解複雜系統。前者橋接物理層與鏈路層的通道模型，後者建立代理模型來加速複雜的血流模擬，核心都是用更易處理的模型來近似或連接真實世界的複雜動態。"
+      "hidden_insight": "兩者皆處理分散式/邊緣系統的魯棒性與安全性挑戰。底層同構性在於如何從不完整或受損的資訊中，做出可靠的決策或識別異常模式。"
     },
     {
       "source": "Neuromorphic Realization of Best Response in Finite-Action Games",
+      "target": "Hierarchical Planning with Latent World Models",
+      "is_cross_domain": true,
+      "hidden_insight": "兩者皆探索複雜系統中的決策機制。博弈論的最佳回應是規劃的基礎單元，而神經形態實現則提供了低功耗、並行處理的潛在硬體基礎。"
+    },
+    {
+      "source": "Power one sequential tests exist for weakly compact $\\mathscr P$ against $\\mathscr P^c$",
       "target": "A Tsetlin Machine-driven Intrusion Detection System for Next-Generation IoMT Security",
       "is_cross_domain": true,
-      "hidden_insight": "兩者都利用特定計算架構（類神經硬體/策特林機）來實現高效的模式識別或決策。前者在博弈論中尋找最佳回應，後者在資安中檢測入侵，都體現了特定計算模型在處理離散決策或模式匹配上的潛力。"
-    },
-    {
-      "source": "Power one sequential tests exist for weakly compact P against Pc",
-      "target": "Safety-Critical Centralized Nonlinear MPC for Cooperative Payload Transportation by Two Quadrupedal Robots",
-      "is_cross_domain": true,
-      "hidden_insight": "兩者都涉及在序列決策過程中，如何根據不斷獲取的資訊來做出可靠且有保證的判斷。前者是統計假設檢定的序貫性，後者是控制系統的即時安全保證，都強調了在動態環境下決策的穩健性。"
-    },
-    {
-      "source": "Gradient Boosting within a Single Attention Layer",
-      "target": "Reflective Context Learning: Studying the Optimization Primitives of Context Space",
-      "is_cross_domain": false,
-      "hidden_insight": "兩者都探索了深度學習模型中學習效率與表達能力的提升。前者將梯度提升思想融入注意力機制，後者研究上下文空間的優化原語，都旨在讓模型能更有效地從數據中迭代學習和精煉表示。"
-    },
-    {
-      "source": "PRISM: LLM-Guided Semantic Clustering for High-Precision Topics",
-      "target": "Understanding the Role of Hallucination in Reinforcement Post-Training of Multimodal Reasoning Models",
-      "is_cross_domain": false,
-      "hidden_insight": "兩者都與大型語言模型 (LLM) 的能力和局限性相關。前者利用LLM的語義理解能力進行高精度聚類，後者則探討LLM在多模態推理中產生幻覺的問題，共同揭示了LLM在知識組織與可靠性方面的挑戰。"
-    },
-    {
-      "source": "Enhancing Robustness of Federated Learning via Server Learning",
-      "target": "Learning the Signature of Memorization in Autoregressive Language Models",
-      "is_cross_domain": false,
-      "hidden_insight": "兩者都關乎模型在學習過程中的隱私與安全。前者旨在保護聯邦學習免受惡意攻擊，後者則研究模型記憶化可能導致的隱私洩露，共同指向了在分散式或大規模學習中如何平衡效能與資訊安全。"
+      "hidden_insight": "統計學的序貫檢定為即時、證據累積式的異常偵測提供了堅實的理論框架，兩者核心皆是基於序列數據進行高效決策。"
     },
     {
       "source": "Hierarchical Planning with Latent World Models",
+      "target": "Safety-Critical Centralized Nonlinear MPC for Cooperative Payload Transportation by Two Quadrupedal Robots",
+      "is_cross_domain": true,
+      "hidden_insight": "兩者皆處理複雜系統的規劃與控制。分層規劃提供高層次策略，而MPC則負責低層次、安全關鍵的即時執行，形成多尺度決策的同構。"
+    },
+    {
+      "source": "Real-Time Surrogate Modeling for Personalized Blood Flow Prediction and Hemodynamic Analysis",
       "target": "The Compression Gap: Why Discrete Tokenization Limits Vision-Language-Action Model Scaling",
-      "is_cross_domain": false,
-      "hidden_insight": "兩者都涉及如何有效地表示和處理複雜資訊以支持決策。前者透過分層抽象和潛在世界模型來壓縮環境資訊以進行規劃，後者則指出離散分詞在多模態模型中造成的壓縮限制，共同探討了資訊壓縮與表示對智能系統效能的關鍵影響。"
+      "is_cross_domain": true,
+      "hidden_insight": "兩者皆探討模型複雜度、表示效率與資訊壓縮的權衡。代理模型是將複雜物理過程壓縮為高效計算模型，而離散分詞則揭示了資訊壓縮對模型擴展性的限制。"
+    },
+    {
+      "source": "The Compression Gap: Why Discrete Tokenization Limits Vision-Language-Action Model Scaling",
+      "target": "From Gaussian Fading to Gilbert-Elliott: Bridging Physical and Link-Layer Channel Models in Closed Form",
+      "is_cross_domain": true,
+      "hidden_insight": "兩者皆關注不同抽象層次間的表示與建模問題。後者橋接物理層與鏈路層模型，尋求統一表示；前者則指出離散表示在多模態模型中造成的「壓縮鴻溝」。"
+    },
+    {
+      "source": "PRISM: LLM-Guided Semantic Clustering for High-Precision Topics",
+      "target": "Hierarchical Planning with Latent World Models",
+      "is_cross_domain": true,
+      "hidden_insight": "兩者皆利用「潛在表示」來抽象複雜資訊。LLM引導的語義聚類從文本中發現潛在主題，而分層規劃則從環境中學習潛在世界模型，以實現高效決策。"
+    },
+    {
+      "source": "Learning the Signature of Memorization in Autoregressive Language Models",
+      "target": "Enhancing Robustness of Federated Learning via Server Learning",
+      "is_cross_domain": true,
+      "hidden_insight": "兩者皆關乎機器學習模型的隱私與安全性。記憶化揭示了模型潛在的數據洩露風險，而聯邦學習的魯棒性則旨在保護分佈式數據的隱私與模型完整性。"
+    },
+    {
+      "source": "Understanding the Role of Hallucination in Reinforcement Post-Training of Multimodal Reasoning Models",
+      "target": "Power one sequential tests exist for weakly compact $\\mathscr P$ against $\\mathscr P^c$",
+      "is_cross_domain": true,
+      "hidden_insight": "模型幻覺代表事實一致性的失敗，可視為一種假設檢定問題。統計學的序貫檢定提供了一種高效累積證據來驗證或反駁此類假設的框架。"
+    },
+    {
+      "source": "Gradient Boosting within a Single Attention Layer",
+      "target": "Safety-Critical Centralized Nonlinear MPC for Cooperative Payload Transportation by Two Quadrupedal Robots",
+      "is_cross_domain": true,
+      "hidden_insight": "兩者皆利用迭代優化來提升系統性能。梯度提升在模型學習中迭代修正誤差，而MPC則在控制中迭代優化未來行動序列，本質上都是基於誤差反饋的學習與決策。"
+    },
+    {
+      "source": "Reflective Context Learning: Studying the Optimization Primitives of Context Space",
+      "target": "Neuromorphic Realization of Best Response in Finite-Action Games",
+      "is_cross_domain": true,
+      "hidden_insight": "反射式上下文學習強調模型對環境上下文的適應與優化，這與神經形態系統在有限資源下快速學習並做出最佳回應的機制有異曲同工之妙，兩者皆追求高效的環境互動與決策。"
     }
   ]
 }
