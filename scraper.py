@@ -13,11 +13,13 @@ def fetch_arxiv_papers(query="cat:cs.LG OR cat:cs.CR", max_results=15):
             num_retries=3
         )
         
-        # 2. 設定搜尋條件
+        # [MVP 驗證] 將原本侷限在資工領域的 search_query 替換為跨域組合
+        # 新增：stat.ML (統計機器學習), eess.SP (訊號處理), math.OC (最佳化與控制)
         search = arxiv.Search(
-            query=query,
-            max_results=max_results,
-            sort_by=arxiv.SortCriterion.SubmittedDate
+            query="cat:cs.LG OR cat:cs.CR OR cat:stat.ML OR cat:eess.SP OR cat:math.OC",
+            max_results=max_results, # 保持原本的抓取數量即可
+            sort_by=arxiv.SortCriterion.SubmittedDate,
+            sort_order=arxiv.SortOrder.Descending
         )
         
         # 3. 執行搜尋並格式化
