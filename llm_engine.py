@@ -41,7 +41,8 @@ def analyze_papers_with_routing(paper_data, user_tier="Free"):
         return f"❌ Agent A (Groq) 執行失敗: {e}"
 
     # 如果初篩結果是空的，就不用浪費 Gemini 的錢了
-    if "無" in filtered_papers or not filtered_papers.strip():
+    # [Hotfix] 改用精確比對避免論文標題含「無」字被誤殺
+    if filtered_papers.strip() == "無" or not filtered_papers.strip():
         return "本週無具備重大突破之論文。"
 
     # ==========================================

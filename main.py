@@ -106,6 +106,11 @@ def main():
     print("🏭 啟動 Pro 產線：摘要與方向建議...")
     pro_report = analyze_papers_with_routing(paper_data, user_tier="Pro")
     
+    # [Hotfix] 錯誤阻斷機制：若 LLM 發生錯誤或初篩發現無論文，則中斷後續歸檔與寄信
+    if pro_report.startswith("❌") or pro_report.startswith("⚠️") or "本週無具備重大突破之論文" in pro_report:
+        print(f"\n🛑 管線安全中斷: {pro_report}")
+        return
+    
     md_filename = f"archive/report_{today_str}.md"
     with open(md_filename, "w", encoding="utf-8") as f:
         f.write(f"# 📅 {today_str} 學術前沿報告 (Pro Edition)\n\n")
