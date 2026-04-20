@@ -102,10 +102,12 @@ document.querySelectorAll('.pb-domain-checkbox').forEach(cb => {
 // ── 讀取 JSON ──────────────────────────────────────────────────────
 async function fetchReport() {
     try {
-        const res = await fetch('archive/report_latest.json');
+        const res = await fetch('./archive/report_latest.json');
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         reportData = await res.json();
     } catch (err) {
-        console.error("無法讀取 report_latest.json", err);
+        console.error("【開發者提示】無法讀取 report_latest.json。詳細原因：", err);
+        console.error("請檢查 GitHub Actions 是否成功執行並 Push 了 archive/ 資料夾。");
         document.getElementById('paper-container').innerHTML =
             `<div class="carousel-item py-20 text-center text-red-400 text-sm">
                 無法讀取報告，請確認伺服器已啟動且 JSON 存在。
