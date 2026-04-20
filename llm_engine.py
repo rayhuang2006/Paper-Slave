@@ -1,8 +1,6 @@
 import os
 import json
 from groq import Groq
-from google import genai
-from google.genai import types
 from prompts import (
     AGENT_A_SYSTEM, AGENT_A_USER,
     AGENT_B_SYSTEM, AGENT_B_USER,
@@ -46,33 +44,30 @@ def analyze_papers_with_routing(paper_data, user_tier="Free"):
         return "本週無具備重大突破之論文。"
 
     # ==========================================
-    # 階段 2：大腦深加工 (根據 Tier 分發給 Agent B 或 C)
+    # 階段 2：大腦深加工 (全面切換至 Groq 引擎)
     # ==========================================
-    gemini_api_key = os.getenv("GEMINI_API_KEY")
-    gemini_client = genai.Client(api_key=gemini_api_key)
-
     if user_tier == "Pro":
-        print("🧠 [Agent B] 啟動：使用 Gemini 2.5 進行 Pro 級深度解析...")
+        print("🧠 [Agent B] 啟動：使用 Groq (Llama-3.3-70B) 進行 Pro 級深度解析...")
         prompt = AGENT_B_USER.format(filtered_papers=filtered_papers)
         system_instruction = AGENT_B_SYSTEM
-        response_mime_type = "text/plain" # Pro 版輸出 Markdown
         
     elif user_tier == "Ultra":
-        print("🌌 [Agent C] 啟動：使用 Gemini 2.5 進行 Ultra 級跨域圖譜建構...")
+        print("🌌 [Agent C] 啟動：使用 Groq (Llama-3.3-70B) 進行 Ultra 級跨域圖譜建構...")
         prompt = AGENT_C_USER.format(filtered_papers=filtered_papers)
-        system_instruction = AGENT_C_SYSTEM
-        response_mime_type = "application/json" # 🌟 核心技巧：強制 Gemini 只吐 JSON
+        # 強烈要求 JSON 格式，排除任何額外文字或標記
+        system_instruction = AGENT_C_SYSTEM + "\n\nIMPORTANT: You must output a valid JSON string ONLY. NO markdown code blocks (e.g., ```json), NO headers, NO conversational filler. Just the raw JSON object."
         
     try:
-        response = gemini_client.models.generate_content(
-            model='gemini-2.5-flash',
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                system_instruction=system_instruction,
-                temperature=0.2,
-                response_mime_type=response_mime_type, 
-            ),
+        completion = groq_client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=[
+                {"role": "system", "content": system_instruction},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.2,
+            # 強制 Groq 進行 JSON 模式 (如果支援的話)
+            response_format={"type": "json_object"} if user_tier == "Ultra" else None
         )
-        return response.text
+        return completion.choices[0].message.content
     except Exception as e:
-        return f"❌ 深度大腦 (Gemini) 分析過程中發生錯誤: {e}"
+        return f"❌ 深度大腦 (Groq-Llama3) 執行失敗: {e}"

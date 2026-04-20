@@ -1,1 +1,189 @@
-❌ 深度大腦 (Gemini) 分析過程中發生錯誤: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+{
+  "nodes": [
+    {
+      "id": "Phase transitions in Doi-Onsager, Noisy Transformer, and other multimodal models",
+      "group": "機器學習",
+      "title": "Phase transitions in Doi-Onsager, Noisy Transformer, and other multimodal models",
+      "summary": "探討多模態模型的相變行為",
+      "contribution": "發現多模態模型中的相變現象對模型性能有重要影響，提出了一種新的相變偵測方法",
+      "directions": [
+        "將此方法應用於其他類型的深度學習模型",
+        "研究相變行為對模型泛化能力的影響"
+      ]
+    },
+    {
+      "id": "Geometric regularization of autoencoders via observed stochastic dynamics",
+      "group": "機器學習",
+      "title": "Geometric regularization of autoencoders via observed stochastic dynamics",
+      "summary": "提出了一種基於幾何正則化的自編碼器",
+      "contribution": "設計了一種新的正則化項，利用觀測到的隨機動力學來改善自編碼器的性能",
+      "directions": [
+        "將此方法應用於其他類型的生成模型",
+        "研究幾何正則化對模型表達能力的影響"
+      ]
+    },
+    {
+      "id": "Evaluating the Progression of Large Language Model Capabilities for Small-Molecule Drug Design",
+      "group": "機器學習",
+      "title": "Evaluating the Progression of Large Language Model Capabilities for Small-Molecule Drug Design",
+      "summary": "評估大型語言模型在小分子藥物設計中的能力",
+      "contribution": "提出了一種新的評估框架，用于評估大型語言模型在小分子藥物設計中的性能",
+      "directions": [
+        "將此框架應用於其他類型的藥物設計任務",
+        "研究大型語言模型在藥物設計中的局限性和挑戰"
+      ]
+    },
+    {
+      "id": "Learning to Reason with Insight for Informal Theorem Proving",
+      "group": "人工智慧",
+      "title": "Learning to Reason with Insight for Informal Theorem Proving",
+      "summary": "提出了一種新的定理證明方法",
+      "contribution": "設計了一種新的推理框架，利用洞察力來改善非正式定理證明的性能",
+      "directions": [
+        "將此方法應用於其他類型的推理任務",
+        "研究洞察力對推理性能的影響"
+      ]
+    },
+    {
+      "id": "FL-MHSM: Spatially-adaptive Fusion and Ensemble Learning for Flood-Landslide Multi-Hazard Susceptibility Mapping at Regional Scale",
+      "group": "資安",
+      "title": "FL-MHSM: Spatially-adaptive Fusion and Ensemble Learning for Flood-Landslide Multi-Hazard Susceptibility Mapping at Regional Scale",
+      "summary": "提出了一種新的多危險性評估方法",
+      "contribution": "設計了一種新的空間自適應融合和集成學習框架，用于區域尺度的洪水和山體滑坡多危險性評估",
+      "directions": [
+        "將此方法應用於其他類型的自然災害評估任務",
+        "研究空間自適應融合對評估性能的影響"
+      ]
+    },
+    {
+      "id": "Information Router for Mitigating Modality Dominance in Vision-Language Models",
+      "group": "機器學習",
+      "title": "Information Router for Mitigating Modality Dominance in Vision-Language Models",
+      "summary": "提出了一種新的視覺語言模型",
+      "contribution": "設計了一種新的信息路由機制，用于減輕模態主導現象對視覺語言模型的影響",
+      "directions": [
+        "將此方法應用於其他類型的多模態模型",
+        "研究信息路由對模型性能的影響"
+      ]
+    },
+    {
+      "id": "Beyond Distribution Sharpening: The Importance of Task Rewards",
+      "group": "機器學習",
+      "title": "Beyond Distribution Sharpening: The Importance of Task Rewards",
+      "summary": "探討任務獎勵對模型性能的影響",
+      "contribution": "提出了一種新的任務獎勵框架，用于改善模型的性能",
+      "directions": [
+        "將此框架應用於其他類型的深度學習模型",
+        "研究任務獎勵對模型泛化能力的影響"
+      ]
+    },
+    {
+      "id": "Joint-Centric Dual Contrastive Alignment with Structure-Preserving and Information-Balanced Regularization",
+      "group": "機器學習",
+      "title": "Joint-Centric Dual Contrastive Alignment with Structure-Preserving and Information-Balanced Regularization",
+      "summary": "提出了一種新的對比對齊方法",
+      "contribution": "設計了一種新的對比對齊框架，利用結構保留和信息平衡正則化來改善模型的性能",
+      "directions": [
+        "將此方法應用於其他類型的深度學習模型",
+        "研究對比對齊對模型表達能力的影響"
+      ]
+    },
+    {
+      "id": "Detecting and Suppressing Reward Hacking with Gradient Fingerprints",
+      "group": "資安",
+      "title": "Detecting and Suppressing Reward Hacking with Gradient Fingerprints",
+      "summary": "提出了一種新的獎勵黑客攻擊檢測方法",
+      "contribution": "設計了一種新的梯度指紋機制，用于檢測和抑制獎勵黑客攻擊",
+      "directions": [
+        "將此方法應用於其他類型的強化學習模型",
+        "研究梯度指紋對攻擊檢測的影響"
+      ]
+    },
+    {
+      "id": "Adaptive multi-fidelity optimization with fast learning rates",
+      "group": "機器學習",
+      "title": "Adaptive multi-fidelity optimization with fast learning rates",
+      "summary": "提出了一種新的多保真度優化方法",
+      "contribution": "設計了一種新的自適應多保真度優化框架，用于改善模型的性能",
+      "directions": [
+        "將此方法應用於其他類型的優化任務",
+        "研究自適應多保真度優化對模型學習率的影響"
+      ]
+    },
+    {
+      "id": "Enhancing AI and Dynamical Subseasonal Forecasts with Probabilistic Bias Correction",
+      "group": "機器學習",
+      "title": "Enhancing AI and Dynamical Subseasonal Forecasts with Probabilistic Bias Correction",
+      "summary": "提出了一種新的概率偏差糾正方法",
+      "contribution": "設計了一種新的概率偏差糾正框架，用于改善AI和動力學子季節預報的性能",
+      "directions": [
+        "將此方法應用於其他類型的預報任務",
+        "研究概率偏差糾正對預報性能的影響"
+      ]
+    },
+    {
+      "id": "Neuro-Symbolic ODE Discovery with Latent Grammar Flow",
+      "group": "機器學習",
+      "title": "Neuro-Symbolic ODE Discovery with Latent Grammar Flow",
+      "summary": "提出了一種新的神經符號ODE發現方法",
+      "contribution": "設計了一種新的潛在語法流框架，用于改善神經符號ODE發現的性能",
+      "directions": [
+        "將此方法應用於其他類型的ODE發現任務",
+        "研究潛在語法流對ODE發現的影響"
+      ]
+    },
+    {
+      "id": "OT on the Map: Quantifying Domain Shifts in Geographic Space",
+      "group": "機器學習",
+      "title": "OT on the Map: Quantifying Domain Shifts in Geographic Space",
+      "summary": "提出了一種新的域移位量化方法",
+      "contribution": "設計了一種新的OT地圖框架，用于量化地理空間中的域移位",
+      "directions": [
+        "將此方法應用於其他類型的域適應任務",
+        "研究OT地圖對域移位量化的影響"
+      ]
+    },
+    {
+      "id": "A Bayesian Updating Framework for Long-term Multi-Environment Trial Data in Plant Breeding",
+      "group": "機器學習",
+      "title": "A Bayesian Updating Framework for Long-term Multi-Environment Trial Data in Plant Breeding",
+      "summary": "提出了一種新的長期多環境試驗數據更新框架",
+      "contribution": "設計了一種新的貝氏更新框架，用于改善植物育種中的長期多環境試驗數據分析",
+      "directions": [
+        "將此方法應用於其他類型的育種任務",
+        "研究貝氏更新對試驗數據分析的影響"
+      ]
+    },
+    {
+      "id": "Sketching the Readout of Large Language Models for Scalable Data Attribution and Valuation",
+      "group": "機器學習",
+      "title": "Sketching the Readout of Large Language Models for Scalable Data Attribution and Valuation",
+      "summary": "提出了一種新的大型語言模型讀出方法",
+      "contribution": "設計了一種新的大型語言模型讀出框架，用于改善數據歸屬和評估的可擴展性",
+      "directions": [
+        "將此方法應用於其他類型的語言模型",
+        "研究大型語言模型讀出對數據歸屬和評估的影響"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "source": "Phase transitions in Doi-Onsager, Noisy Transformer, and other multimodal models",
+      "target": "Information Router for Mitigating Modality Dominance in Vision-Language Models",
+      "is_cross_domain": true,
+      "hidden_insight": "這兩篇論文都關注於多模態模型的性能改善，前者探討相變行為，後者提出信息路由機制，兩者都旨在減輕模態主導現象對模型性能的影響。"
+    },
+    {
+      "source": "Geometric regularization of autoencoders via observed stochastic dynamics",
+      "target": "Joint-Centric Dual Contrastive Alignment with Structure-Preserving and Information-Balanced Regularization",
+      "is_cross_domain": true,
+      "hidden_insight": "這兩篇論文都關注於模型正則化，前者提出幾何正則化，後者提出對比對齊框架，兩者都旨在改善模型的性能和泛化能力。"
+    },
+    {
+      "source": "Evaluating the Progression of Large Language Model Capabilities for Small-Molecule Drug Design",
+      "target": "Sketching the Readout of Large Language Models for Scalable Data Attribution and Valuation",
+      "is_cross_domain": true,
+      "hidden_insight": "這兩篇論文都關注於大型語言模型的應用，前者評估模型在小分子藥物設計中的能力，後者提出大型語言模型讀出框架，兩者都旨在改善模型的性能和可擴展性。"
+    }
+  ]
+}
