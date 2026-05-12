@@ -1,1 +1,129 @@
-❌ 深度大腦 (Groq-Llama3) 執行失敗: Error code: 400 - {'error': {'message': "Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.", 'type': 'invalid_request_error', 'code': 'json_validate_failed', 'failed_generation': '{\n  "nodes":[\n      {\n         "id":"EvoPoC: Automated Exploit Synthesis for DeFi Smart Contracts via Hierarchical Knowledge Graphs",\n         "group":"資安",\n         "title":"EvoPoC: Automated Exploit Synthesis for DeFi Smart Contracts via Hierarchical Knowledge Graphs",\n         "summary":"自動化合約漏洞探測",\n         "contribution":"提出層次化知識圖方法，自動合成 DeFi 智能合約漏洞",\n         "directions":[\n            "應用於其他區塊鏈平台的智能合約安全評估",\n            "結合機器學習技術進一步提高漏洞探測精度"\n         ]\n      },\n      {\n         "id":"Enhancing RL Generalizability in Robotics through SHAP Analysis of Algorithms and Hyperparameters",\n         "group":"機器學習",\n         "title":"Enhancing RL Generalizability in Robotics through SHAP Analysis of Algorithms and Hyperparameters",\n         "summary":"強化機器人學習泛化能力",\n         "contribution":"使用 SHAP 分析提高強化學習算法在機器人領域的泛化能力",\n         "directions":[\n            "應用於其他領域的強化學習泛化能力提升",\n            "結合多智能體學習技術進一步提高泛化能力"\n         ]\n      },\n      {\n         "id":"Standing on the Shoulders of Giants: Stabilized Knowledge Distillation for Cross--Language Code Clone Detection",\n         "group":"資安",\n         "title":"Standing on the Shoulders of Giants: Stabilized Knowledge Distillation for Cross--Language Code Clone Detection",\n         "summary":"跨語言代碼克隆檢測",\n         "contribution":"提出穩定化知識蒸餾方法，提高跨語言代碼克隆檢測精度",\n         "directions":[\n            "應用於其他程式語言的代碼克隆檢測",\n            "結合深度學習技術進一步提高檢測精度"\n         ]\n      },\n      {\n         "id":"The 1-Bit Barrier is Universal: k-Stage Pipeline Composition and Unified Leakage Bounds for Standard Modular Reductions in PQC Hardware",\n         "group":"資安",\n         "title":"The 1-Bit Barrier is Universal: k-Stage Pipeline Composition and Unified Leakage Bounds for Standard Modular Reductions in PQC Hardware",\n         "summary":"後量子密碼學硬件安全性",\n         "contribution":"提出統一的漏洩界限，提高 PQC 硬件的安全性",\n         "directions":[\n            "應用於其他後量子密碼學算法的安全性評估",\n            "結合形式化驗證技術進一步提高安全性"\n         ]\n      },\n      {\n         "id":"Trust, but Verify: Peeling Low-Bit Transformer Networks for Training Monitoring",\n         "group":"機器學習",\n         "title":"Trust, but Verify: Peeling Low-Bit Transformer Networks for Training Monitoring",\n         "summary":"Transformer 網路訓練監控",\n         "contribution":"提出低位 Transformer 網路剝離方法，提高訓練監控效率",\n         "directions":[\n            "應用於其他深度學習模型的訓練監控",\n            "結合知識蒸餾技術進一步提高監控精度"\n         ]\n      },\n      {\n         "id":"A second-order method on the Stiefel manifold via Newton$\\unicode{x2013}$Schulz",\n         "group":"統計",\n         "title":"A second-order method on the Stiefel manifold via Newton$\\unicode{x2013}$Schulz",\n         "summary":"二階優化方法",\n         "contribution":"提出二階優化方法，提高 Stiefel 流形上的優化效率",\n         "directions":[\n            "應用於其他流形上的優化問題",\n            "結合隨機優化技術進一步提高效率"\n         ]\n      },\n      {\n         "id":"A Closed-Form Persistence-Landmark Pipeline for Certified Point-Cloud and Graph Classification",\n         "group":"機器學習",\n         "title":"A Closed-Form Persistence-Landmark Pipeline for Certified Point-Cloud and Graph Classification",\n         "summary":"點雲和圖分類",\n         "contribution":"提出閉式持久性地標管道，提高點雲和圖分類精度",\n         "directions":[\n            "應用於其他 3D 資料的分類任務",\n            "結合注意力機制技術進一步提高分類精度"\n         ]\n      },\n      {\n         "id":"First-Order Efficiency for Probabilistic Value Estimation via A Statistical Viewpoint",\n         "group":"統計",\n         "title":"First-Order Efficiency for Probabilistic Value Estimation via A Statistical Viewpoint",\n         "summary":"概率值估計",\n         "contribution":"提出一階效率方法，提高概率值估計精度",\n         "directions":[\n            "應用於其他概率估計問題",\n            "結合貝氏推斷技術進一步提高估計精度"\n         ]\n      },\n      {\n         "id":"The Bayesian Reflex: Online Learning as the Autonomic Nervous System of Modern and Future AI",\n         "group":"機器學習",\n         "title":"The Bayesian Reflex: Online Learning as the Autonomic Nervous System of Modern and Future AI",\n         "summary":"貝氏反射",\n         "contribution":"提出貝氏反射框架，提高線上學習效率",\n         "directions":[\n            "應用於其他線上學習任務",\n            "結合深度學習技術進一步提高學習效率"\n         ]\n      },\n      {\n         "id":"Statistical Inference of Day-to-Day Traffic Dynamics",\n         "group":"統計",\n         "title":"Statistical Inference of Day-to-Day Traffic Dynamics",\n         "summary":"日常交通動態統計推斷",\n         "contribution":"提出統計推斷方法，提高日常交通動態分析精度",\n         "directions":[\n            "應用於其他交通系統的動態分析",\n            "結合機器學習技術進一步提高分析精度"\n         ]\n      },\n      {\n         "id":"Quantitative Weak Unique Continuation on Annular Domains for Backward Degenerate Parabolic Equations with Degenerate Interior Points",\n         "group":"統計",\n         "title":"Quantitative Weak Unique Continuation on Annular Domains for Backward Degenerate Parabolic Equations with Degenerate Interior Points",\n         "summary":"退化抛物線方程",\n         "contribution":"提出量化弱唯一續方法，提高退化抛物線方程的分析精度",\n         "directions":[\n            "應用於其他退化方程的分析",\n            "結合數值方法技術進一步提高分析精度"\n         ]\n      }\n   ],\n   "links":[\n      {\n         "source":"EvoPoC: Automated Exploit Synthesis for DeFi Smart Contracts via Hierarchical Knowledge Graphs",\n         "target":"Standing on the Shoulders of Giants: Stabilized Knowledge Distillation for Cross--Language Code Clone Detection",\n         "is_cross_domain":true,\n         "hidden_insight":"這兩篇論文都使用了知識圖和蒸餾技術，前者用於智能合約漏洞探測，後者用於跨語言代碼克隆檢測，底層都涉及到圖結構和知識表示的研究。"\n      },\n      {\n         "source":"Enhancing RL Generalizability in Robotics through SHAP Analysis of Algorithms and Hyperparameters",\n         "target":"Trust, but Verify: Peeling Low-Bit Transformer Networks for Training Monitoring",\n         "is_cross_domain":true,\n         "hidden_insight":"這兩篇論文都關注於提高模型的泛化能力，前者使用 SHAP 分析提高強化學習算法的泛化能力，後者使用低位 Transformer 網路剝離提高訓練監控效率，底層都涉及到模型複雜度和泛化能力的研究。"\n      },\n      {\n         "source":"A second-order method on the Stiefel manifold via Newton$\\unicode{x2013}$Schulz",\n         "target":"First-Order Efficiency for Probabilistic Value Estimation via A Statistical Viewpoint",\n         "is_cross_domain":true,\n         "hidden_insight":"這兩篇論文都關注於優化方法的研究，前者提出二階優化方法，後者提出一階效率方法，底層都涉及到優化問題的數學結構和算法設計。"\n      }\n   ]\n}'}}
+{
+  "nodes": [
+    {
+      "id": "Relations Are Channels: Knowledge Graph Embedding via Kraus Decompositions",
+      "group": "機器學習",
+      "title": "Relations Are Channels: Knowledge Graph Embedding via Kraus Decompositions",
+      "summary": "提出基於 Kraus 分解的知識圖嵌入方法",
+      "contribution": "首次將量子信息學中的 Kraus 分解應用於知識圖嵌入，實現了更好的嵌入表示",
+      "directions": [
+        "將此方法應用於大規模知識圖嵌入任務",
+        "結合注意力機制提高嵌入的語義表達能力"
+      ]
+    },
+    {
+      "id": "Active Tabular Augmentation via Policy-Guided Diffusion Inpainting",
+      "group": "機器學習",
+      "title": "Active Tabular Augmentation via Policy-Guided Diffusion Inpainting",
+      "summary": "提出基於策略引導的表格數據增強方法",
+      "contribution": "設計了一種基於擴散模型的表格數據增強框架，實現了高效的數據增強",
+      "directions": [
+        "將此方法應用於表格數據的缺失值填充任務",
+        "結合強化學習提高數據增強的效率"
+      ]
+    },
+    {
+      "id": "Signature Approach for Contextual Bandits with Nonlinear and Path-dependent Rewards",
+      "group": "機器學習",
+      "title": "Signature Approach for Contextual Bandits with Nonlinear and Path-dependent Rewards",
+      "summary": "提出基於簽名的上下文多臂帶獎勵問題解決方法",
+      "contribution": "設計了一種基於簽名的框架，實現了高效的上下文多臂帶獎勵問題解決",
+      "directions": [
+        "將此方法應用於複雜的上下文多臂帶獎勵問題",
+        "結合深度學習提高簽名的表達能力"
+      ]
+    },
+    {
+      "id": "Follow the Mean: Reference-Guided Flow Matching",
+      "group": "機器學習",
+      "title": "Follow the Mean: Reference-Guided Flow Matching",
+      "summary": "提出基於參考引導的流匹配方法",
+      "contribution": "設計了一種基於參考引導的框架，實現了高效的流匹配",
+      "directions": [
+        "將此方法應用於大規模流匹配任務",
+        "結合注意力機制提高匹配的準確性"
+      ]
+    },
+    {
+      "id": "Nearly-Optimal Algorithm for Adversarial Kernelized Bandits",
+      "group": "機器學習",
+      "title": "Nearly-Optimal Algorithm for Adversarial Kernelized Bandits",
+      "summary": "提出近最優的對抗核帶獎勵算法",
+      "contribution": "設計了一種近最優的框架，實現了高效的對抗核帶獎勵問題解決",
+      "directions": [
+        "將此方法應用於複雜的對抗核帶獎勵問題",
+        "結合強化學習提高算法的效率"
+      ]
+    },
+    {
+      "id": "Set Prediction for Next-Day Active Fire Forecasting",
+      "group": "機器學習",
+      "title": "Set Prediction for Next-Day Active Fire Forecasting",
+      "summary": "提出集合預測的下一天活躍火災預測方法",
+      "contribution": "設計了一種集合預測的框架，實現了高效的下一天活躍火災預測",
+      "directions": [
+        "將此方法應用於大規模火災預測任務",
+        "結合時空分析提高預測的準確性"
+      ]
+    },
+    {
+      "id": "Robust Probabilistic Shielding for Safe Offline Reinforcement Learning",
+      "group": "機器學習",
+      "title": "Robust Probabilistic Shielding for Safe Offline Reinforcement Learning",
+      "summary": "提出強健的概率屏蔽的離線強化學習方法",
+      "contribution": "設計了一種強健的概率屏蔽的框架，實現了高效的離線強化學習",
+      "directions": [
+        "將此方法應用於複雜的離線強化學習問題",
+        "結合不確定性估計提高屏蔽的可靠性"
+      ]
+    },
+    {
+      "id": "LeapTS: Rethinking Time Series Forecasting as Adaptive Multi-Horizon Scheduling",
+      "group": "機器學習",
+      "title": "LeapTS: Rethinking Time Series Forecasting as Adaptive Multi-Horizon Scheduling",
+      "summary": "提出基於自適應多視域調度的時間序列預測方法",
+      "contribution": "設計了一種基於自適應多視域調度的框架，實現了高效的時間序列預測",
+      "directions": [
+        "將此方法應用於大規模時間序列預測任務",
+        "結合注意力機制提高預測的準確性"
+      ]
+    },
+    {
+      "id": "Scalable Gaussian process inference via neural feature maps",
+      "group": "機器學習",
+      "title": "Scalable Gaussian process inference via neural feature maps",
+      "summary": "提出基於神經特徵映射的高效高斯過程推斷方法",
+      "contribution": "設計了一種基於神經特徵映射的框架，實現了高效的高斯過程推斷",
+      "directions": [
+        "將此方法應用於大規模高斯過程推斷任務",
+        "結合深度學習提高特徵映射的表達能力"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "source": "Relations Are Channels: Knowledge Graph Embedding via Kraus Decompositions",
+      "target": "Active Tabular Augmentation via Policy-Guided Diffusion Inpainting",
+      "is_cross_domain": false,
+      "hidden_insight": "這兩篇論文都使用了基於數學結構的方法，前者使用 Kraus 分解，後者使用擴散模型，實現了高效的嵌入和增強。"
+    },
+    {
+      "source": "Signature Approach for Contextual Bandits with Nonlinear and Path-dependent Rewards",
+      "target": "Follow the Mean: Reference-Guided Flow Matching",
+      "is_cross_domain": false,
+      "hidden_insight": "這兩篇論文都使用了基於簽名和參考引導的方法，實現了高效的上下文多臂帶獎勵問題解決和流匹配。"
+    },
+    {
+      "source": "Nearly-Optimal Algorithm for Adversarial Kernelized Bandits",
+      "target": "Robust Probabilistic Shielding for Safe Offline Reinforcement Learning",
+      "is_cross_domain": false,
+      "hidden_insight": "這兩篇論文都使用了基於對抗和強健的方法，實現了高效的對抗核帶獎勵問題解決和離線強化學習。"
+    },
+    {
+      "source": "LeapTS: Rethinking Time Series Forecasting as Adaptive Multi-Horizon Scheduling",
+      "target": "Scalable Gaussian process inference via neural feature maps",
+      "is_cross_domain": false,
+      "hidden_insight": "這兩篇論文都使用了基於自適應和神經特徵映射的方法，實現了高效的時間序列預測和高斯過程推斷。"
+    }
+  ]
+}
