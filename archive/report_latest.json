@@ -1,129 +1,134 @@
 {
   "nodes": [
     {
-      "id": "Relations Are Channels: Knowledge Graph Embedding via Kraus Decompositions",
+      "id": "Correlation Is Not Enough: Embedding Human Metadata for Individual Causal Discovery",
       "group": "機器學習",
-      "title": "Relations Are Channels: Knowledge Graph Embedding via Kraus Decompositions",
-      "summary": "提出基於 Kraus 分解的知識圖嵌入方法",
-      "contribution": "首次將量子信息學中的 Kraus 分解應用於知識圖嵌入，實現了更好的嵌入表示",
+      "title": "Correlation Is Not Enough: Embedding Human Metadata for Individual Causal Discovery",
+      "summary": "提出人類元數據嵌入法",
+      "contribution": "結合人類元數據和個體因果發現，提高因果關係的準確性",
       "directions": [
-        "將此方法應用於大規模知識圖嵌入任務",
-        "結合注意力機制提高嵌入的語義表達能力"
+        "應用於醫學領域的個體化治療",
+        "結合圖神經網路進行複雜關係的建模"
       ]
     },
     {
-      "id": "Active Tabular Augmentation via Policy-Guided Diffusion Inpainting",
-      "group": "機器學習",
-      "title": "Active Tabular Augmentation via Policy-Guided Diffusion Inpainting",
-      "summary": "提出基於策略引導的表格數據增強方法",
-      "contribution": "設計了一種基於擴散模型的表格數據增強框架，實現了高效的數據增強",
+      "id": "Algorithm for Contextual Queueing Bandits with Rate-Optimal Queue Length Regret",
+      "group": "統計",
+      "title": "Algorithm for Contextual Queueing Bandits with Rate-Optimal Queue Length Regret",
+      "summary": "提出隊列理論優化算法",
+      "contribution": "設計率優隊列長度遺憾的上下文隊列多臂帶子算法，提高隊列系統的效率",
       "directions": [
-        "將此方法應用於表格數據的缺失值填充任務",
-        "結合強化學習提高數據增強的效率"
+        "應用於雲計算的資源分配",
+        "結合強化學習進行動態資源調整"
       ]
     },
     {
-      "id": "Signature Approach for Contextual Bandits with Nonlinear and Path-dependent Rewards",
-      "group": "機器學習",
-      "title": "Signature Approach for Contextual Bandits with Nonlinear and Path-dependent Rewards",
-      "summary": "提出基於簽名的上下文多臂帶獎勵問題解決方法",
-      "contribution": "設計了一種基於簽名的框架，實現了高效的上下文多臂帶獎勵問題解決",
+      "id": "End-to-End Context Compression at Scale",
+      "group": "通訊",
+      "title": "End-to-End Context Compression at Scale",
+      "summary": "提出端到端上下文壓縮法",
+      "contribution": "設計大規模端到端上下文壓縮算法，提高通訊系統的效率",
       "directions": [
-        "將此方法應用於複雜的上下文多臂帶獎勵問題",
-        "結合深度學習提高簽名的表達能力"
+        "應用於物聯網的數據傳輸",
+        "結合深度學習進行智能壓縮"
       ]
     },
     {
-      "id": "Follow the Mean: Reference-Guided Flow Matching",
+      "id": "Muon Learns More Robust and Transferable Features than Adam",
       "group": "機器學習",
-      "title": "Follow the Mean: Reference-Guided Flow Matching",
-      "summary": "提出基於參考引導的流匹配方法",
-      "contribution": "設計了一種基於參考引導的框架，實現了高效的流匹配",
+      "title": "Muon Learns More Robust and Transferable Features than Adam",
+      "summary": "提出穩健特徵學習法",
+      "contribution": "設計穩健可轉移特徵學習算法，提高模型的泛化能力",
       "directions": [
-        "將此方法應用於大規模流匹配任務",
-        "結合注意力機制提高匹配的準確性"
+        "應用於圖像分類任務",
+        "結合迴歸分析進行特徵選擇"
       ]
     },
     {
-      "id": "Nearly-Optimal Algorithm for Adversarial Kernelized Bandits",
-      "group": "機器學習",
-      "title": "Nearly-Optimal Algorithm for Adversarial Kernelized Bandits",
-      "summary": "提出近最優的對抗核帶獎勵算法",
-      "contribution": "設計了一種近最優的框架，實現了高效的對抗核帶獎勵問題解決",
+      "id": "Throughput Analysis for Near-Field Mobile Communications: Beamfocusing or Caustic Beamforming?",
+      "group": "通訊",
+      "title": "Throughput Analysis for Near-Field Mobile Communications: Beamfocusing or Caustic Beamforming?",
+      "summary": "提出近場移動通訊吞吐量分析法",
+      "contribution": "設計近場移動通訊的吞吐量分析模型，比較束聚焦和災變束成形的性能",
       "directions": [
-        "將此方法應用於複雜的對抗核帶獎勵問題",
-        "結合強化學習提高算法的效率"
+        "應用於無線網路的資源分配",
+        "結合機器學習進行動態束成形"
       ]
     },
     {
-      "id": "Set Prediction for Next-Day Active Fire Forecasting",
+      "id": "FMplex: Model Virtualization for Serving Extensible Foundation Models",
       "group": "機器學習",
-      "title": "Set Prediction for Next-Day Active Fire Forecasting",
-      "summary": "提出集合預測的下一天活躍火災預測方法",
-      "contribution": "設計了一種集合預測的框架，實現了高效的下一天活躍火災預測",
+      "title": "FMplex: Model Virtualization for Serving Extensible Foundation Models",
+      "summary": "提出模型虛擬化法",
+      "contribution": "設計模型虛擬化框架，提高基礎模型的擴展性和服務能力",
       "directions": [
-        "將此方法應用於大規模火災預測任務",
-        "結合時空分析提高預測的準確性"
+        "應用於自然語言處理任務",
+        "結合遷移學習進行模型微調"
       ]
     },
     {
-      "id": "Robust Probabilistic Shielding for Safe Offline Reinforcement Learning",
-      "group": "機器學習",
-      "title": "Robust Probabilistic Shielding for Safe Offline Reinforcement Learning",
-      "summary": "提出強健的概率屏蔽的離線強化學習方法",
-      "contribution": "設計了一種強健的概率屏蔽的框架，實現了高效的離線強化學習",
+      "id": "Data-driven discovery of governing differential equations across physical systems",
+      "group": "統計",
+      "title": "Data-driven discovery of governing differential equations across physical systems",
+      "summary": "提出數據驅動的微分方程發現法",
+      "contribution": "設計數據驅動的微分方程發現算法，適用於各種物理系統",
       "directions": [
-        "將此方法應用於複雜的離線強化學習問題",
-        "結合不確定性估計提高屏蔽的可靠性"
+        "應用於氣象預報",
+        "結合機器學習進行複雜系統的建模"
       ]
     },
     {
-      "id": "LeapTS: Rethinking Time Series Forecasting as Adaptive Multi-Horizon Scheduling",
+      "id": "ReCoVLA: VLM-Guided Reward Compilation for Failure Recovery in Vision-Language-Action Policies",
       "group": "機器學習",
-      "title": "LeapTS: Rethinking Time Series Forecasting as Adaptive Multi-Horizon Scheduling",
-      "summary": "提出基於自適應多視域調度的時間序列預測方法",
-      "contribution": "設計了一種基於自適應多視域調度的框架，實現了高效的時間序列預測",
+      "title": "ReCoVLA: VLM-Guided Reward Compilation for Failure Recovery in Vision-Language-Action Policies",
+      "summary": "提出視覺語言動作策略的獎勵編譯法",
+      "contribution": "設計視覺語言動作策略的獎勵編譯框架，提高故障恢復的能力",
       "directions": [
-        "將此方法應用於大規模時間序列預測任務",
-        "結合注意力機制提高預測的準確性"
+        "應用於機器人學習任務",
+        "結合強化學習進行動態策略調整"
       ]
     },
     {
-      "id": "Scalable Gaussian process inference via neural feature maps",
-      "group": "機器學習",
-      "title": "Scalable Gaussian process inference via neural feature maps",
-      "summary": "提出基於神經特徵映射的高效高斯過程推斷方法",
-      "contribution": "設計了一種基於神經特徵映射的框架，實現了高效的高斯過程推斷",
+      "id": "Constrained user-item allocation for e-commerce marketing campaigns",
+      "group": "統計",
+      "title": "Constrained user-item allocation for e-commerce marketing campaigns",
+      "summary": "提出電子商務用戶物品分配法",
+      "contribution": "設計電子商務用戶物品分配算法，提高行銷活動的效果",
       "directions": [
-        "將此方法應用於大規模高斯過程推斷任務",
-        "結合深度學習提高特徵映射的表達能力"
+        "應用於個性化推薦系統",
+        "結合圖神經網路進行用戶物品關係的建模"
+      ]
+    },
+    {
+      "id": "Complete Trajectory Tracking for Polynomial Differential Variational Inequalities: A Moment-SOS Based Structure-Aware Approach",
+      "group": "統計",
+      "title": "Complete Trajectory Tracking for Polynomial Differential Variational Inequalities: A Moment-SOS Based Structure-Aware Approach",
+      "summary": "提出軌跡追蹤法",
+      "contribution": "設計軌跡追蹤算法，適用於多項式微分變分不等式",
+      "directions": [
+        "應用於控制系統",
+        "結合機器學習進行複雜系統的建模"
       ]
     }
   ],
   "links": [
     {
-      "source": "Relations Are Channels: Knowledge Graph Embedding via Kraus Decompositions",
-      "target": "Active Tabular Augmentation via Policy-Guided Diffusion Inpainting",
-      "is_cross_domain": false,
-      "hidden_insight": "這兩篇論文都使用了基於數學結構的方法，前者使用 Kraus 分解，後者使用擴散模型，實現了高效的嵌入和增強。"
+      "source": "Correlation Is Not Enough: Embedding Human Metadata for Individual Causal Discovery",
+      "target": "Muon Learns More Robust and Transferable Features than Adam",
+      "is_cross_domain": true,
+      "hidden_insight": "這兩篇論文都使用了嵌入法，前者嵌入人類元數據，後者嵌入穩健特徵，都是為了提高模型的泛化能力"
     },
     {
-      "source": "Signature Approach for Contextual Bandits with Nonlinear and Path-dependent Rewards",
-      "target": "Follow the Mean: Reference-Guided Flow Matching",
-      "is_cross_domain": false,
-      "hidden_insight": "這兩篇論文都使用了基於簽名和參考引導的方法，實現了高效的上下文多臂帶獎勵問題解決和流匹配。"
+      "source": "Algorithm for Contextual Queueing Bandits with Rate-Optimal Queue Length Regret",
+      "target": "Throughput Analysis for Near-Field Mobile Communications: Beamfocusing or Caustic Beamforming?",
+      "is_cross_domain": true,
+      "hidden_insight": "這兩篇論文都關注於優化隊列系統的性能，前者使用隊列理論，後者使用近場移動通訊的吞吐量分析"
     },
     {
-      "source": "Nearly-Optimal Algorithm for Adversarial Kernelized Bandits",
-      "target": "Robust Probabilistic Shielding for Safe Offline Reinforcement Learning",
-      "is_cross_domain": false,
-      "hidden_insight": "這兩篇論文都使用了基於對抗和強健的方法，實現了高效的對抗核帶獎勵問題解決和離線強化學習。"
-    },
-    {
-      "source": "LeapTS: Rethinking Time Series Forecasting as Adaptive Multi-Horizon Scheduling",
-      "target": "Scalable Gaussian process inference via neural feature maps",
-      "is_cross_domain": false,
-      "hidden_insight": "這兩篇論文都使用了基於自適應和神經特徵映射的方法，實現了高效的時間序列預測和高斯過程推斷。"
+      "source": "End-to-End Context Compression at Scale",
+      "target": "FMplex: Model Virtualization for Serving Extensible Foundation Models",
+      "is_cross_domain": true,
+      "hidden_insight": "這兩篇論文都使用了壓縮法，前者壓縮上下文，後者壓縮模型，都是為了提高系統的效率"
     }
   ]
 }
