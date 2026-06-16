@@ -1,134 +1,123 @@
 {
   "nodes": [
     {
-      "id": "Correlation Is Not Enough: Embedding Human Metadata for Individual Causal Discovery",
-      "group": "機器學習",
-      "title": "Correlation Is Not Enough: Embedding Human Metadata for Individual Causal Discovery",
-      "summary": "提出人類元數據嵌入法",
-      "contribution": "結合人類元數據和個體因果發現，提高因果關係的準確性",
+      "id": "Optimal Bounded Thrust Powered Descent with Analytical Ground-Collision Avoidance",
+      "group": "機器人",
+      "title": "Optimal Bounded Thrust Powered Descent with Analytical Ground-Collision Avoidance",
+      "summary": "提出最佳限功率下降控制",
+      "contribution": "發展出解析地面碰撞避免方法，提高了太空船的安全性",
       "directions": [
-        "應用於醫學領域的個體化治療",
-        "結合圖神經網路進行複雜關係的建模"
+        "應用於月球或火星登陸任務",
+        "結合機器學習優化控制參數"
       ]
     },
     {
-      "id": "Algorithm for Contextual Queueing Bandits with Rate-Optimal Queue Length Regret",
+      "id": "Exact Posterior Score Estimation for Solving Linear Inverse Problems",
       "group": "統計",
-      "title": "Algorithm for Contextual Queueing Bandits with Rate-Optimal Queue Length Regret",
-      "summary": "提出隊列理論優化算法",
-      "contribution": "設計率優隊列長度遺憾的上下文隊列多臂帶子算法，提高隊列系統的效率",
+      "title": "Exact Posterior Score Estimation for Solving Linear Inverse Problems",
+      "summary": "提出線性逆問題的精確後驗分數估計",
+      "contribution": "發展出高效的貝氏推斷方法，提高了線性逆問題的解決精度",
       "directions": [
-        "應用於雲計算的資源分配",
-        "結合強化學習進行動態資源調整"
+        "應用於信號處理和圖像重建",
+        "結合深度學習方法進一步提高精度"
       ]
     },
     {
-      "id": "End-to-End Context Compression at Scale",
-      "group": "通訊",
-      "title": "End-to-End Context Compression at Scale",
-      "summary": "提出端到端上下文壓縮法",
-      "contribution": "設計大規模端到端上下文壓縮算法，提高通訊系統的效率",
+      "id": "Geometric Action Model for Robot Policy Learning",
+      "group": "機器人",
+      "title": "Geometric Action Model for Robot Policy Learning",
+      "summary": "提出幾何動作模型",
+      "contribution": "發展出機器人政策學習的新方法，提高了機器人的自主性",
       "directions": [
-        "應用於物聯網的數據傳輸",
-        "結合深度學習進行智能壓縮"
+        "應用於機器人臂的運動控制",
+        "結合強化學習方法進一步提高性能"
       ]
     },
     {
-      "id": "Muon Learns More Robust and Transferable Features than Adam",
+      "id": "Hierarchical Advantage Weighting for Online RL Fine-Tuning of VLAs from Sparse Episode Outcomes",
       "group": "機器學習",
-      "title": "Muon Learns More Robust and Transferable Features than Adam",
-      "summary": "提出穩健特徵學習法",
-      "contribution": "設計穩健可轉移特徵學習算法，提高模型的泛化能力",
+      "title": "Hierarchical Advantage Weighting for Online RL Fine-Tuning of VLAs from Sparse Episode Outcomes",
+      "summary": "提出分層優勢加權方法",
+      "contribution": "發展出高效的強化學習方法，提高了VLAs的性能",
       "directions": [
-        "應用於圖像分類任務",
-        "結合迴歸分析進行特徵選擇"
+        "應用於連續控制任務",
+        "結合深度學習方法進一步提高精度"
       ]
     },
     {
-      "id": "Throughput Analysis for Near-Field Mobile Communications: Beamfocusing or Caustic Beamforming?",
-      "group": "通訊",
-      "title": "Throughput Analysis for Near-Field Mobile Communications: Beamfocusing or Caustic Beamforming?",
-      "summary": "提出近場移動通訊吞吐量分析法",
-      "contribution": "設計近場移動通訊的吞吐量分析模型，比較束聚焦和災變束成形的性能",
-      "directions": [
-        "應用於無線網路的資源分配",
-        "結合機器學習進行動態束成形"
-      ]
-    },
-    {
-      "id": "FMplex: Model Virtualization for Serving Extensible Foundation Models",
+      "id": "The Importance of Phase in Neural Representations: An Internal Oppenheim-Lim Test of Image Classifiers",
       "group": "機器學習",
-      "title": "FMplex: Model Virtualization for Serving Extensible Foundation Models",
-      "summary": "提出模型虛擬化法",
-      "contribution": "設計模型虛擬化框架，提高基礎模型的擴展性和服務能力",
+      "title": "The Importance of Phase in Neural Representations: An Internal Oppenheim-Lim Test of Image Classifiers",
+      "summary": "提出相位在神經表示中的重要性",
+      "contribution": "發展出相位敏感的圖像分類方法，提高了分類精度",
       "directions": [
-        "應用於自然語言處理任務",
-        "結合遷移學習進行模型微調"
+        "應用於醫學圖像分析",
+        "結合注意力機制進一步提高性能"
       ]
     },
     {
-      "id": "Data-driven discovery of governing differential equations across physical systems",
-      "group": "統計",
-      "title": "Data-driven discovery of governing differential equations across physical systems",
-      "summary": "提出數據驅動的微分方程發現法",
-      "contribution": "設計數據驅動的微分方程發現算法，適用於各種物理系統",
-      "directions": [
-        "應用於氣象預報",
-        "結合機器學習進行複雜系統的建模"
-      ]
-    },
-    {
-      "id": "ReCoVLA: VLM-Guided Reward Compilation for Failure Recovery in Vision-Language-Action Policies",
+      "id": "HAMON: Passive Optical Sequence Mixing for Long-Horizon Forecasting",
       "group": "機器學習",
-      "title": "ReCoVLA: VLM-Guided Reward Compilation for Failure Recovery in Vision-Language-Action Policies",
-      "summary": "提出視覺語言動作策略的獎勵編譯法",
-      "contribution": "設計視覺語言動作策略的獎勵編譯框架，提高故障恢復的能力",
+      "title": "HAMON: Passive Optical Sequence Mixing for Long-Horizon Forecasting",
+      "summary": "提出被動光學序列混合方法",
+      "contribution": "發展出長期預測的新方法，提高了預測精度",
       "directions": [
-        "應用於機器人學習任務",
-        "結合強化學習進行動態策略調整"
+        "應用於天氣預報",
+        "結合圖神經網路方法進一步提高性能"
       ]
     },
     {
-      "id": "Constrained user-item allocation for e-commerce marketing campaigns",
-      "group": "統計",
-      "title": "Constrained user-item allocation for e-commerce marketing campaigns",
-      "summary": "提出電子商務用戶物品分配法",
-      "contribution": "設計電子商務用戶物品分配算法，提高行銷活動的效果",
+      "id": "ExpRL: Exploratory RL for LLM Mid-Training",
+      "group": "機器學習",
+      "title": "ExpRL: Exploratory RL for LLM Mid-Training",
+      "summary": "提出探索強化學習方法",
+      "contribution": "發展出高效的語言模型訓練方法，提高了模型的性能",
       "directions": [
-        "應用於個性化推薦系統",
-        "結合圖神經網路進行用戶物品關係的建模"
+        "應用於自然語言生成",
+        "結合遷移學習方法進一步提高精度"
       ]
     },
     {
-      "id": "Complete Trajectory Tracking for Polynomial Differential Variational Inequalities: A Moment-SOS Based Structure-Aware Approach",
+      "id": "Learning the Geometry of Data: A Mathematical Review of Shape Space Analysis",
       "group": "統計",
-      "title": "Complete Trajectory Tracking for Polynomial Differential Variational Inequalities: A Moment-SOS Based Structure-Aware Approach",
-      "summary": "提出軌跡追蹤法",
-      "contribution": "設計軌跡追蹤算法，適用於多項式微分變分不等式",
+      "title": "Learning the Geometry of Data: A Mathematical Review of Shape Space Analysis",
+      "summary": "提出數據幾何學習方法",
+      "contribution": "發展出高效的數據分析方法，提高了數據的可解釋性",
       "directions": [
-        "應用於控制系統",
-        "結合機器學習進行複雜系統的建模"
+        "應用於醫學影像分析",
+        "結合深度學習方法進一步提高精度"
+      ]
+    },
+    {
+      "id": "ROVE: Unlocking Human Interventions for Humanoid Manipulation via Reinforcement Learning",
+      "group": "機器人",
+      "title": "ROVE: Unlocking Human Interventions for Humanoid Manipulation via Reinforcement Learning",
+      "summary": "提出人類干預的機器人操作方法",
+      "contribution": "發展出高效的機器人操作方法，提高了機器人的自主性",
+      "directions": [
+        "應用於服務機器人",
+        "結合強化學習方法進一步提高性能"
       ]
     }
   ],
   "links": [
     {
-      "source": "Correlation Is Not Enough: Embedding Human Metadata for Individual Causal Discovery",
-      "target": "Muon Learns More Robust and Transferable Features than Adam",
-      "is_cross_domain": true,
-      "hidden_insight": "這兩篇論文都使用了嵌入法，前者嵌入人類元數據，後者嵌入穩健特徵，都是為了提高模型的泛化能力"
+      "source": "Optimal Bounded Thrust Powered Descent with Analytical Ground-Collision Avoidance",
+      "target": "Geometric Action Model for Robot Policy Learning",
+      "is_cross_domain": false,
+      "hidden_insight": "這兩篇論文都關注於機器人的控制和自主性，前者關注於下降控制，後者關注於政策學習，兩者都使用了優化方法和數學模型。"
     },
     {
-      "source": "Algorithm for Contextual Queueing Bandits with Rate-Optimal Queue Length Regret",
-      "target": "Throughput Analysis for Near-Field Mobile Communications: Beamfocusing or Caustic Beamforming?",
-      "is_cross_domain": true,
-      "hidden_insight": "這兩篇論文都關注於優化隊列系統的性能，前者使用隊列理論，後者使用近場移動通訊的吞吐量分析"
+      "source": "Exact Posterior Score Estimation for Solving Linear Inverse Problems",
+      "target": "Learning the Geometry of Data: A Mathematical Review of Shape Space Analysis",
+      "is_cross_domain": false,
+      "hidden_insight": "這兩篇論文都關注於數據分析和機器學習，前者關注於線性逆問題，後者關注於數據幾何學習，兩者都使用了數學模型和優化方法。"
     },
     {
-      "source": "End-to-End Context Compression at Scale",
-      "target": "FMplex: Model Virtualization for Serving Extensible Foundation Models",
+      "source": "Hierarchical Advantage Weighting for Online RL Fine-Tuning of VLAs from Sparse Episode Outcomes",
+      "target": "ExpRL: Exploratory RL for LLM Mid-Training",
       "is_cross_domain": true,
-      "hidden_insight": "這兩篇論文都使用了壓縮法，前者壓縮上下文，後者壓縮模型，都是為了提高系統的效率"
+      "hidden_insight": "這兩篇論文都關注於強化學習和機器學習，前者關注於分層優勢加權，後者關注於探索強化學習，兩者都使用了優化方法和數學模型，雖然應用領域不同，但底層的數學結構相似。"
     }
   ]
 }
