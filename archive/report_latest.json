@@ -1,123 +1,79 @@
 {
   "nodes": [
     {
-      "id": "Optimal Bounded Thrust Powered Descent with Analytical Ground-Collision Avoidance",
-      "group": "機器人",
-      "title": "Optimal Bounded Thrust Powered Descent with Analytical Ground-Collision Avoidance",
-      "summary": "提出最佳限功率下降控制",
-      "contribution": "發展出解析地面碰撞避免方法，提高了太空船的安全性",
-      "directions": [
-        "應用於月球或火星登陸任務",
-        "結合機器學習優化控制參數"
-      ]
-    },
-    {
-      "id": "Exact Posterior Score Estimation for Solving Linear Inverse Problems",
-      "group": "統計",
-      "title": "Exact Posterior Score Estimation for Solving Linear Inverse Problems",
-      "summary": "提出線性逆問題的精確後驗分數估計",
-      "contribution": "發展出高效的貝氏推斷方法，提高了線性逆問題的解決精度",
-      "directions": [
-        "應用於信號處理和圖像重建",
-        "結合深度學習方法進一步提高精度"
-      ]
-    },
-    {
-      "id": "Geometric Action Model for Robot Policy Learning",
-      "group": "機器人",
-      "title": "Geometric Action Model for Robot Policy Learning",
-      "summary": "提出幾何動作模型",
-      "contribution": "發展出機器人政策學習的新方法，提高了機器人的自主性",
-      "directions": [
-        "應用於機器人臂的運動控制",
-        "結合強化學習方法進一步提高性能"
-      ]
-    },
-    {
-      "id": "Hierarchical Advantage Weighting for Online RL Fine-Tuning of VLAs from Sparse Episode Outcomes",
+      "id": "Constrained Co-Design for Photonic Bayesian Neural Networks",
       "group": "機器學習",
-      "title": "Hierarchical Advantage Weighting for Online RL Fine-Tuning of VLAs from Sparse Episode Outcomes",
-      "summary": "提出分層優勢加權方法",
-      "contribution": "發展出高效的強化學習方法，提高了VLAs的性能",
+      "title": "Constrained Co-Design for Photonic Bayesian Neural Networks",
+      "summary": "光子貝氏神經網路",
+      "contribution": "提出光子貝氏神經網路的約束協同設計方法，實現高效能光子神經網路",
       "directions": [
-        "應用於連續控制任務",
-        "結合深度學習方法進一步提高精度"
+        "應用於光子神經網路的硬體實現",
+        "結合其他光子技術實現更高效能的神經網路"
       ]
     },
     {
-      "id": "The Importance of Phase in Neural Representations: An Internal Oppenheim-Lim Test of Image Classifiers",
+      "id": "On the Impact of Gas-Line Absorption in Long-Haul C+L-Band Hollow-Core Fibre Transmission",
+      "group": "通訊",
+      "title": "On the Impact of Gas-Line Absorption in Long-Haul C+L-Band Hollow-Core Fibre Transmission",
+      "summary": "氣體吸收對長距離傳輸的影響",
+      "contribution": "研究氣體吸收對長距離傳輸的影響，提出減少氣體吸收的方法",
+      "directions": [
+        "應用於長距離光纖傳輸系統",
+        "結合其他技術實現更高效能的傳輸系統"
+      ]
+    },
+    {
+      "id": "CARNet: Channel-Adaptive Receiver Network for Robust NextG Communications",
+      "group": "通訊",
+      "title": "CARNet: Channel-Adaptive Receiver Network for Robust NextG Communications",
+      "summary": "適應性接收器網路",
+      "contribution": "提出適應性接收器網路，實現更強健的下一代通信",
+      "directions": [
+        "應用於下一代通信系統",
+        "結合其他技術實現更高效能的通信系統"
+      ]
+    },
+    {
+      "id": "Performance Analysis and Joint Beamforming for Hybrid RIS-Aided Massive MIMO ISAC",
+      "group": "通訊",
+      "title": "Performance Analysis and Joint Beamforming for Hybrid RIS-Aided Massive MIMO ISAC",
+      "summary": "混合RIS輔助大規模MIMO ISAC",
+      "contribution": "提出混合RIS輔助大規模MIMO ISAC的性能分析和聯合波束形成方法",
+      "directions": [
+        "應用於混合RIS輔助大規模MIMO ISAC系統",
+        "結合其他技術實現更高效能的通信系統"
+      ]
+    },
+    {
+      "id": "RamanPFN: learning from Raman spectral structure with a tabular foundation model",
       "group": "機器學習",
-      "title": "The Importance of Phase in Neural Representations: An Internal Oppenheim-Lim Test of Image Classifiers",
-      "summary": "提出相位在神經表示中的重要性",
-      "contribution": "發展出相位敏感的圖像分類方法，提高了分類精度",
+      "title": "RamanPFN: learning from Raman spectral structure with a tabular foundation model",
+      "summary": "拉曼光譜結構學習",
+      "contribution": "提出拉曼光譜結構學習方法，實現高效能的光譜分析",
       "directions": [
-        "應用於醫學圖像分析",
-        "結合注意力機制進一步提高性能"
-      ]
-    },
-    {
-      "id": "HAMON: Passive Optical Sequence Mixing for Long-Horizon Forecasting",
-      "group": "機器學習",
-      "title": "HAMON: Passive Optical Sequence Mixing for Long-Horizon Forecasting",
-      "summary": "提出被動光學序列混合方法",
-      "contribution": "發展出長期預測的新方法，提高了預測精度",
-      "directions": [
-        "應用於天氣預報",
-        "結合圖神經網路方法進一步提高性能"
-      ]
-    },
-    {
-      "id": "ExpRL: Exploratory RL for LLM Mid-Training",
-      "group": "機器學習",
-      "title": "ExpRL: Exploratory RL for LLM Mid-Training",
-      "summary": "提出探索強化學習方法",
-      "contribution": "發展出高效的語言模型訓練方法，提高了模型的性能",
-      "directions": [
-        "應用於自然語言生成",
-        "結合遷移學習方法進一步提高精度"
-      ]
-    },
-    {
-      "id": "Learning the Geometry of Data: A Mathematical Review of Shape Space Analysis",
-      "group": "統計",
-      "title": "Learning the Geometry of Data: A Mathematical Review of Shape Space Analysis",
-      "summary": "提出數據幾何學習方法",
-      "contribution": "發展出高效的數據分析方法，提高了數據的可解釋性",
-      "directions": [
-        "應用於醫學影像分析",
-        "結合深度學習方法進一步提高精度"
-      ]
-    },
-    {
-      "id": "ROVE: Unlocking Human Interventions for Humanoid Manipulation via Reinforcement Learning",
-      "group": "機器人",
-      "title": "ROVE: Unlocking Human Interventions for Humanoid Manipulation via Reinforcement Learning",
-      "summary": "提出人類干預的機器人操作方法",
-      "contribution": "發展出高效的機器人操作方法，提高了機器人的自主性",
-      "directions": [
-        "應用於服務機器人",
-        "結合強化學習方法進一步提高性能"
+        "應用於光譜分析",
+        "結合其他技術實現更高效能的光譜分析"
       ]
     }
   ],
   "links": [
     {
-      "source": "Optimal Bounded Thrust Powered Descent with Analytical Ground-Collision Avoidance",
-      "target": "Geometric Action Model for Robot Policy Learning",
-      "is_cross_domain": false,
-      "hidden_insight": "這兩篇論文都關注於機器人的控制和自主性，前者關注於下降控制，後者關注於政策學習，兩者都使用了優化方法和數學模型。"
-    },
-    {
-      "source": "Exact Posterior Score Estimation for Solving Linear Inverse Problems",
-      "target": "Learning the Geometry of Data: A Mathematical Review of Shape Space Analysis",
-      "is_cross_domain": false,
-      "hidden_insight": "這兩篇論文都關注於數據分析和機器學習，前者關注於線性逆問題，後者關注於數據幾何學習，兩者都使用了數學模型和優化方法。"
-    },
-    {
-      "source": "Hierarchical Advantage Weighting for Online RL Fine-Tuning of VLAs from Sparse Episode Outcomes",
-      "target": "ExpRL: Exploratory RL for LLM Mid-Training",
+      "source": "Constrained Co-Design for Photonic Bayesian Neural Networks",
+      "target": "RamanPFN: learning from Raman spectral structure with a tabular foundation model",
       "is_cross_domain": true,
-      "hidden_insight": "這兩篇論文都關注於強化學習和機器學習，前者關注於分層優勢加權，後者關注於探索強化學習，兩者都使用了優化方法和數學模型，雖然應用領域不同，但底層的數學結構相似。"
+      "hidden_insight": "這兩篇論文都使用了光子技術，前者是光子貝氏神經網路，後者是拉曼光譜結構學習，兩者都涉及光子信號的處理和分析。"
+    },
+    {
+      "source": "On the Impact of Gas-Line Absorption in Long-Haul C+L-Band Hollow-Core Fibre Transmission",
+      "target": "CARNet: Channel-Adaptive Receiver Network for Robust NextG Communications",
+      "is_cross_domain": true,
+      "hidden_insight": "這兩篇論文都涉及光纖傳輸，前者研究氣體吸收對長距離傳輸的影響，後者提出適應性接收器網路，兩者都關注於光纖傳輸的可靠性和效能。"
+    },
+    {
+      "source": "Performance Analysis and Joint Beamforming for Hybrid RIS-Aided Massive MIMO ISAC",
+      "target": "CARNet: Channel-Adaptive Receiver Network for Robust NextG Communications",
+      "is_cross_domain": false,
+      "hidden_insight": "這兩篇論文都關注於下一代通信系統，前者提出混合RIS輔助大規模MIMO ISAC的性能分析和聯合波束形成方法，後者提出適應性接收器網路，兩者都旨在提高通信系統的效能和可靠性。"
     }
   ]
 }
