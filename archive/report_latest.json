@@ -1,79 +1,118 @@
 {
   "nodes": [
     {
-      "id": "Constrained Co-Design for Photonic Bayesian Neural Networks",
+      "id": "LazyHMC: Hamiltonian Monte Carlo Simulation for Lazy, Infinite Dimensional Probabilistic Programs",
       "group": "機器學習",
-      "title": "Constrained Co-Design for Photonic Bayesian Neural Networks",
-      "summary": "光子貝氏神經網路",
-      "contribution": "提出光子貝氏神經網路的約束協同設計方法，實現高效能光子神經網路",
+      "title": "LazyHMC: Hamiltonian Monte Carlo Simulation for Lazy, Infinite Dimensional Probabilistic Programs",
+      "summary": "提出懶惰漢米爾頓蒙特卡羅模擬",
+      "contribution": "首次將漢米爾頓蒙特卡羅模擬應用於懶惰、無限維度概率程序",
       "directions": [
-        "應用於光子神經網路的硬體實現",
-        "結合其他光子技術實現更高效能的神經網路"
+        "應用於大規模機器學習模型的參數推斷",
+        "結合變分推斷實現高效率的概率推斷"
       ]
     },
     {
-      "id": "On the Impact of Gas-Line Absorption in Long-Haul C+L-Band Hollow-Core Fibre Transmission",
-      "group": "通訊",
-      "title": "On the Impact of Gas-Line Absorption in Long-Haul C+L-Band Hollow-Core Fibre Transmission",
-      "summary": "氣體吸收對長距離傳輸的影響",
-      "contribution": "研究氣體吸收對長距離傳輸的影響，提出減少氣體吸收的方法",
-      "directions": [
-        "應用於長距離光纖傳輸系統",
-        "結合其他技術實現更高效能的傳輸系統"
-      ]
-    },
-    {
-      "id": "CARNet: Channel-Adaptive Receiver Network for Robust NextG Communications",
-      "group": "通訊",
-      "title": "CARNet: Channel-Adaptive Receiver Network for Robust NextG Communications",
-      "summary": "適應性接收器網路",
-      "contribution": "提出適應性接收器網路，實現更強健的下一代通信",
-      "directions": [
-        "應用於下一代通信系統",
-        "結合其他技術實現更高效能的通信系統"
-      ]
-    },
-    {
-      "id": "Performance Analysis and Joint Beamforming for Hybrid RIS-Aided Massive MIMO ISAC",
-      "group": "通訊",
-      "title": "Performance Analysis and Joint Beamforming for Hybrid RIS-Aided Massive MIMO ISAC",
-      "summary": "混合RIS輔助大規模MIMO ISAC",
-      "contribution": "提出混合RIS輔助大規模MIMO ISAC的性能分析和聯合波束形成方法",
-      "directions": [
-        "應用於混合RIS輔助大規模MIMO ISAC系統",
-        "結合其他技術實現更高效能的通信系統"
-      ]
-    },
-    {
-      "id": "RamanPFN: learning from Raman spectral structure with a tabular foundation model",
+      "id": "Differentiate the Solver, Not the Equation: Reverse-Sweep Adjoints for Block Implicit Simulation",
       "group": "機器學習",
-      "title": "RamanPFN: learning from Raman spectral structure with a tabular foundation model",
-      "summary": "拉曼光譜結構學習",
-      "contribution": "提出拉曼光譜結構學習方法，實現高效能的光譜分析",
+      "title": "Differentiate the Solver, Not the Equation: Reverse-Sweep Adjoints for Block Implicit Simulation",
+      "summary": "提出逆向掃描伴隨法",
+      "contribution": "設計了一種高效的伴隨法，適用於區塊隱式模擬",
       "directions": [
-        "應用於光譜分析",
-        "結合其他技術實現更高效能的光譜分析"
+        "應用於物理引擎的梯度計算",
+        "結合自動微分技術實現高效率的優化"
+      ]
+    },
+    {
+      "id": "Transfer Learning-Enabled Distortion Compensation for Amplitude-Phase-Time Block Modulation-Based Nonlinear Single-Carrier Wireless Communications",
+      "group": "通訊",
+      "title": "Transfer Learning-Enabled Distortion Compensation for Amplitude-Phase-Time Block Modulation-Based Nonlinear Single-Carrier Wireless Communications",
+      "summary": "提出基於轉移學習的非線性單載波無線通信失真補償",
+      "contribution": "設計了一種基於轉移學習的失真補償方法，適用於非線性單載波無線通信",
+      "directions": [
+        "應用於5G及以上無線通信系統的失真補償",
+        "結合深度學習技術實現自適應失真補償"
+      ]
+    },
+    {
+      "id": "MotionCraft: Latent World Modeling with Sparse Attention for Visual Upscaling",
+      "group": "機器學習",
+      "title": "MotionCraft: Latent World Modeling with Sparse Attention for Visual Upscaling",
+      "summary": "提出基於稀疏注意力的視覺上采樣",
+      "contribution": "設計了一種基於稀疏注意力的視覺上采樣方法，適用於視頻處理",
+      "directions": [
+        "應用於實時視頻處理的視覺上采樣",
+        "結合生成對抗網路技術實現高質量視覺上采樣"
+      ]
+    },
+    {
+      "id": "Curriculum Generation under Structured Parametric Environments for Robust Navigation Policies",
+      "group": "機器學習",
+      "title": "Curriculum Generation under Structured Parametric Environments for Robust Navigation Policies",
+      "summary": "提出基於結構化參數環境的強健導航策略",
+      "contribution": "設計了一種基於結構化參數環境的強健導航策略生成方法",
+      "directions": [
+        "應用於自主導航的強健導航策略",
+        "結合增強學習技術實現自適應導航策略"
+      ]
+    },
+    {
+      "id": "When Skills Meet Safety: Benchmarking and Characterizing the Adaptive Jailbreak Robustness of Skill-Merged LLMs",
+      "group": "資安",
+      "title": "When Skills Meet Safety: Benchmarking and Characterizing the Adaptive Jailbreak Robustness of Skill-Merged LLMs",
+      "summary": "提出基於技能合併的自適應 jailbreak 強健性評估",
+      "contribution": "設計了一種基於技能合併的自適應 jailbreak 強健性評估方法",
+      "directions": [
+        "應用於語言模型的安全性評估",
+        "結合對抗訓練技術實現語言模型的安全性增強"
+      ]
+    },
+    {
+      "id": "A Unified Maximum-Margin Framework for Data Envelopment Analysis: Theoretical Foundations and Numerical Evidence",
+      "group": "統計",
+      "title": "A Unified Maximum-Margin Framework for Data Envelopment Analysis: Theoretical Foundations and Numerical Evidence",
+      "summary": "提出統一的最大間隔框架",
+      "contribution": "設計了一種統一的最大間隔框架，適用於數據包絡分析",
+      "directions": [
+        "應用於效率評估的最大間隔框架",
+        "結合機器學習技術實現高效率的數據包絡分析"
+      ]
+    },
+    {
+      "id": "Task-to-Model Optimization for Enterprise LLM Coding Assistants: A Data-Driven Framework for Cost-Optimal Routing",
+      "group": "機器學習",
+      "title": "Task-to-Model Optimization for Enterprise LLM Coding Assistants: A Data-Driven Framework for Cost-Optimal Routing",
+      "summary": "提出基於任務到模型的優化框架",
+      "contribution": "設計了一種基於任務到模型的優化框架，適用於企業級語言模型編碼助手",
+      "directions": [
+        "應用於企業級語言模型編碼助手的任務到模型優化",
+        "結合深度學習技術實現高效率的編碼助手"
       ]
     }
   ],
   "links": [
     {
-      "source": "Constrained Co-Design for Photonic Bayesian Neural Networks",
-      "target": "RamanPFN: learning from Raman spectral structure with a tabular foundation model",
-      "is_cross_domain": true,
-      "hidden_insight": "這兩篇論文都使用了光子技術，前者是光子貝氏神經網路，後者是拉曼光譜結構學習，兩者都涉及光子信號的處理和分析。"
-    },
-    {
-      "source": "On the Impact of Gas-Line Absorption in Long-Haul C+L-Band Hollow-Core Fibre Transmission",
-      "target": "CARNet: Channel-Adaptive Receiver Network for Robust NextG Communications",
-      "is_cross_domain": true,
-      "hidden_insight": "這兩篇論文都涉及光纖傳輸，前者研究氣體吸收對長距離傳輸的影響，後者提出適應性接收器網路，兩者都關注於光纖傳輸的可靠性和效能。"
-    },
-    {
-      "source": "Performance Analysis and Joint Beamforming for Hybrid RIS-Aided Massive MIMO ISAC",
-      "target": "CARNet: Channel-Adaptive Receiver Network for Robust NextG Communications",
+      "source": "LazyHMC: Hamiltonian Monte Carlo Simulation for Lazy, Infinite Dimensional Probabilistic Programs",
+      "target": "Differentiate the Solver, Not the Equation: Reverse-Sweep Adjoints for Block Implicit Simulation",
       "is_cross_domain": false,
-      "hidden_insight": "這兩篇論文都關注於下一代通信系統，前者提出混合RIS輔助大規模MIMO ISAC的性能分析和聯合波束形成方法，後者提出適應性接收器網路，兩者都旨在提高通信系統的效能和可靠性。"
+      "hidden_insight": "這兩篇論文都使用了高級數學工具，分別是漢米爾頓蒙特卡羅模擬和伴隨法，來解決機器學習中的問題。"
+    },
+    {
+      "source": "Transfer Learning-Enabled Distortion Compensation for Amplitude-Phase-Time Block Modulation-Based Nonlinear Single-Carrier Wireless Communications",
+      "target": "MotionCraft: Latent World Modeling with Sparse Attention for Visual Upscaling",
+      "is_cross_domain": true,
+      "hidden_insight": "這兩篇論文都使用了轉移學習的概念，分別是基於轉移學習的失真補償和基於稀疏注意力的視覺上采樣，來解決無線通信和視頻處理中的問題。"
+    },
+    {
+      "source": "Curriculum Generation under Structured Parametric Environments for Robust Navigation Policies",
+      "target": "When Skills Meet Safety: Benchmarking and Characterizing the Adaptive Jailbreak Robustness of Skill-Merged LLMs",
+      "is_cross_domain": true,
+      "hidden_insight": "這兩篇論文都使用了強健性評估的概念，分別是基於結構化參數環境的強健導航策略和基於技能合併的自適應 jailbreak 強健性評估，來解決導航和語言模型的安全性問題。"
+    },
+    {
+      "source": "A Unified Maximum-Margin Framework for Data Envelopment Analysis: Theoretical Foundations and Numerical Evidence",
+      "target": "Task-to-Model Optimization for Enterprise LLM Coding Assistants: A Data-Driven Framework for Cost-Optimal Routing",
+      "is_cross_domain": true,
+      "hidden_insight": "這兩篇論文都使用了優化框架的概念，分別是統一的最大間隔框架和基於任務到模型的優化框架，來解決數據包絡分析和企業級語言模型編碼助手的問題。"
     }
   ]
 }
